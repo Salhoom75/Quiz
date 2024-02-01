@@ -1,8 +1,28 @@
-<div class="inputs-auth px-md-5 pb-5">
-  <div class="form-group">
-    <label for="exampleInputEmail1" class="text-secondryColor">Email address</label>
-    <input  type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email"
-      aria-describedby="emailHelp" placeholder="Please type here">
+<section id="forget-pass">
+  <div class="text-primaryColor d-flex justify-content-between">
+    <h5 class="fw-bold p-3">Request Reset Password</h5>
+    <a class="" (click)="onNoClick()">
+      <i class="fa-solid fa-xmark p-3"></i>
+    </a>
   </div>
-  <button (click)="onSubmit(email)" type="submit" class="primary w-100 mt-5">Send mail </button>
-</div>
+
+  <div class="input-group flex-nowrap px-5 py-3">
+    <span class="input-group-text py-2" id="addon-wrapping"
+      ><i class="fa-solid fa-mobile-screen"></i
+    ></span>
+    <input
+      type="email"
+      class="form-control py-2"
+      [(ngModel)]="email"
+      placeholder="Enter Your Email"
+      aria-label="email"
+      aria-describedby="addon-wrapping"
+    />
+  </div>
+  <div class="px-5 py-3">
+    <button [mat-dialog-close]="email" class="button w-100">
+      <span class="text">Send</span
+      ><span><i class="fa-solid fa-2x fa-circle-check"></i></span>
+    </button>
+  </div>
+</section>

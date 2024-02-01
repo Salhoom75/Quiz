@@ -2,3 +2,20 @@ img{
     width: 100%;
     display: block;
 }
+a{
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+//ovveride bootstrap
+.form-select:focus,
+.form-control:focus{
+  border-color: #009247;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(0 146 71 / 21%);
+}
+
+.pointer{
+    cursor: pointer;
+}

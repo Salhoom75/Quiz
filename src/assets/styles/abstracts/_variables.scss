@@ -1,3 +1,10 @@
 $bg-color:#0D1321;
 $primary-color:#FFEDDF;
 $sec-color:#C5D86D;
+
+.text-secColor{
+  color: $sec-color;
+}
+.text-primaryColor{
+  color: $bg-color;
+}
