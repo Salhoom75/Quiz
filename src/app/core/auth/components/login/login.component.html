@@ -2,12 +2,12 @@
     <div class="container-fluid h-100 p-4">
       <div class="row h-100">
         <div class="col-md-6">
-          
+
             <div class="col-md-3">
               <div>
                 <img src="../../../../../assets/styles/images/Logo-white.svg" alt="" />
               </div>
-           
+
           </div>
          <div class="row mt-5">
           <div class="content ">
@@ -26,7 +26,7 @@
                     </a>
                 </div>
               </div>
-              
+
               <form [formGroup]="loginForm" (submit)="onLogin(loginForm)">
                 <div class="row gy-4 mt-3">
                   <div class="col-md-12">
@@ -47,11 +47,11 @@
                       <button class="">Sign in</button>
                   </div>
                   <div class="col-md-6 text-end">
-                      <a class="" routerLink="/auth/forgetPassword">Forget Password</a>
+                      <a class="" (click)="openDialog()">Forget Password</a>
                   </div>
                 </div>
-                   
-              
+
+
               </form>
             </div>
          </div>
@@ -60,7 +60,7 @@
             <div class="image">
                 <img src="../../../../../assets/styles/images/BGImage.svg" alt="">
             </div>
-         
+
         </div>
       </div>
     </div>
