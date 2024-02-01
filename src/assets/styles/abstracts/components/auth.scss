@@ -1,0 +1,21 @@
+
+@import 'src/assets/styles/abstracts/_variables.scss';
+
+#reset-pass{
+background-color: $bg-color;
+.paragh{
+    h4{
+       color: $sec-color  
+    }
+       
+}
+span i{
+    background-color:$sec-color;
+}
+.eye-icon{
+    position: absolute;
+    top:30%;
+    right: 5%;
+    z-index: 100;
+  }
+}
