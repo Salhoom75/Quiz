@@ -32,19 +32,28 @@
                       <label for="">Registered email address</label>
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-envelope" style="color: #FFf;"></i></span>
-                        <input type="email" class="form-control"formArrayName='email'  placeholder="email" aria-describedby="basic-addon3">
+                        <input type="text" class="form-control"formControlName="email"  placeholder="email" aria-describedby="basic-addon3">
+                      
+                    </div>
+                    <div class="alert alert-danger py-1" *ngIf="loginForm.get('email')?.touched&&loginForm.get('email')?.status=='INVALID'">
+                        <p class="mb-0" *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
+                        <p class="mb-0" *ngIf="loginForm.get('email')?.getError('email')">Please Enter a valid email ex:abc@abc</p>
                       </div>
                   </div>
                   <div class="col-md-12 position-relative">
                       <label for="">Password</label>
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-key" style="color: #FFf;"></i></span>
-                        <input type="password" formArrayName="password" class="form-control" id="basic-url" placeholder="password" aria-describedby="basic-addon3">
+                        <input type="password" formControlName="password" class="form-control" id="basic-url" placeholder="password" aria-describedby="basic-addon3">
+                      </div>
+                      <div class="alert alert-danger py-1" *ngIf="loginForm.get('password')?.touched&&loginForm.get('password')?.status=='INVALID'">
+                        <p class="mb-0" *ngIf="loginForm.get('password')?.getError('required')">Password is required</p>
+                        <p class="mb-0" *ngIf="loginForm.get('password')?.getError('pattern')">Min 8,Max 16 ,special Char and number</p>
                       </div>
                     </div>
                 
                   <div class="col-md-12 d-flex justify-content-between align-items-center">
-                      <button type="submit">Sign in</button>
+                      <button [disabled]="loginForm.invalid">Sign in</button>
                       <a routerLink="/auth/forget-pass">Forget Password?</a>
                   </div>
                   
