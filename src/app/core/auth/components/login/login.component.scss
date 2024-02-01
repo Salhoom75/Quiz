@@ -1,0 +1,67 @@
+@import "../../../../../assets/styles/abstracts/variables";
+section{
+    height: 100vh !important;
+    background-color: $bg-color;
+    .row{
+       padding: 1rem ;
+        .content{
+            
+            h2{
+                font-weight: 700;
+                color: $sec-color;
+                font-size: 1.7rem;
+            }
+           .two-sign{
+            display: flex;
+            .sign{
+                background-color: #333;
+                padding: 1rem;
+                border-radius: 10px;
+                margin: 5px;
+                border: 3px solid $primary-color;
+                a{
+                    i{
+                       
+                            font-size: 20px;
+                            color: $primary-color !important;
+    
+                      
+                    }
+                }
+            }
+           }
+            form{
+                label{
+                    color: white;
+                }
+                input{
+                    background-color: transparent;
+                    border: 2px solid $primary-color;
+                    padding: 10px;
+                    &::placeholder{
+                        color: white;
+                    }
+                }
+                a{
+                    color: white;
+                }
+            }
+        }
+    }
+  .col-md-6{
+    
+    .image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary-color;
+       border-radius: 10px;
+       height: 100%;
+       img{
+        width: 80% !important;
+       }
+       }
+     
+  }
+    
+}
