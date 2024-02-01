@@ -37,3 +37,4 @@ $Quiz-theme: mat.define-light-theme((
 @import "./assets/styles/main.scss";
 html, body { height: 100%; };
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import 'ngx-toastr/toastr';

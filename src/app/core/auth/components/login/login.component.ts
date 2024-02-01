@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ForgetPassComponent } from '../forget-pass/forget-pass.component';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,6 @@ export class LoginComponent {
     private _Router :Router,
     public dialog: MatDialog,
     private _ToastrService: ToastrService,
-
     ){}
   loginForm = new FormGroup({
     email: new FormControl(null,[Validators.required , Validators.email]),
@@ -25,26 +25,23 @@ export class LoginComponent {
   })
   onLogin(data:FormGroup){
     console.log(data.value)
-    // this._AuthService.login(data.value).subscribe((res)=>{
-    //   console.log(res);
-
-    //   localStorage.setItem('userToken', res.data.token);
-
-    //   localStorage.setItem('role', res.data.user.role);
-    //   localStorage.setItem('userName', res.data.user.userName);
-    //   localStorage.setItem('Id', res.data.user._id);
-    //   // console.log(res.data.user.role);
-    //   this._ToastrService.success(res.data.user.userName , 'Welcome')
-    //   if(res.data.user.role == "admin"){
-
-    //     this._Router.navigate(['/admin'])
-    //   }else{
-    //     this._Router.navigate(['/landingPage'])
-    //   }
-
-    // },(error)=>{
-    //   this._ToastrService.error(error.error.message , 'error')
-    // })
+ this._AuthService.onLogin(data.value).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+        localStorage.setItem('userToken', res.data.token);
+  
+        localStorage.setItem('role', res.data.user.role);
+        localStorage.setItem('userName', res.data.user.userName);
+        localStorage.setItem('Id', res.data.user._id);
+         this._ToastrService.success(res.data.user.userName , 'Welcome')
+          this._Router.navigate(['/dashboard'])
+       
+  
+      },error:(err)=>{
+         this._ToastrService.error(err.error.message , 'error')
+      }
+    })
   }
 
   openDialog(): void {
@@ -74,4 +71,9 @@ export class LoginComponent {
       },
     });
   }
+   
+  }
+      
+  
+
 }
