@@ -63,7 +63,10 @@ export class LoginComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
-      this.onForgetPassword(result);
+      if(result){
+
+        this.onForgetPassword(result);
+      }
     });
   }
   onForgetPassword(email: string) {
