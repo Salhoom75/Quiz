@@ -33,7 +33,13 @@ export class LoginComponent {
         localStorage.setItem('userName', res.data.user.userName);
         localStorage.setItem('Id', res.data.user._id);
          this._ToastrService.success(res.data.user.userName , 'Welcome')
-          this._Router.navigate(['/dashboard'])
+          // this._Router.navigate(['/dashboard/student'])
+          if(localStorage.getItem('role')=='user'){
+            this._Router.navigate(['/dashboard/student/home'])
+           }
+           else{
+            this._Router.navigate(['/dashboard/instructor/home']);
+           }
        
   
       },error:(err)=>{
