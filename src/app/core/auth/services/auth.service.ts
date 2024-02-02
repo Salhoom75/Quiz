@@ -2,13 +2,32 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILogin } from '../models/i-auth';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(private _httpClient:HttpClient) { }
+role:string |null=''
+  constructor(private _httpClient:HttpClient) {
+    if (localStorage.getItem('userToken')!== null) {
+      this.getUserToken()
+    }
+   }
+   getUserToken(){
+    let encoded:any=localStorage.getItem('userToken');
+    let decoded=jwtDecode(encoded)
+    console.log(decoded);
+    
+    localStorage.setItem('role',encoded.role);
+    localStorage.setItem('userName',encoded.userName);
+    this.getRole()
+   }
+getRole(){
+  if (localStorage.getItem('userToken')!== null&&localStorage.getItem('role')) {
+    this.role=localStorage.getItem('role')
+  }
+}
 
   onForgetPassword(data:string):Observable<any>
   {
