@@ -7,6 +7,7 @@ import { GlobalInterceptor } from './core/interceptors/global.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       timeOut: 4000,
       progressBar: true,
     }),
+    BrowserAnimationsModule,
   ],
   providers: [
     {
