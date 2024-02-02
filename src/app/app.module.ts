@@ -9,9 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,15 +20,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       timeOut: 4000,
       progressBar: true,
     }),
-    BrowserAnimationsModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalInterceptor,
-      multi: true
+      multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

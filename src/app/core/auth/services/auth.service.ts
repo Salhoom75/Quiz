@@ -1,20 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILogin } from '../models/i-auth';
+import { ILogin, IReset } from '../models/i-auth';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-role:string |null=''
+  role:string |null=''
+
   constructor(private _httpClient:HttpClient) {
     if (localStorage.getItem('userToken')!== null) {
       this.getUserToken()
     }
    }
-   getUserToken(){
+  getUserToken(){
     let encoded:any=localStorage.getItem('userToken');
     let decoded=jwtDecode(encoded)
     console.log(decoded);
@@ -28,13 +29,18 @@ getRole(){
     this.role=localStorage.getItem('role')
   }
 }
-
-  onForgetPassword(data:string):Observable<any>
-  {
-   return this._httpClient.post('portal/users/forgot-password ', {email:data});
+    onLogin(data: ILogin): Observable<any> {
+    return this._httpClient.post('portal/users/login', data);
+  }
+  onForgetPassword(data: string): Observable<any> {
+    return this._httpClient.post('portal/users/forgot-password ', {
+      email: data,
+    });
+    
   }
 
-  onLogin(data:ILogin):Observable<any>{
-    return this._httpClient.post('portal/users/login',data)
+  onResetPassword(data: IReset): Observable<any> {
+    return this._httpClient.post('portal/users/reset-password', data);
+
   }
 }
