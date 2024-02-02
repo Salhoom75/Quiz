@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-forget-pass',
@@ -9,26 +10,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./forget-pass.component.scss'],
 })
 export class ForgetPassComponent {
-  constructor(
-    private _authService: AuthService,
-    private _ToastrService: ToastrService,
-    private _router: Router
-  ) {}
   email: string = '';
+  constructor(
+    public dialogRef: MatDialogRef<ForgetPassComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {}
 
-  onSubmit(email: string) {
-    this._authService.onForgetPassword(email).subscribe({
-      next: (res) => {
-        console.log(res)
-      },
-      error: (err) => {
-        this._ToastrService.error(err.error.errorMessage, 'Error!');
-      },
-      complete: () => {
-        this._ToastrService.success("Request Success", 'Successfully!');
-        this._router.navigate(['/auth/resetPassword']);
-        localStorage.setItem('email' , email);
-      },
-    });
+  onNoClick(): void {
+    this.dialogRef.close();
   }
+
 }

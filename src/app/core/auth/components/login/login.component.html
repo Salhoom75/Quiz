@@ -2,56 +2,65 @@
     <div class="container-fluid h-100 p-4">
       <div class="row h-100">
         <div class="col-md-6">
-          
+
             <div class="col-md-3">
               <div>
                 <img src="../../../../../assets/styles/images/Logo-white.svg" alt="" />
               </div>
-           
+
           </div>
-         <div class="row mt-5">
+         <div class="left-side mt-5">
           <div class="content ">
               <h2>Continue your learning journey with QuizWiz!</h2>
               <div class="two-sign">
-                <div class="sign">
-                    <a >
-                        <i class="fa-solid fa-user"></i>
+                <div class="sign pointer" routerLink="/auth/login" routerLinkActive="active">
+                    
+                        <div class="text-center"><i class="fa-solid fa-user" style="color: #fff; "></i></div>
                         <h3>Sign in</h3>
-                    </a>
+                    
                 </div>
-                <div class="sign">
-                    <a >
-                        <i class="fa-solid fa-user icon"></i>
+                <div class="sign pointer" routerLink="/auth/register" routerLinkActive="active">
+                    <div class="text-center"><i class="fa-solid fa-user-plus" style="color: #fff; "></i></div>
                         <h3>Sign up</h3>
-                    </a>
+                   
                 </div>
               </div>
-              
+
               <form [formGroup]="loginForm" (submit)="onLogin(loginForm)">
-                <div class="row gy-4 mt-3">
+                <div class=" gy-4 mt-3">
                   <div class="col-md-12">
                       <label for="">Registered email address</label>
-                      <input  type="text" class="form-control" placeholder="Enter Your Email" formControlName="email">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-envelope" style="color: #FFf;"></i></span>
+                        <input type="text" class="form-control"formControlName="email"  placeholder="email" aria-describedby="basic-addon3">
+                      
+                    </div>
+                    <div class="alert alert-danger py-1" *ngIf="loginForm.get('email')?.touched&&loginForm.get('email')?.status=='INVALID'">
+                        <p class="mb-0" *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
+                        <p class="mb-0" *ngIf="loginForm.get('email')?.getError('email')">Please Enter a valid email ex:abc@abc</p>
+                      </div>
                   </div>
                   <div class="col-md-12 position-relative">
                       <label for="">Password</label>
-                      <input type="password" class="form-control" placeholder="Enter Your Password" formControlName="password">
-                      <div class="eye-icon">
-                        <i class="fa-solid fa-eye-slash"></i>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-key" style="color: #FFf;"></i></span>
+                        <input type="password" formControlName="password" class="form-control" id="basic-url" placeholder="password" aria-describedby="basic-addon3">
+                      </div>
+                      <div class="alert alert-danger py-1" *ngIf="loginForm.get('password')?.touched&&loginForm.get('password')?.status=='INVALID'">
+                        <p class="mb-0" *ngIf="loginForm.get('password')?.getError('required')">Password is required</p>
+                        <p class="mb-0" *ngIf="loginForm.get('password')?.getError('pattern')">Min 8,Max 16 ,special Char and number</p>
                       </div>
                     </div>
-                  <div class="eye-icon">
-                    <i class="fa-solid fa-eye-slash"></i>
+
+                
+                  <div class="col-md-12 d-flex justify-content-between align-items-center">
+                      <button [disabled]="loginForm.invalid">Sign in</button>
+                      <a (click)="openDialog()">Forget Password?</a>
                   </div>
-                  <div class="col-md-6">
-                      <button class="">Sign in</button>
-                  </div>
-                  <div class="col-md-6 text-end">
-                      <a class="" routerLink="/auth/forgetPassword">Forget Password</a>
-                  </div>
+                  
                 </div>
-                   
-              
+
+
               </form>
             </div>
          </div>
@@ -60,7 +69,7 @@
             <div class="image">
                 <img src="../../../../../assets/styles/images/BGImage.svg" alt="">
             </div>
-         
+
         </div>
       </div>
     </div>
