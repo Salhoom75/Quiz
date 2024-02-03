@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  isLoading: boolean = false;
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
@@ -28,6 +29,7 @@ export class LoginComponent {
     ]),
   });
   onLogin(data: FormGroup) {
+    this.isLoading=true;
     console.log(data.value);
     this._AuthService.onLogin(data.value).subscribe({
       next: (res) => {
@@ -39,17 +41,20 @@ export class LoginComponent {
         localStorage.setItem('userName', res.data.user.userName);
         localStorage.setItem('Id', res.data.user._id);
          this._ToastrService.success(res.data.user.userName , 'Welcome')
-          // this._Router.navigate(['/dashboard/student'])
-          if(localStorage.getItem('role')=='user'){
-            this._Router.navigate(['/dashboard/student/home'])
-           }
-           else{
-            this._Router.navigate(['/dashboard/instructor/home']);
-           }
-       
-  
+          this._Router.navigate(['/dashboard'])
+          // if(localStorage.getItem('role')=='user'){
+          //   this._Router.navigate(['/dashboard/student/home'])
+          //  }else if(localStorage.getItem('role')=='admin'){
+          //   this._Router.navigate(['/dashboard/instructor/home']);
+          //  }
+
+
       },error:(err)=>{
+        this.isLoading=false;
          this._ToastrService.error(err.error.message , 'error')
+      },complete:()=>{
+        this.isLoading=false;
+
       }
     })
   }

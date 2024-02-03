@@ -4,11 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ButtonLoaderComponent } from './button-loader/button-loader.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ButtonLoaderComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,7 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    ButtonLoaderComponent
   ],
 
 })

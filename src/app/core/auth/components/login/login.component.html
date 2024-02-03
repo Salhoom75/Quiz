@@ -1,4 +1,5 @@
-<section class="">
+<section id="login">
+
     <div class="container-fluid h-100 p-4">
       <div class="row h-100">
         <div class="col-md-6">
@@ -14,15 +15,15 @@
               <h2>Continue your learning journey with QuizWiz!</h2>
               <div class="two-sign">
                 <div class="sign pointer" routerLink="/auth/login" routerLinkActive="active">
-                    
-                        <div class="text-center"><i class="fa-solid fa-user" style="color: #fff; "></i></div>
-                        <h3>Sign in</h3>
-                    
+
+                 <div class=" mb-2 d-flex justify-content-center"><img src="../../../../../assets/styles/images/signin-ico.svg"  class="img-fluid w-75"></div>
+                 <h3>Sign in</h3>
+
                 </div>
                 <div class="sign pointer" routerLink="/auth/register" routerLinkActive="active">
-                    <div class="text-center"><i class="fa-solid fa-user-plus" style="color: #fff; "></i></div>
-                        <h3>Sign up</h3>
-                   
+                  <div class="text-center mb-2"><img src="../../../../../assets/styles/images/signup-ico.svg"  class="img-fluid w-100"></div>
+                  <h3>Sign up</h3>
+
                 </div>
               </div>
 
@@ -33,7 +34,7 @@
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-envelope" style="color: #FFf;"></i></span>
                         <input type="text" class="form-control"formControlName="email"  placeholder="email" aria-describedby="basic-addon3">
-                      
+
                     </div>
                     <div class="alert alert-danger py-1" *ngIf="loginForm.get('email')?.touched&&loginForm.get('email')?.status=='INVALID'">
                         <p class="mb-0" *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
@@ -52,12 +53,20 @@
                       </div>
                     </div>
 
-                
+
                   <div class="col-md-12 d-flex justify-content-between align-items-center">
-                      <button [disabled]="loginForm.invalid">Sign in</button>
+                      <button [disabled]="loginForm.invalid" class="button" *ngIf="isLoading ==false">
+                        <span class="text fw-bold">Sign in</span
+                          ><span><i class="fa-solid  fa-circle-check"></i></span>
+                      </button>
+                      <button *ngIf="isLoading ==true" class="butt-loader w-25">
+
+                        <app-button-loader class="position-relative"></app-button-loader>
+
+                      </button>
                       <a (click)="openDialog()">Forget Password?</a>
                   </div>
-                  
+
                 </div>
 
 
