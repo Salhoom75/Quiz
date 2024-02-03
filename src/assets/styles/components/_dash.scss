@@ -7,9 +7,17 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
-
+  transition: all 600ms ease-in-out;
   div:first-child {
     border-bottom: 1px solid black;
+    a{
+      border-radius: 12px;
+      padding: 2px 5px;
+      color: black;
+    }
+    a:hover {
+      background-color: antiquewhite;
+    }
   }
 
   ul {
