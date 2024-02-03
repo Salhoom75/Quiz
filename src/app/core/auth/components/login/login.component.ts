@@ -42,8 +42,7 @@ export class LoginComponent {
           // this._Router.navigate(['/dashboard/student'])
           if(localStorage.getItem('role')=='user'){
             this._Router.navigate(['/dashboard/student/home'])
-           }
-           else{
+           }else if(localStorage.getItem('role')=='admin'){
             this._Router.navigate(['/dashboard/instructor/home']);
            }
        
