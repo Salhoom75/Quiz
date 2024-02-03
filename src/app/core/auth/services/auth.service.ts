@@ -8,43 +8,43 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root',
 })
 export class AuthService {
-  role:string |null=''
+  role: string | null = '';
 
-  constructor(private _httpClient:HttpClient) {
-    if (localStorage.getItem('userToken')!== null) {
-      this.getUserToken()
+  constructor(private _httpClient: HttpClient) {
+    if (localStorage.getItem('userToken') !== null) {
+      this.getUserToken();
     }
-   }
-  getUserToken(){
-    let encoded:any=localStorage.getItem('userToken');
-    let decoded=jwtDecode(encoded)
+  }
+  getUserToken() {
+    let encoded: any = localStorage.getItem('userToken');
+    let decoded = jwtDecode(encoded);
     console.log(decoded);
 
-    localStorage.setItem('role',encoded.role);
-    localStorage.setItem('userName',encoded.userName);
-    this.getRole()
-   }
-getRole(){
-  if (localStorage.getItem('userToken')!== null&&localStorage.getItem('role')) {
-    this.role=localStorage.getItem('role')
+    localStorage.setItem('role', encoded.role);
+    localStorage.setItem('userName', encoded.userName);
+    this.getRole();
   }
-}
-    onLogin(data: ILogin): Observable<any> {
+  getRole() {
+    if (
+      localStorage.getItem('userToken') !== null &&
+      localStorage.getItem('role')
+    ) {
+      this.role = localStorage.getItem('role');
+    }
+  }
+  onLogin(data: ILogin): Observable<any> {
     return this._httpClient.post('portal/users/login', data);
   }
   onForgetPassword(data: string): Observable<any> {
     return this._httpClient.post('portal/users/forgot-password ', {
       email: data,
     });
-
   }
 
   onResetPassword(data: IReset): Observable<any> {
     return this._httpClient.post('portal/users/reset-password', data);
-
   }
-  onRegister(data:IRegister):Observable<any>{
+  onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('portal/users', data);
-
   }
 }
