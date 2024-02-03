@@ -1,0 +1,72 @@
+@import "../../../../../../assets/styles/abstracts/variables";
+#instructor-home{
+    .container{
+        padding: 30px;
+        .row{
+            
+            .col-md-6, .col-md-5{
+                border-radius: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.20);  
+                padding: 5px;
+            }
+          .col-md-6{
+            .quiz-header{
+                display: flex;
+                justify-content: space-between;
+                
+            }
+            .quiz-card{
+                border-radius: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.20);  
+                overflow: hidden;
+                margin-bottom: 15px;
+                .col-md-3{
+                    background-color: $primary-color;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    img{
+                        width: 80%;
+                    }
+                }
+                .col-md-9{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    p{
+                        font-size: 15px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+          }
+          .col-md-5{
+            .student-header{
+                display: flex;
+                justify-content: space-between;
+            }
+            .student-card{
+                border-radius: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.20);  
+                overflow: hidden;
+                margin-bottom: 15px;
+                .col-md-3{
+                    
+                   
+                    img{
+                        width: 100%;
+                    }
+                }
+                .col-md-9{
+                    display: flex;
+                   align-items: center;
+                    justify-content: space-between;
+
+                   
+                }
+            }
+          }
+        }
+    }
+}
