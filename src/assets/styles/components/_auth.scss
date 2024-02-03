@@ -6,7 +6,7 @@
       padding: 15px;
   .left-side{
       .content{
-          
+
           h2{
               font-weight: 700;
               color: $sec-color;
@@ -54,24 +54,24 @@
                       color: white;
                   }
               }
-             
+
           }
           .col-md-12{
               button{
-                  background-color: #fff;
-                  color: $bg-color;
+                  // background-color: #fff;
+                  // color: $bg-color;
                   font-size: 20px;
                   font-weight: 600;
-                  padding: 10px 20px;
+                  // padding: 10px 20px;
                   border-radius: 10px;
               }
           }
       }
   }
-     
+
   }
 .col-md-6{
-  
+
   .image{
       display: flex;
       justify-content: center;
@@ -83,10 +83,10 @@
       width: 60% !important;
      }
      }
-   
+
 }
- 
-} 
+
+}
 #forget-pass {
   div:first-child {
     border-bottom: 1px solid #18181a;

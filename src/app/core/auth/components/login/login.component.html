@@ -55,7 +55,15 @@
 
 
                   <div class="col-md-12 d-flex justify-content-between align-items-center">
-                      <button [disabled]="loginForm.invalid">Sign in</button>
+                      <button [disabled]="loginForm.invalid" class="button" *ngIf="isLoading ==false">
+                        <span class="text fw-bold">Sign in</span
+                          ><span><i class="fa-solid  fa-circle-check"></i></span>
+                      </button>
+                      <button *ngIf="isLoading ==true" class="butt-loader w-25">
+
+                        <app-button-loader class="position-relative"></app-button-loader>
+
+                      </button>
                       <a (click)="openDialog()">Forget Password?</a>
                   </div>
 
