@@ -1,0 +1,36 @@
+<section id="log-out mb-4">
+  <div class="container">
+    <div class="auth text-center">
+      <div class="">
+        <div class="header d-flex justify-content-between">
+          <div class="text-center">
+            <h2 class="mb-0">logout</h2>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur</p>
+          </div>
+          <div>
+            <span (click)="onNoClick()"
+              ><i
+                class="pointer fa-regular fa-circle-xmark text-danger fa-2x mb-2"
+              ></i
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img
+          src="../../../../../../../assets/images/check-out.png"
+          class="w-75"
+          alt=""
+        />
+      </div>
+      <div class="text-center d-flex justify-content-between">
+        <p>
+          Are you sure you want logout?
+          <span class="text-bg-danger">{{ data?.userName }}</span>
+        </p>
+        <button (click)="logout()" class="btn btn-warning mb-3">Logout</button>
+      </div>
+    </div>
+  </div>
+</section>

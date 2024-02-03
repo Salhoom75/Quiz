@@ -7,13 +7,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TestComponent } from './components/test/test.component';
+import { LogoutComponent } from './components/navbar/components/logout/logout.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     NavbarComponent,
     SidebarComponent,
-    TestComponent
+    TestComponent,
+    LogoutComponent
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule],
 })
