@@ -1,10 +1,16 @@
-import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { AuthService } from '../auth/services/auth.service';
 
 export const studentGuard: CanActivateFn = (route, state) => {
+  const router = inject(Router);
+  const authService= inject(AuthService);
   if (localStorage.getItem('userToken') !== null && localStorage.getItem('role') == 'user') {
     return true;
 
   } else {
+    // authService.getRole();
+    // router.navigate(['/dashboard']);
     return false
   }
 };
