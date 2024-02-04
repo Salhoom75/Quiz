@@ -10,8 +10,8 @@ export const instructorGuard: CanActivateFn = (route, state) => {
 
     return true;
   } else {
-    authService.getRole();
+    authService.getUserToken();
     router.navigate(['/dashboard']);
-    return false
-  }
+    return true;
+  } 
 };

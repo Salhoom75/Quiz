@@ -1,5 +1,11 @@
 $bg-color:#0D1321;
 $primary-color:#FFEDDF;
 $sec-color:#C5D86D;
-
-
+$light-grey-color: #ffffff;
+$border-reduis: 10px;
+$border-cardWidth: 1px solid rgba(0, 0, 0, 0.20);
+$padding-card: 5px;
+$bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 0.075);
+.text-darkColor{
+  color: $bg-color;
+}
