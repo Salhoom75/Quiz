@@ -1,9 +1,13 @@
-<section class="nav-bar">
-  <div class="container py-3 shadow-lg ">
+<section id="nav-bar">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 d-flex justify-content-between">
-        <h3 class="fs-4">Dashboard</h3>
-        <span><h2 class="fs-5"><i class="fa-brands fa-quinscape"></i>New Quiz</h2></span>
+      <div class="col-md-8 d-flex justify-content-between line m-auto  text-center">
+        <h3 class="fs-4 fw-bold">Dashboard</h3>
+        <div class="border rounded-5 py-1 px-4 pointer ">
+          <h2 class="fs-5 m-auto fw-bold" >
+            <i class="fa-solid fa-stopwatch"></i> New Quiz
+          </h2>
+        </div>
         <!-- <div class="icon">
         <i class="fa-solid fa-envelope"></i>
       </div>
@@ -12,9 +16,10 @@
       </div> -->
       </div>
       <!-- <div class="col-1 py-2 d-flex justify-content-between"></div> -->
-      <div class="col-md-4 d-flex justify-content-end">
-        <div>
-          <h5>{{ userName }}</h5>
+      <div class="col-md-4 d-flex justify-content-between ">
+        <div class="">
+          <h5>Nwabuikwu Chizuruoke</h5>
+          <span class="green-text">Instructor</span>
         </div>
         <div class="dropdown mx-2">
           <a
@@ -23,6 +28,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           ></a>
+
           <ul class="dropdown-menu mt-4">
             <li>
               <a
@@ -30,6 +36,12 @@
                 [routerLink]="['/dashboard/student/home', userId]"
               >
                 <span><i class="fa-solid fa-user me-2"></i></span> Profile
+              </a>
+            </li>
+            <li>
+              <a (click)="openDialogChange()"  class="dropdown-item pointer">
+                <span><i class="fa-solid fa-unlock me-2"></i></span>
+                Change Password
               </a>
             </li>
 

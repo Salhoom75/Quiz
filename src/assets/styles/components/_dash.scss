@@ -168,3 +168,23 @@
     }
   }
 }
+
+
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  transition: all 600ms ease-in-out;
+  border-bottom:1px solid rgba(0, 0, 0, 0.20) ;
+  padding: 12.5px 0px;
+  .green-text{
+color: $sec-color;
+  }
+  .line{
+    border-right:1px solid rgba(0, 0, 0, 0.20);
+  
+  }
+}
