@@ -15,7 +15,7 @@ const routes: Routes = [
       {path:'',redirectTo:'instructor',pathMatch:'full'},
       {
         path: 'instructor',
-        canActivate: [instructorGuard],
+        // canActivate: [instructorGuard],
         loadChildren: () =>
           import('./instructor/instructor.module').then(
             (m) => m.InstructorModule
@@ -24,7 +24,7 @@ const routes: Routes = [
 
       {
         path: 'student',
-        canActivate: [studentGuard],
+        // canActivate: [studentGuard],
         loadChildren: () =>
           import('./student/student.module').then((m) => m.StudentModule),
       },
