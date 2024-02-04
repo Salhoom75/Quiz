@@ -155,3 +155,16 @@
     background-color: $bs-table-hover-bg;
   }
 }
+#quiz-created{
+  .borders {
+    border-radius: 60px;
+    border: 2px black solid;
+    // padding: 10px 20px;
+    div {
+      background-color: $primary-color;
+      border-top-left-radius: 60px;
+      border-bottom-left-radius: 60px;
+      height: auto;
+    }
+  }
+}
