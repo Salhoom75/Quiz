@@ -127,6 +127,7 @@
       }
     }
   }
+
 }
 #quiz-instructor{
   .quiz-card {
@@ -135,5 +136,8 @@
     overflow: hidden;
     margin-bottom: 15px;
     padding: 10px;
+  }
+  .student-card:hover{
+    background-color: $bs-table-hover-bg;
   }
 }
