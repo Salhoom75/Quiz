@@ -82,6 +82,7 @@
           border: $border-cardWidth;
           overflow: hidden;
           margin-bottom: 15px;
+
           .col-md-3 {
             background-color: $primary-color;
             display: flex;
@@ -129,6 +130,13 @@
   }
 
 }
+#instructor-home{
+
+  .quiz-card:hover,.student-card:hover{
+    background-color: $bs-table-hover-bg;
+
+  }
+}
 #quiz-instructor{
   .quiz-card {
     border-radius: $border-reduis;
@@ -136,6 +144,12 @@
     overflow: hidden;
     margin-bottom: 15px;
     padding: 10px;
+  }
+  .quiz-card{
+    .quiz-card:hover{
+      background-color: $bs-table-hover-bg;
+
+    }
   }
   .student-card:hover{
     background-color: $bs-table-hover-bg;
