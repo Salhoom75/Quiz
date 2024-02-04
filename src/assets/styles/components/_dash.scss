@@ -1,16 +1,18 @@
+@import "../abstracts/variables";
+
 #side-bar {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  border-right: 1px solid black;
+  border-right: $border-cardWidth;
   font-family: "Nunito Sans", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
   transition: all 600ms ease-in-out;
   div:first-child {
-    border-bottom: 1px solid black;
-    a{
+    border-bottom: $border-cardWidth;
+    a {
       border-radius: 12px;
       padding: 2px 5px;
       color: black;
@@ -34,7 +36,7 @@
     align-items: center;
     padding: 30px 20px;
     gap: 0.5rem;
-    border-bottom: 1px solid black;
+    border-bottom:$border-cardWidth;
     svg {
       background-color: antiquewhite;
       border-radius: 12px;
@@ -48,7 +50,7 @@
   .ico-item:hover::before {
     content: "";
     position: absolute;
-    width: 2px;
+    width: 4px;
     height: 100%;
     background-color: black;
     right: 0;
@@ -56,6 +58,82 @@
   }
   .ico-item {
     position: relative;
-    border-top: 1px solid black;
+    border-top: $border-cardWidth;
+  }
+}
+#instructor-home,
+#quiz-instructor {
+  .container {
+    padding: 30px;
+    .row {
+      .col-md-6,
+      .col-md-5 {
+        border-radius: $border-reduis;
+        border: $border-cardWidth;
+        padding: $padding-card;
+      }
+      .col-md-6 {
+        .quiz-header {
+          display: flex;
+          justify-content: space-between;
+        }
+        .quiz-card {
+          border-radius: $border-reduis;
+          border: $border-cardWidth;
+          overflow: hidden;
+          margin-bottom: 15px;
+          .col-md-3 {
+            background-color: $primary-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            img {
+              width: 80%;
+            }
+          }
+          .col-md-9 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            p {
+              font-size: 15px;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .col-md-5 {
+        .student-header {
+          display: flex;
+          justify-content: space-between;
+        }
+        .student-card {
+          border-radius: $border-reduis;
+          border: $border-cardWidth;
+          overflow: hidden;
+          margin-bottom: 15px;
+          .col-md-3 {
+            img {
+              width: 100%;
+            }
+          }
+          .col-md-9 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
+}
+#quiz-instructor{
+  .quiz-card {
+    border-radius: $border-reduis;
+    border: $border-cardWidth;
+    overflow: hidden;
+    margin-bottom: 15px;
+    padding: 10px;
   }
 }

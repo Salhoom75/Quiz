@@ -1,0 +1,50 @@
+@import "../abstracts/variables";
+
+table {
+  text-wrap: nowrap;
+  border-collapse: collapse; // 1
+  border-spacing: 0;
+  * {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+  }
+  th {
+    height: 2rem;
+    color: $light-grey-color;
+    background-color: $bg-color;
+    text-align: left;
+    border: 2px solid white;
+  }
+  th:first-child {
+    border-radius: 10px 0px 0px 10px;
+  }
+  th:last-child {
+    border-radius: 0px 10px 10px 0px;
+  }
+  td {
+    border: $border-cardWidth;
+  }
+  tbody {
+    tr {
+      display: relative;
+    }
+    td:first-child,
+    td:last-child {
+      border: $border-cardWidth;
+      display: block;
+    }
+    td:first-child {
+      border-radius: 10px 0px 0px 10px;
+    }
+    td:last-child {
+      border-radius: 0px 10px 10px 0px;
+    }
+    hr {
+      height: 5px;
+      margin: 0;
+      color: transparent;
+    }
+  }
+}
