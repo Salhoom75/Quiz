@@ -20,8 +20,8 @@ export class AuthService {
     let decoded = jwtDecode(encoded);
     console.log(decoded);
 
-    localStorage.setItem('role', encoded.role);
-    localStorage.setItem('userName', encoded.userName);
+    // localStorage.setItem('role', encoded.role);
+    // localStorage.setItem('userName', encoded.userName);
     this.getRole();
   }
   getRole() {
@@ -43,6 +43,7 @@ export class AuthService {
 
   onResetPassword(data: IReset): Observable<any> {
     return this._httpClient.post('portal/users/reset-password', data);
+
   }
   onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('portal/users', data);

@@ -7,11 +7,11 @@ export const instructorGuard: CanActivateFn = (route, state) => {
   const authService= inject(AuthService);
 
   if (localStorage.getItem('userToken') !== null && localStorage.getItem('role') == 'admin') {
-    authService.getRole();
-    router.navigate(['/dashboard']);
+
     return true;
   } else {
-    
-    return false
-  }
+    authService.getUserToken();
+    router.navigate(['/dashboard']);
+    return true;
+  } 
 };

@@ -1,2 +1,128 @@
-<p>quizes works!</p>
-<button (click)="startQuiz()">set up</button>
+
+<section id="quiz-instructor">
+  <div class="container">
+    <div class="row gx-3">
+      <div class="col-md-5 me-3">
+        <div class="m-3 d-flex justify-content-around gap-1">
+          <a class="student-card p-4 text-center text-darkColor" (click)="startQuiz()">
+              <app-timer-quiz-ico></app-timer-quiz-ico>
+              <h5 class="mt-2">Set up a new quiz</h5>
+
+          </a>
+          <a class="student-card p-4 text-center text-darkColor">
+              <app-vault-ico></app-vault-ico>
+              <h5 class="mt-2">Question Bank</h5>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="m-3 quiz-card ">
+          <div class="quiz-header">
+            <h4>Upcoming 5 quizzes</h4>
+            <p>Quiz directory</p>
+          </div>
+          <div class="quiz-card">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="../../../../../../assets/images/img.svg" alt="" />
+              </div>
+              <div class="col-md-9 p-2">
+                <div>
+                  <h5>Introduction to computer programming</h5>
+                  <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
+                </div>
+                <div class="d-flex justify-content-between pe-3">
+                  <p>No. of student’s enrolled: 17</p>
+                  <a
+                    >Open
+                    <i
+                      class="fa-solid fa-circle-arrow-right"
+                      style="color: #c5d86d"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="quiz-card">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="../../../../../../assets/images/img.svg" alt="" />
+              </div>
+              <div class="col-md-9 p-2">
+                <div>
+                  <h5>Introduction to computer programming</h5>
+                  <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
+                </div>
+                <div class="d-flex justify-content-between pe-3">
+                  <p>No. of student’s enrolled: 17</p>
+                  <a
+                    >Open
+                    <i
+                      class="fa-solid fa-circle-arrow-right"
+                      style="color: #c5d86d"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="m-3 quiz-card ">
+          <div class="quiz-header">
+            <h4>Completed Quizzes</h4>
+            <a
+            >Results
+            <i
+              class="fa-solid fa-circle-arrow-right"
+              style="color: #c5d86d"
+            ></i
+          ></a>
+          </div>
+          <div class="">
+            <!-- <div class="row"> -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Group name</th>
+                    <th scope="col">No. of persons in group</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <hr/>
+                  <tr>
+                    <td scope="row">Assembly language</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>12 /02/ 2023</td>
+                  </tr>
+                  <hr/>
+                  <tr>
+                    <td scope="row">Assembly language</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>12 /02/ 2023</td>
+                  </tr>
+                  <hr/>
+                  <tr>
+                    <td scope="row">Assembly language</td>
+                    <td>Larry the Bird</td>
+                    <td>Larry the Bird</td>
+                    <td>12 /02/ 2023</td>
+                  </tr>
+                </tbody>
+              </table>
+            <!-- </div> -->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
