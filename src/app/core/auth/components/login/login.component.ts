@@ -42,6 +42,7 @@ export class LoginComponent {
         localStorage.setItem('Id', res.data.user._id);
          this._ToastrService.success(res.data.user.userName , 'Welcome')
           this._Router.navigate(['/dashboard'])
+
       },error:(err)=>{
         this.isLoading=false;
          this._ToastrService.error(err.error.message , 'error')

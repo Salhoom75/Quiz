@@ -12,6 +12,6 @@ export const instructorGuard: CanActivateFn = (route, state) => {
   } else {
     authService.getUserToken();
     router.navigate(['/dashboard']);
-    return false
-  }
+    return true;
+  } 
 };
