@@ -5,12 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ButtonLoaderComponent } from './button-loader/button-loader.component';
+import { TimerQuizIcoComponent } from './svg/timer-quiz-ico/timer-quiz-ico.component';
+import { VaultIcoComponent } from './svg/vault-ico/vault-ico.component';
 
 
 
 @NgModule({
   declarations: [
-    ButtonLoaderComponent
+    ButtonLoaderComponent,
+    TimerQuizIcoComponent,
+    VaultIcoComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,9 @@ import { ButtonLoaderComponent } from './button-loader/button-loader.component';
     HttpClientModule,
     RouterModule,
     MatDialogModule,
-    ButtonLoaderComponent
+    ButtonLoaderComponent,
+    TimerQuizIcoComponent,
+    VaultIcoComponent
   ],
 
 })

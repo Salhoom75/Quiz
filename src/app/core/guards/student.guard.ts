@@ -9,8 +9,8 @@ export const studentGuard: CanActivateFn = (route, state) => {
     return true;
 
   } else {
-    // authService.getRole();
-    // router.navigate(['/dashboard']);
+    authService.getUserToken();
+    router.navigate(['/dashboard']);
     return false
   }
 };
