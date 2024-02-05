@@ -1,24 +1,26 @@
+
 <section id="reset-pass">
-  <div class="container-fluid">
-    <div class="row py-5">
-      <div class="col-md-6 d-flex justify-content-center">
-        <div class="inputs-auth">
-          <div class="text-center my-3">
-            <img
-              src="../../../../../assets/images/logo.png"
-              class="w-75"
-              alt=""
-            />
-          </div>
-          <div class="paragh">
-            <h4>Continue your learning journey with QuizWiz!</h4>
-          </div>
-          <form
+
+  <div class="container-fluid h-100 p-4">
+    <div class="row h-100">
+      <div class="col-md-6">
+
+          <div class="col-md-3">
+            <div>
+              <img src="../../../../../assets/images/Logo-white.svg" alt="" />
+            </div>
+
+        </div>
+       <div class="left-side mt-5">
+        <div class="content ">
+            <h2>Reset Password</h2>
+          
+            <form class="mt-5"
             [formGroup]="resetPassword"
             (ngSubmit)="onsubmit(resetPassword)"
           >
-            <h2 class="text-white text-center">Reset Password</h2>
-            <div class="input-group flex-nowrap mb-3">
+          <label class="form-label">Enter Your Email</label>
+            <div class="input-group flex-nowrap mb-2">
               <span class="input-group-text py-2" id="addon-wrapping"
                 ><i class="fa-regular fa-envelope"></i
               ></span>
@@ -31,7 +33,7 @@
                 aria-describedby="addon-wrapping"
               />
             </div>
-            <small
+            <div
               class="text-danger p-2"
               *ngIf="
                 resetPassword.controls.email.errors &&
@@ -47,8 +49,9 @@
               <span *ngIf="resetPassword.get('email')?.getError('email')"
                 >Email is invalid</span
               >
-            </small>
-            <div class="input-group flex-nowrap mb-3">
+            </div>
+            <label class="form-label">OTP</label>
+            <div class="input-group flex-nowrap mb-2">
               <span class="input-group-text py-2" id="addon-wrapping"
                 ><i class="fa-regular fa-envelope"></i
               ></span>
@@ -61,7 +64,7 @@
                 aria-describedby="addon-wrapping"
               />
             </div>
-            <small
+            <div
               class="text-danger p-2"
               *ngIf="
                 resetPassword.controls.seed.errors &&
@@ -79,27 +82,23 @@
                 class="mb-0"
                 >OTP is invalid</span
               >
-            </small>
-            <div class="input-group flex-nowrap mb-3">
+            </div>
+            <label class="form-label">Password</label>
+            <div class="input-group flex-nowrap mb-2">
               <span class="input-group-text py-2" id="addon-wrapping"
-                ><i class="fa-solid fa-lock"></i>
+                ><i class="fa-solid fa-key"></i>
               </span>
               <input
-                [type]="hide ? 'password' : 'text'"
+                
                 class="form-control py-2"
                 formControlName="password"
                 placeholder="Enter Your password"
                 aria-label="password"
               />
 
-              <span (click)="hide = !hide" class="eye-icon pointer"
-                ><i
-                  class="fa-solid pointer"
-                  [class]="hide ? 'fa-eye-slash' : 'fa-eye'"
-                ></i
-              ></span>
+             
             </div>
-            <small
+            <div
               *ngIf="
                 resetPassword.get('password')?.errors &&
                 resetPassword.get('password')?.touched
@@ -113,27 +112,24 @@
                 >Password must have capital,small letters,sympols,number and
                 pass length(8-16)</span
               >
-            </small>
-            <div class="input-group flex-nowrap mb-3">
+            </div>
+            <label class="form-label">Confirm Password</label>
+            <div class="input-group flex-nowrap mb-2">
+              
               <span class="input-group-text py-2" id="addon-wrapping"
-                ><i class="fa-solid fa-lock"></i>
+                ><i class="fa-solid fa-key"></i>
               </span>
               <input
-                [type]="hide ? 'password' : 'text'"
+                
                 class="form-control py-2"
                 formControlName="confirmPassword"
                 placeholder="confirm Your password"
                 aria-label="password"
               />
 
-              <span (click)="hide = !hide" class="eye-icon pointer"
-                ><i
-                  class="fa-solid pointer"
-                  [class]="hide ? 'fa-eye-slash' : 'fa-eye'"
-                ></i
-              ></span>
+           
             </div>
-            <small
+            <div
               *ngIf="
                 resetPassword.get('confirmPassword')?.errors &&
                 resetPassword.get('confirmPassword')?.touched
@@ -153,18 +149,24 @@
                 *ngIf="resetPassword.get('confirmPassword')?.errors?.['invalid']"
                 >password and confirm password not mutch</span
               >
-            </small>
+            </div>
             <div>
-              <button class="btn btn-primary my-3">
-                Reset <span><i class="fa-solid fa-check"></i></span>
+              <button class="btn reset-btn my-3">
+                Reset <span><i class="fa-solid fa-circle-check "></i></span>
               </button>
             </div>
           </form>
-        </div>
+           
+          </div>
+       </div>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="../../../../../assets/images/icon.png" class="w-75" alt="" />
+      <div class="col-md-6  ">
+          <div class="image">
+              <img src="../../../../../assets/images/BGImage.svg" alt="">
+          </div>
+
       </div>
     </div>
   </div>
 </section>
+

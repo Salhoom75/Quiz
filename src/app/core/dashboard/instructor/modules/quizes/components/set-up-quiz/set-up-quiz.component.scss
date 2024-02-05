@@ -1,37 +1,4 @@
 
-@import "../../../../../../../../assets/styles/abstracts/variables";
-#set-up{
-    padding-left: 20px;
-    .container{
-        .truefalse{
-display: flex;
-cursor: pointer;
-&>div{
-    border-left: 1px solid gray;
-    font-size: 30px;
-    padding: 12px 15px;
-    
-}
-     
-        }
-.row{
-form{
-    input{
-        border-color: rgb(0,0,0,.3); 
-    }
-  
-}
-}
-    }
 
-    .bg{
-        background-color: $primary-color;
-        color: black;
-        font-weight: 600;
-    }
-    .form-select{
-        color: #000;
-        font-weight: 500;
-       }
-}
+
 
