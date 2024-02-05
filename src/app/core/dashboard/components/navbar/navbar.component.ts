@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UsersService } from './services/users.service';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { SetUpQuizComponent } from '../../instructor/modules/quizes/components/set-up-quiz/set-up-quiz.component';
 
 @Component({
   selector: 'app-navbar',
@@ -34,6 +36,35 @@ export class NavbarComponent {
       next: (res) => {
         this.resdata = res;
       },
+    });
+  }
+
+  
+
+  
+  openDialogChange(): void {
+    const dialogRef = this.dialog.open(ChangePassComponent, {
+      width: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+  }
+
+  startQuiz(){
+    const dialogRef = this.dialog.open(SetUpQuizComponent, {
+      data: {},
+      width: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if(result){
+        
+      }
     });
   }
 }

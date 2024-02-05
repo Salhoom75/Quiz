@@ -1,91 +1,178 @@
 @import "../abstracts/variables";
-#login{
+#login {
   height: 100vh;
   background-color: $bg-color;
-  .row{
-      padding: 15px;
-  .left-side{
-      .content{
-
-          h2{
-              font-weight: 700;
-              color: $sec-color;
-              font-size: 1.7rem;
-          }
-         .two-sign{
+  .row {
+    padding: 15px;
+    .left-side {
+      .content {
+        h2 {
+          font-weight: 700;
+          color: $sec-color;
+          font-size: 1.7rem;
+        }
+        .two-sign {
           display: flex;
-          .sign{
-              background-color: #333;
-              padding: 10px 30px;
-              border-radius: 10px;
-              margin: 5px;
-              &.active{
-                  border: 3px solid $sec-color;
-              }
-              div{
-                  font-size: 40px;
-              }
-              h3{
-                  font-size: 20px ;
-                  color: #fff;
-              }
+          .sign {
+            background-color: #333;
+            padding: 10px 30px;
+            border-radius: 10px;
+            margin: 5px;
+            &.active {
+              border: 3px solid $sec-color;
+            }
+            div {
+              font-size: 40px;
+            }
+            h3 {
+              font-size: 20px;
+              color: #fff;
+            }
           }
-         }
-          form{
-              .col-md-12{
-                  margin: 20px 0;
-                  label{
-                      color: white;
-                      margin: 5px 0;
-                  }
-                  .input-group-text{
-                      background-color: transparent;
-                  }
-                  input{
-                      background-color: transparent;
-                      border: 2px solid white;
-                      padding: 10px;
-                      color: #fff;
-                      &::placeholder{
-                          color: white;
-                      }
-                  }
-                  a{
-                      color: white;
-                  }
+        }
+        form {
+          .col-md-12 {
+            margin: 20px 0;
+            label {
+              color: white;
+              margin: 5px 0;
+            }
+            .input-group-text {
+              background-color: transparent;
+            }
+            input {
+              background-color: transparent;
+              border: 2px solid white;
+              padding: 10px;
+              color: #fff;
+              &::placeholder {
+                color: white;
               }
-
+            }
+            a {
+              color: white;
+            }
           }
-          .col-md-12{
-              button{
-                  // background-color: #fff;
-                  // color: $bg-color;
-                  font-size: 20px;
-                  font-weight: 600;
-                  // padding: 10px 20px;
-                  border-radius: 10px;
-              }
+        }
+        .col-md-12 {
+          button {
+            // background-color: #fff;
+            // color: $bg-color;
+            font-size: 20px;
+            font-weight: 600;
+            // padding: 10px 20px;
+            border-radius: 10px;
           }
+        }
       }
+    }
   }
-
-  }
-.col-md-6{
-
-  .image{
+  .col-md-6 {
+    .image {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: $primary-color;
-     border-radius: 10px;
-     height: 100%;
-     img{
-      width: 60% !important;
-     }
-     }
-
+      border-radius: 10px;
+      height: 100%;
+      img {
+        width: 60% !important;
+      }
+    }
+  }
 }
 
+#change-pass {
+  background-color: $bg-color;
+  .form-control {
+    background-color: transparent;
+  
+  }
+  ::placeholder { 
+    color:    rgba(255, 255, 255, 0.477);
+    font-size: 14px;
+ }
+  .row {
+    padding: 15px;
+    .left-side {
+      .content {
+        h2 {
+          font-weight: 700;
+          color: $sec-color;
+          font-size: 1.7rem;
+        }
+        .two-sign {
+          display: flex;
+          .sign {
+            background-color: #333;
+            padding: 10px 30px;
+            border-radius: 10px;
+            margin: 5px;
+            &.active {
+              border: 3px solid $sec-color;
+            }
+            div {
+              font-size: 40px;
+            }
+            h3 {
+              font-size: 20px;
+              color: #fff;
+            }
+          }
+        }
+        form {
+          .col-md-12 {
+            margin: 20px 0;
+            label {
+              color: white;
+              margin: 5px 0;
+            }
+            .input-group-text {
+              background-color: transparent;
+            }
+            input {
+              background-color: transparent;
+              border: 2px solid white;
+              padding: 10px;
+              color: #fff;
+              &::placeholder {
+                color: white;
+              }
+            }
+            a {
+              color: white;
+            }
+          }
+        }
+        .col-md-12 {
+          button {
+            // background-color: #fff;
+            // color: $bg-color;
+            font-size: 20px;
+            font-weight: 600;
+            // padding: 10px 20px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+  .col-md-6 {
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-color;
+      border-radius: 10px;
+      height: 100%;
+      img {
+        width: 60% !important;
+      }
+    }
+  }
+  .green-text {
+    color: $sec-color;
+  }
 }
 #forget-pass {
   div:first-child {
