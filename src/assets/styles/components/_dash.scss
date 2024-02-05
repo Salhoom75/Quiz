@@ -177,11 +177,19 @@
   line-height: 25px;
   transition: all 600ms ease-in-out;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 12.5px 0px;
+  // padding: 12.5px 0px;
   .green-text {
     color: $sec-color;
   }
   .line {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    // border-right: $border-cardWidth;
+  }
+  .row {
+    .col-md-8 {
+      padding: 22.5px;
+    }
+    .col-md-4 {
+      border-left: $border-cardWidth;
+    }
   }
 }

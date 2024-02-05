@@ -16,8 +16,6 @@ export class NavbarComponent {
   resdata: any;
   constructor(public dialog: MatDialog, private _UsersService: UsersService) {}
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.getuserProfile(this.userId);
   }
 
@@ -39,9 +37,9 @@ export class NavbarComponent {
     });
   }
 
-  
 
-  
+
+
   openDialogChange(): void {
     const dialogRef = this.dialog.open(ChangePassComponent, {
       width: '60%',
@@ -63,7 +61,7 @@ export class NavbarComponent {
       console.log('The dialog was closed');
       console.log(result);
       if(result){
-        
+
       }
     });
   }
