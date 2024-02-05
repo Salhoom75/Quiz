@@ -9,7 +9,6 @@ import { TimerQuizIcoComponent } from './svg/timer-quiz-ico/timer-quiz-ico.compo
 import { VaultIcoComponent } from './svg/vault-ico/vault-ico.component';
 
 
-
 @NgModule({
   declarations: [
     ButtonLoaderComponent,

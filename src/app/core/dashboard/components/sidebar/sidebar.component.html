@@ -1,5 +1,5 @@
 <section id="side-bar">
-  <div class="d-flex  pt-4 px-4" [class]="isOpened?'justify-content-between':'justify-content-center'">
+  <div class="d-flex  pt-4 px-4 py-3" [class]="isOpened?'justify-content-between':'justify-content-center'">
     <a (click)="onClicked()"><i class="fa-solid fa-2x fa-bars" ></i></a>
 
     <div [ngClass]="isOpened ? '' : 'd-none'">
