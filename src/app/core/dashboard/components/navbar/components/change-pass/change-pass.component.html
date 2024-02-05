@@ -1,1 +1,65 @@
-<p>change-pass works!</p>
+<section id="change-pass">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="col-md-4">
+          <div class="">
+            <img src="../../../../../../../assets/images/logo.png" alt="" />
+          </div>
+         
+        </div>
+        <div class="text-primaryColor d-flex justify-content-between">
+            <h5 class="pt-5 green-text">Change Password</h5>
+           
+          </div>
+          <div class=" gy-4 mt-3">
+            <div class="col-md-12">
+                <label for="" class="text-white">Old password</label>
+                <div class="input-group  mb-3">
+                  <span class="input-group-text " id="basic-addon3"><i class="fa-solid fa-key"></i></span>
+                  <input type="text" class="form-control"formControlName="email"  placeholder="Type your old password" aria-describedby="basic-addon3">
+
+              </div>
+            </div>
+            <div class="col-md-12">
+                <label for="" class="text-white">New password</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-key"></i></span>
+                  <input type="text" class="form-control"formControlName="email"  placeholder="Type your new password" aria-describedby="basic-addon3">
+
+              </div>
+            </div>
+            <div class="col-md-12">
+                <label for="" class="text-white">Confirm New password</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-key"></i></span>
+                  <input type="text" class="form-control"formControlName="email"  placeholder="Confirm your new password" aria-describedby="basic-addon3">
+
+              </div>
+            </div>
+            <button  class="button btn px-4 py-2" *ngIf="isLoading ==false">
+                <span class="text fw-bold">Change</span
+                  ><span><i class="fa-solid  fa-circle-check"></i></span>
+              </button>
+          </div>
+        
+      </div>
+      <div class="col-md-6">
+        <img src="../../../../../../../assets/images/icon.png"  alt="" />
+        <!-- <div class="input-group flex-nowrap px-5 py-3">
+                      <span class="input-group-text py-2" id="addon-wrapping"
+                        ><i class="fa-solid fa-mobile-screen"></i
+                      ></span>
+                      <input
+                        type="email"
+                        class="form-control py-2"
+                        
+                        placeholder="Enter Your Email"
+                        aria-label="email"
+                        aria-describedby="addon-wrapping"
+                      />
+                    </div> -->
+      </div>
+    </div>
+  </div>
+</section>

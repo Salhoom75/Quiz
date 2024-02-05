@@ -43,7 +43,7 @@ export class NavbarComponent {
   
   openDialogChange(): void {
     const dialogRef = this.dialog.open(ChangePassComponent, {
-      width: '30%',
+      width: '60%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

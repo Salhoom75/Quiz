@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./change-pass.component.scss']
 })
 export class ChangePassComponent {
+  isLoading: boolean = false;
 
 }
