@@ -165,6 +165,25 @@
   }
 }
 
+#groups {
+  .i-circle {
+    background-color: #000000c7;
+    border-radius: 50%;
+    height: 7px;
+    width: 7px;
+    color: white;
+   
+    
+  }
+  .groups-card {
+    border-radius: $border-reduis;
+    border: $border-cardWidth;
+    overflow: hidden;
+    margin-bottom: 15px;
+     }
+}
+
+
 #students-instr {
   .container {
     .card-students {
@@ -185,5 +204,4 @@
         }
       }
     }
-  }
-}
+ 
