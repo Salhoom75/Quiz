@@ -17,17 +17,5 @@ export class SidebarComponent {
     console.log(this.isOpened);
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddEditComponent, {
-      data: {},
-      width: '50%',
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
-      if (result) {
-      }
-    });
-  }
 }
