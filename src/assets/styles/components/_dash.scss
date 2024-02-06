@@ -1,65 +1,71 @@
 @import "../abstracts/variables";
 
 #side-bar {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  border-right: $border-cardWidth;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 25px;
-  transition: all 600ms ease-in-out;
-  div:first-child {
-    border-bottom: $border-cardWidth;
-    a {
-      border-radius: 12px;
-      padding: 2px 5px;
-      color: black;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  .container-fluid{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: $border-cardWidth;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    transition: all 600ms ease-in-out;
+    div:first-child {
+      border-bottom: $border-cardWidth;
+      a {
+        border-radius: 12px;
+        padding: 2px 5px;
+        color: black;
+      }
+      a:hover {
+        background-color: antiquewhite;
+      }
     }
-    a:hover {
-      background-color: antiquewhite;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li,
+    .ico-item {
+      cursor: pointer;
+      display: flex;
+      position: relative;
+      // justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+      gap: 0.5rem;
+      border-bottom: $border-cardWidth;
+      svg {
+        background-color: antiquewhite;
+        border-radius: 12px;
+        padding: 2px 5px;
+        color: black;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    li:hover::before,
+    .ico-item:hover::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      background-color: black;
+      right: 0;
+      top: 0;
+    }
+    .ico-item {
+      position: relative;
+      border-top: $border-cardWidth;
     }
   }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  li,
-  .ico-item {
-    cursor: pointer;
-    display: flex;
-    position: relative;
-    // justify-content: space-between;
-    align-items: center;
-    padding: 30px 20px;
-    gap: 0.5rem;
-    border-bottom: $border-cardWidth;
-    svg {
-      background-color: antiquewhite;
-      border-radius: 12px;
-      padding: 2px 5px;
-      color: black;
-      width: 40px;
-      height: 40px;
-    }
-  }
-  li:hover::before,
-  .ico-item:hover::before {
-    content: "";
-    position: absolute;
-    width: 4px;
-    height: 100%;
-    background-color: black;
-    right: 0;
-    top: 0;
-  }
-  .ico-item {
-    position: relative;
-    border-top: $border-cardWidth;
-  }
 }
 
 #nav-bar {

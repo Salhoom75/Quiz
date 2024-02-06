@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ButtonLoaderComponent } from './button-loader/button-loader.component';
 import { TimerQuizIcoComponent } from './svg/timer-quiz-ico/timer-quiz-ico.component';
 import { VaultIcoComponent } from './svg/vault-ico/vault-ico.component';
@@ -12,7 +12,7 @@ import { QuizesIconComponent } from './svg/quizes-icon/quizes-icon.component';
 import { ResultIconComponent } from './svg/result-icon/result-icon.component';
 import { StudentsIconComponent } from './svg/students-icon/students-icon.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     QuizesIconComponent,
     ResultIconComponent,
     StudentsIconComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +31,8 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
   ],
   exports: [
     FormsModule,
@@ -46,10 +47,8 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     HomeIconComponent,
     QuizesIconComponent,
     ResultIconComponent,
-    StudentsIconComponent
+    StudentsIconComponent,
+    MatPaginatorModule,
   ],
-
 })
-export class SharedModule {
-
- }
+export class SharedModule {}

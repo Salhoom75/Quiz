@@ -1,8 +1,8 @@
 @import "../abstracts/variables";
 
-
 #instructor-home,
-#quiz-instructor {
+#quiz-instructor,
+#students-instr {
   .container {
     padding: 30px;
     .row {
@@ -44,7 +44,8 @@
           }
         }
       }
-      .col-md-5 {
+      .col-md-5,
+      .col-md-6 {
         .student-header {
           display: flex;
           justify-content: space-between;
@@ -75,39 +76,36 @@
     background-color: $bs-table-hover-bg;
   }
 }
-#set-up{
+#set-up {
   padding-left: 20px;
-  .container{
-      .truefalse{
-display: flex;
-cursor: pointer;
-&>div{
-  border-left: 1px solid gray;
-  font-size: 30px;
-  padding: 12px 15px;
-  
-}
-   
+  .container {
+    .truefalse {
+      display: flex;
+      cursor: pointer;
+      & > div {
+        border-left: 1px solid gray;
+        font-size: 30px;
+        padding: 12px 15px;
       }
-.row{
-form{
-  input{
-      border-color: rgb(0,0,0,.3); 
+    }
+    .row {
+      form {
+        input {
+          border-color: rgb(0, 0, 0, 0.3);
+        }
+      }
+    }
   }
 
-}
-}
+  .bg {
+    background-color: $primary-color;
+    color: black;
+    font-weight: 600;
   }
-
-  .bg{
-      background-color: $primary-color;
-      color: black;
-      font-weight: 600;
+  .form-select {
+    color: #000;
+    font-weight: 500;
   }
-  .form-select{
-      color: #000;
-      font-weight: 500;
-     }
 }
 #quiz-instructor {
   .quiz-card {
@@ -126,29 +124,29 @@ form{
     background-color: $bs-table-hover-bg;
   }
 }
-#quiz-detalis{
-  .container{
+#quiz-detalis {
+  .container {
     padding: 30px;
-  .row{
-    .col-md-6{
-      border-radius: $border-reduis;
-      border: $border-cardWidth;
-      padding: $padding-card;
-    }
-    .float-end{
-      button{
-        background-color: #0d1321;
-        color: #ffffff;
-        border-radius: 10px;
-        padding:  0px 20px;
-        margin-right: 20px;
-      span i{
-        color: #ffffff;
+    .row {
+      .col-md-6 {
+        border-radius: $border-reduis;
+        border: $border-cardWidth;
+        padding: $padding-card;
       }
+      .float-end {
+        button {
+          background-color: #0d1321;
+          color: #ffffff;
+          border-radius: 10px;
+          padding: 0px 20px;
+          margin-right: 20px;
+          span i {
+            color: #ffffff;
+          }
+        }
       }
     }
   }
-}
 }
 
 #quiz-created {
@@ -163,6 +161,29 @@ form{
       border-top-left-radius: 60px;
       border-bottom-left-radius: 60px;
       height: auto;
+    }
+  }
+}
+
+#students-instr {
+  .container {
+    .card-students {
+      border-radius: $border-reduis;
+      border: $border-cardWidth;
+      padding: $padding-card;
+      .student-header {
+        padding: 10px 20px;
+      }
+      .row {
+        .col-md-6 {
+          border-radius: 0px;
+          border: 0px solid black;
+          padding: 20px;
+          .student-card {
+            margin-bottom: 5px;
+          }
+        }
+      }
     }
   }
 }

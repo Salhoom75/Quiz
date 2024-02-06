@@ -17,18 +17,18 @@
 
         <div class="w-50 m-auto">
           <img
-            src="../../../../../../../assets/images/exclamation-xxl.png"
+            src="../../../../../../../assets/images/delete.svg"
             class="w-25 m-auto"
             alt=""
           />
         </div>
         <div class="text-center">
           <p class="m-auto py-3 fs-4">
-            Are you leaving?
-            <span class="text-bg-danger">{{ data?.userName }}</span>
+            Are you Sure Delete This Item?
+            <span class="text-bg-danger">{{ data?.userName || 'Name-tem' }}</span>
           </p>
           <p class="text-muted w-75 m-auto">
-            Are you sure you want to logout? All your unsaved data will be lost
+            If you delete this item you lost it for ever please make sure
           </p>
         </div>
         <div class="py-3 d-flex justify-content-between w-50 m-auto">
