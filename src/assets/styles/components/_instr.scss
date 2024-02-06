@@ -1,6 +1,5 @@
 @import "../abstracts/variables";
 
-
 #instructor-home,
 #quiz-instructor {
   .container {
@@ -75,39 +74,36 @@
     background-color: $bs-table-hover-bg;
   }
 }
-#set-up{
+#set-up {
   padding-left: 20px;
-  .container{
-      .truefalse{
-display: flex;
-cursor: pointer;
-&>div{
-  border-left: 1px solid gray;
-  font-size: 30px;
-  padding: 12px 15px;
-  
-}
-   
+  .container {
+    .truefalse {
+      display: flex;
+      cursor: pointer;
+      & > div {
+        border-left: 1px solid gray;
+        font-size: 30px;
+        padding: 12px 15px;
       }
-.row{
-form{
-  input{
-      border-color: rgb(0,0,0,.3); 
+    }
+    .row {
+      form {
+        input {
+          border-color: rgb(0, 0, 0, 0.3);
+        }
+      }
+    }
   }
 
-}
-}
+  .bg {
+    background-color: $primary-color;
+    color: black;
+    font-weight: 600;
   }
-
-  .bg{
-      background-color: $primary-color;
-      color: black;
-      font-weight: 600;
+  .form-select {
+    color: #000;
+    font-weight: 500;
   }
-  .form-select{
-      color: #000;
-      font-weight: 500;
-     }
 }
 #quiz-instructor {
   .quiz-card {
@@ -126,29 +122,29 @@ form{
     background-color: $bs-table-hover-bg;
   }
 }
-#quiz-detalis{
-  .container{
+#quiz-detalis {
+  .container {
     padding: 30px;
-  .row{
-    .col-md-6{
-      border-radius: $border-reduis;
-      border: $border-cardWidth;
-      padding: $padding-card;
-    }
-    .float-end{
-      button{
-        background-color: #0d1321;
-        color: #ffffff;
-        border-radius: 10px;
-        padding:  0px 20px;
-        margin-right: 20px;
-      span i{
-        color: #ffffff;
+    .row {
+      .col-md-6 {
+        border-radius: $border-reduis;
+        border: $border-cardWidth;
+        padding: $padding-card;
       }
+      .float-end {
+        button {
+          background-color: #0d1321;
+          color: #ffffff;
+          border-radius: 10px;
+          padding: 0px 20px;
+          margin-right: 20px;
+          span i {
+            color: #ffffff;
+          }
+        }
       }
     }
   }
-}
 }
 
 #quiz-created {
@@ -164,5 +160,22 @@ form{
       border-bottom-left-radius: 60px;
       height: auto;
     }
+  }
+}
+#groups {
+  .i-circle {
+    background-color: #000000c7;
+    border-radius: 50%;
+    height: 7px;
+    width: 7px;
+    color: white;
+   
+    
+  }
+  .groups-card {
+    border-radius: $border-reduis;
+    border: $border-cardWidth;
+    overflow: hidden;
+    margin-bottom: 15px;
   }
 }
