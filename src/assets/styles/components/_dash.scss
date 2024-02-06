@@ -95,7 +95,25 @@
   }
 
 }
+#addgroup{
+  color: #000000  ;
 
+ .title{
+  border-bottom: $border-cardWidth;
+
+ }
+ .icon {
+  border-left: $border-cardWidth;
+ 
+  .fa-check{
+    border-right: $border-cardWidth;
+
+  }
+ }
+ .col-md-12 span{
+background-color:$primary-color;
+ }
+}
 #log-out,#delete-dialog {
   align-content: center;
   margin: auto;
