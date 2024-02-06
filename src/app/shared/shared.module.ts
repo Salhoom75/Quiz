@@ -49,6 +49,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ResultIconComponent,
     StudentsIconComponent,
     MatPaginatorModule,
+    DeleteDialogComponent
   ],
 })
 export class SharedModule {}

@@ -172,17 +172,17 @@
     height: 7px;
     width: 7px;
     color: white;
-
-
   }
   .groups-card {
     border-radius: $border-reduis;
     border: $border-cardWidth;
     overflow: hidden;
     margin-bottom: 15px;
-     }
+    .groups-card:hover {
+      background-color: $bs-table-hover-bg;
+    }
+  }
 }
-
 
 #students-instr {
   .container {
@@ -200,6 +200,9 @@
           padding: 20px;
           .student-card {
             margin-bottom: 5px;
+          }
+          .student-card:hover {
+            background-color: $bs-table-hover-bg;
           }
         }
       }
