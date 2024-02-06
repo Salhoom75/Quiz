@@ -1,0 +1,48 @@
+<section id="delete-dialog py-5 shadow-lg">
+  <div class="container">
+    <div class="row">
+      <div class="text-center py-4">
+        <!-- <div class="">
+          <div class="header d-flex justify-content-between">
+            <h2 class="py-2 text-center fs-3">Logout</h2>
+            <div class="py-2">
+              <span (click)="onNoClick()"
+                ><i
+                  class="pointer fa-regular fa-circle-xmark text-danger fa-2x mb-2"
+                ></i
+              ></span>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="w-50 m-auto">
+          <img
+            src="../../../../../../../assets/images/exclamation-xxl.png"
+            class="w-25 m-auto"
+            alt=""
+          />
+        </div>
+        <div class="text-center">
+          <p class="m-auto py-3 fs-4">
+            Are you leaving?
+            <span class="text-bg-danger">{{ data?.userName }}</span>
+          </p>
+          <p class="text-muted w-75 m-auto">
+            Are you sure you want to logout? All your unsaved data will be lost
+          </p>
+        </div>
+        <div class="py-3 d-flex justify-content-between w-50 m-auto">
+          <button (click)="onNoClick()" class="btn butt-cancel px-4 py-2">
+            Cancel
+          </button>
+
+          <button
+            class="btn butt-loader py-2 shadow-lg px-4 btn-out"
+          >
+            Yes  <i class="fa-solid fa-arrow-right text-muted fw-light"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

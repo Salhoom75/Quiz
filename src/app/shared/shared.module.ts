@@ -11,6 +11,7 @@ import { HomeIconComponent } from './svg/home-icon/home-icon.component';
 import { QuizesIconComponent } from './svg/quizes-icon/quizes-icon.component';
 import { ResultIconComponent } from './svg/result-icon/result-icon.component';
 import { StudentsIconComponent } from './svg/students-icon/students-icon.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { StudentsIconComponent } from './svg/students-icon/students-icon.compone
     HomeIconComponent,
     QuizesIconComponent,
     ResultIconComponent,
-    StudentsIconComponent
+    StudentsIconComponent,
+    DeleteDialogComponent
   ],
   imports: [
     CommonModule,

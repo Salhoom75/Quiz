@@ -9,16 +9,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent {
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-  }
   constructor(
     public dialogRef: MatDialogRef<LogoutComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private tostar: ToastrService,
     private router: Router
-  ) {}
+    ) {}
+    ngOnInit(): void {
+      //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+      //Add 'implements OnInit' to the class.
+    }
 
   logout() {
     localStorage.clear();
