@@ -1,5 +1,5 @@
 @import "../abstracts/variables";
-#login {
+#login ,#reset-pass{
   height: 100vh;
   background-color: $bg-color;
   .row {
@@ -66,6 +66,11 @@
         }
       }
     }
+    .reset-btn{
+      background-color: #fff;
+      color:black;
+font-size: 23px;
+font-weight: 550;    }
   }
   .col-md-6 {
     .image {
@@ -183,23 +188,23 @@
   }
 }
 
-#reset-pass {
-  background-color: $bg-color;
-  .paragh {
-    h4 {
-      color: $sec-color;
-    }
-  }
-  span i {
-    background-color: $sec-color;
-  }
-  .eye-icon {
-    position: absolute;
-    top: 30%;
-    right: 5%;
-    z-index: 100;
-  }
-}
+// #reset-pass {
+//   background-color: $bg-color;
+//   .paragh {
+//     h4 {
+//       color: $sec-color;
+//     }
+//   }
+//   span i {
+//     background-color: $sec-color;
+//   }
+//   .eye-icon {
+//     position: absolute;
+//     top: 30%;
+//     right: 5%;
+//     z-index: 100;
+//   }
+// }
 
 #reg-auth {
   background-color: $bg-color;
