@@ -98,3 +98,17 @@
   color: white;
   background-color: $bg-color;
 }
+
+.deleteHover:hover{
+  color: red;
+  transform: scale(1.5);
+
+}
+
+.editHover{
+  transition: all .1s ease;
+}
+.editHover:hover{
+  color:$sec-color;
+  transform: scale(1.5);
+}
