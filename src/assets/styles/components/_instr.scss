@@ -1,7 +1,8 @@
 @import "../abstracts/variables";
 
 #instructor-home,
-#quiz-instructor {
+#quiz-instructor,
+#students-instr {
   .container {
     padding: 30px;
     .row {
@@ -43,7 +44,8 @@
           }
         }
       }
-      .col-md-5 {
+      .col-md-5,
+      .col-md-6 {
         .student-header {
           display: flex;
           justify-content: space-between;
@@ -162,6 +164,7 @@
     }
   }
 }
+
 #groups {
   .i-circle {
     background-color: #000000c7;
@@ -177,5 +180,28 @@
     border: $border-cardWidth;
     overflow: hidden;
     margin-bottom: 15px;
-  }
+     }
 }
+
+
+#students-instr {
+  .container {
+    .card-students {
+      border-radius: $border-reduis;
+      border: $border-cardWidth;
+      padding: $padding-card;
+      .student-header {
+        padding: 10px 20px;
+      }
+      .row {
+        .col-md-6 {
+          border-radius: 0px;
+          border: 0px solid black;
+          padding: 20px;
+          .student-card {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+ 
