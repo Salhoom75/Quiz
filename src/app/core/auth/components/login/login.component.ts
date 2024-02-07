@@ -23,9 +23,9 @@ export class LoginComponent {
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [
       Validators.required,
-      Validators.pattern(
-        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      ),
+      // Validators.pattern(
+      //   // /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
+      // ),
     ]),
   });
   onLogin(data: FormGroup) {
@@ -34,14 +34,12 @@ export class LoginComponent {
     this._AuthService.onLogin(data.value).subscribe({
       next: (res) => {
         console.log(res);
-
-        localStorage.setItem('userToken', res.data.token);
-
+        localStorage.setItem('userToken', res.data.accessToken);
         localStorage.setItem('role', res.data.user.role);
         localStorage.setItem('userName', res.data.user.userName);
         localStorage.setItem('Id', res.data.user._id);
          this._ToastrService.success(res.data.user.userName , 'Welcome')
-          this._Router.navigate(['/dashboard'])
+         this._Router.navigate(['/dashboard'])
 
       },error:(err)=>{
         this.isLoading=false;

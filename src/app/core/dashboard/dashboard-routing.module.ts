@@ -6,8 +6,6 @@ import { studentGuard } from '../guards/student.guard';
 import { TestComponent } from './components/test/test.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-
   {
     path: '',
     component: DashboardComponent,
