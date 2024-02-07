@@ -1,0 +1,70 @@
+//  @import url(../../../../../../../../../../assets/styles/abstracts/_variables.scss);
+table {
+  text-wrap: nowrap;
+  border-collapse: collapse; // 1
+  border-spacing: 0;
+  * {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+  }
+  th {
+    height: 2rem;
+    color: rgb(255, 255, 255);
+    background-color: #0d1321;
+    text-align: left;
+    border: 2px solid white;
+  }
+  th:first-child {
+    border-radius: 10px 0px 0px 10px;
+  }
+  th:last-child {
+    border-radius: 0px 10px 10px 0px;
+  }
+  td {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  tbody {
+    tr {
+      display: relative;
+    }
+    td:first-child,
+    td:last-child {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      display: block;
+    }
+    td:first-child {
+      border-radius: 10px 0px 0px 10px;
+    }
+    td:last-child {
+      border-radius: 0px 10px 10px 0px;
+    }
+    hr {
+      height: 5px;
+      margin: 0;
+      color: transparent;
+    }
+  }
+
+  .i-org {
+    color: #fb7c19;
+  }
+}
+.groups-card {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 15px;
+  .groups-card:hover {
+    background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
+  }
+}
+
+.i-circle {
+  background-color: #000000c7;
+  border-radius: 50%;
+  height: 7px;
+  width: 7px;
+  color: white;
+}
