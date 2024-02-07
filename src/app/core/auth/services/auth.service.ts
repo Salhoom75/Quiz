@@ -13,15 +13,21 @@ export class AuthService {
   constructor(private _httpClient: HttpClient) {
     if (localStorage.getItem('userToken') !== null) {
       this.getUserToken();
+    }else{
+      console.log("notfound");
+      
     }
   }
   getUserToken() {
     let encoded: any = localStorage.getItem('userToken');
-    let decoded = jwtDecode(encoded);
-    console.log(decoded);
+    let decoded:any = jwtDecode(encoded);
+     console.log(decoded);
 
-    localStorage.setItem('role', encoded.role);
-    localStorage.setItem('userName', encoded.userName);
+  localStorage.setItem('role', decoded.role);
+  
+  localStorage.setItem('userName',decoded.email);
+  localStorage.setItem('Id', decoded.sub);
+    
     this.getRole();
   }
   getRole() {
