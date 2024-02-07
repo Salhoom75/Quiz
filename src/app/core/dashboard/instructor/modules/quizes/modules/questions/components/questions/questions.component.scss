@@ -1,19 +1,18 @@
-@import "../abstracts/variables";
-
+//  @import url(../../../../../../../../../../assets/styles/abstracts/_variables.scss);
 table {
   text-wrap: nowrap;
-  border-collapse: collapse; // 1 
+  border-collapse: collapse; // 1
   border-spacing: 0;
   * {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 15px;
     letter-spacing: 0em;
   }
   th {
     height: 2rem;
-    color: $light-grey-color;
-    background-color: $bg-color;
+    color: rgb(255, 255, 255);
+    background-color: #0d1321;
     text-align: left;
     border: 2px solid white;
   }
@@ -24,7 +23,7 @@ table {
     border-radius: 0px 10px 10px 0px;
   }
   td {
-    border: $border-cardWidth;
+    border: 1px solid rgba(0, 0, 0, 0.2);
   }
   tbody {
     tr {
@@ -32,7 +31,7 @@ table {
     }
     td:first-child,
     td:last-child {
-      border: $border-cardWidth;
+      border: 1px solid rgba(0, 0, 0, 0.2);
       display: block;
     }
     td:first-child {
@@ -47,4 +46,25 @@ table {
       color: transparent;
     }
   }
+
+  .i-org {
+    color: #fb7c19;
+  }
+}
+.groups-card {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 15px;
+  .groups-card:hover {
+    background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
+  }
+}
+
+.i-circle {
+  background-color: #000000c7;
+  border-radius: 50%;
+  height: 7px;
+  width: 7px;
+  color: white;
 }

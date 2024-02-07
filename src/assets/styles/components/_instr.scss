@@ -79,6 +79,9 @@
 #set-up {
   padding-left: 20px;
   .container {
+    >div{
+      border-bottom: 1px solid gray;
+    }
     .truefalse {
       display: flex;
       cursor: pointer;
@@ -172,17 +175,17 @@
     height: 7px;
     width: 7px;
     color: white;
-
-
   }
   .groups-card {
     border-radius: $border-reduis;
     border: $border-cardWidth;
     overflow: hidden;
     margin-bottom: 15px;
-     }
+    .groups-card:hover {
+      background-color: $bs-table-hover-bg;
+    }
+  }
 }
-
 
 #students-instr {
   .container {
@@ -201,8 +204,31 @@
           .student-card {
             margin-bottom: 5px;
           }
+          .student-card:hover {
+            background-color: $bs-table-hover-bg;
+          }
         }
       }
     }
+  }
+}
+
+#view-result{
+  padding: 20px;
+  h3{
+      font-size: 25px;
+      margin-left: 0;
+      span{
+          margin: 0 8px;
+          color: $sec-color;
+      }
+  
+  }
+  .col-md-7{
+      margin-top: 20px;
+      border: 1px solid rgba(128, 128, 128, 0.486);
+      border-radius: 10px;
+      padding: 10px;
+      
   }
 }

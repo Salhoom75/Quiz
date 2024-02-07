@@ -8,6 +8,9 @@ const routes: Routes = [
   { path: '', component: QuizesComponent },
   { path: 'set-up-quiz', component: SetUpQuizComponent },
   { path: 'quiz-detalis', component: QuizDetailsComponent },
+  {
+    path:'questions', loadChildren: () => import('./modules/questions/questions.module').then(m=> m.QuestionsModule)
+  }
 ];
 
 @NgModule({
