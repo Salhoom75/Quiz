@@ -20,8 +20,8 @@ export class AuthService {
     let decoded = jwtDecode(encoded);
     console.log(decoded);
 
-    // localStorage.setItem('role', encoded.role);
-    // localStorage.setItem('userName', encoded.userName);
+    localStorage.setItem('role', encoded.role);
+    localStorage.setItem('userName', encoded.userName);
     this.getRole();
   }
   getRole() {
@@ -33,7 +33,7 @@ export class AuthService {
     }
   }
   onLogin(data: ILogin): Observable<any> {
-    return this._httpClient.post('portal/users/login', data);
+    return this._httpClient.post('auth/login', data);
   }
   onForgetPassword(data: string): Observable<any> {
     return this._httpClient.post('portal/users/forgot-password ', {
