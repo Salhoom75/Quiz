@@ -79,6 +79,9 @@
 #set-up {
   padding-left: 20px;
   .container {
+    >div{
+      border-bottom: 1px solid gray;
+    }
     .truefalse {
       display: flex;
       cursor: pointer;
