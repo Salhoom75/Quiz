@@ -11,9 +11,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  firstName: string = '';
-  lastName: string = '';
-  confirmPass: string = '';
   isLoading: boolean = false;
   constructor(
     private _AuthService: AuthService,
@@ -22,52 +19,36 @@ export class RegisterComponent {
     private _ToastrService: ToastrService
   ) {}
   registerForm = new FormGroup({
-    userName: new FormControl(null, [
+    first_name: new FormControl(null, [
       Validators.required,
-      Validators.minLength(8),
+    ]),
+    last_name: new FormControl(null, [
+      Validators.required,
     ]),
     email: new FormControl(null, [Validators.required, Validators.email]),
-    role: new FormControl('Student', [Validators.required]),
-    country: new FormControl('Egypt', [Validators.required]),
     password: new FormControl(null, [
       Validators.required,
       Validators.pattern(
-        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      ),
+        /^[a-zA-Z0-9]{3,30}$/
+        ),
     ]),
-    confirmPassword: new FormControl(null, [
-      Validators.required,
-      Validators.pattern(
-        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      ),
-    ]),
+    role: new FormControl('Student', [Validators.required]),
   });
   onRegister(data: FormGroup) {
     this.isLoading=true;
     console.log(data.value);
-    data.value.userName = this.firstName + this.lastName;
-    data.value.confirmPassword = this.confirmPass;
-    console.log(data.value.confirmPassword);
-    if (data.value.role == 'Student') {
-      data.value.role = 'user';
-    } else {
-      data.value.role = 'admin';
-    }
-    console.log(data.value.role);
-
-    console.log(data.value.userName);
     this._AuthService.onRegister(data.value).subscribe({
       next: (res) => {
         console.log(res);
-        // this._Router.navigate(['/dashboard']);
+        this._ToastrService.success(res.message,'Welcome You can Login Now');
       },
       error: (err) => {
         this.isLoading=false;
-        this._ToastrService.error(err.error.message, 'error');
+        this._ToastrService.error(err.error.message, 'Error');
       },
       complete: () => {
         this.isLoading=false;
-        this._ToastrService.success('Welcome', data.value.userName);
+        this._Router.navigate(['auth/login']);
       },
     });
   }

@@ -16,15 +16,9 @@ export interface ILogin {
 }
 
 export interface IRegister{
-  userName:{
-    firstName:string,
-    lastName:string
-  },
-  email:string,
-  password:string,
-  confirmPassword:string,
-  phoneNumber:string,
-  country:string,
-  role:string,
-  profileImage:string
+    first_name:string,
+    last_name:string,
+    email:string,
+    password:string,
+    role:string
 }
