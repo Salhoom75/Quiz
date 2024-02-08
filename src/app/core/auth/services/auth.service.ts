@@ -15,7 +15,7 @@ export class AuthService {
       this.getUserToken();
     }else{
       console.log("notfound");
-      
+
     }
   }
   getUserToken() {
@@ -24,10 +24,10 @@ export class AuthService {
      console.log(decoded);
 
   localStorage.setItem('role', decoded.role);
-  
+
   localStorage.setItem('userName',decoded.email);
   localStorage.setItem('Id', decoded.sub);
-    
+
     this.getRole();
   }
   getRole() {
@@ -42,7 +42,7 @@ export class AuthService {
     return this._httpClient.post('auth/login', data);
   }
   onForgetPassword(data: string): Observable<any> {
-    return this._httpClient.post('portal/users/forgot-password ', {
+    return this._httpClient.post('auth/forgot-password ', {
       email: data,
     });
   }
@@ -52,6 +52,6 @@ export class AuthService {
 
   }
   onRegister(data: IRegister): Observable<any> {
-    return this._httpClient.post('portal/users', data);
+    return this._httpClient.post('auth/register', data);
   }
 }
