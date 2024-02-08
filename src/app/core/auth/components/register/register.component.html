@@ -55,31 +55,25 @@
                     <input
                       type="text"
                       class="form-control"
-                      formControlName="userName"
+                      formControlName="first_name"
                       placeholder="First name"
                       aria-describedby="basic-addon3"
-                      [(ngModel)]="firstName"
                     />
                   </div>
                   <div
                     class="alert alert-danger py-1"
                     *ngIf="
-                      registerForm.get('userName')?.touched &&
-                      registerForm.get('userName')?.status == 'INVALID'
+                      registerForm.get('first_name')?.touched &&
+                      registerForm.get('first_name')?.status == 'INVALID'
                     "
                   >
                     <p
                       class="mb-0"
-                      *ngIf="registerForm.get('userName')?.getError('required')"
+                      *ngIf="registerForm.get('first_name')?.getError('required')"
                     >
                    First Name is required
                     </p>
-                    <p
-                    class="mb-0"
-                    *ngIf="registerForm.get('userName')?.errors"
-                  >
-                  First Name must be more 8 characters
-                  </p>
+
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -90,32 +84,26 @@
                     <input
                       type="text"
                       class="form-control"
-                      formControlName="userName"
+                      formControlName="last_name"
                       placeholder="Last name"
                       aria-describedby="basic-addon3"
-                      [(ngModel)]="lastName"
 
                     />
                   </div>
                   <div
                     class="alert alert-danger py-1"
                     *ngIf="
-                    registerForm.get('userName')?.touched &&
-                    registerForm.get('userName')?.status == 'INVALID'
+                    registerForm.get('last_name')?.touched &&
+                    registerForm.get('last_name')?.status == 'INVALID'
                   "
                   >
                     <p
                       class="mb-0"
-                      *ngIf="registerForm.get('userName')?.getError('required')"
+                      *ngIf="registerForm.get('last_name')?.getError('required')"
                     >
                    Last Name is required
                     </p>
-                    <p
-                    class="mb-0"
-                    *ngIf="registerForm.get('userName')?.errors"
-                  >
-                  Last Name must be more 8 characters
-                  </p>
+
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -195,7 +183,6 @@
                       formControlName="password"
                       class="form-control"
                       id="basic-url"
-                      [(ngModel)]="confirmPass"
                       placeholder="password"
                       aria-describedby="basic-addon3"
                     />
@@ -217,15 +204,14 @@
                       class="mb-0"
                       *ngIf="registerForm.get('password')?.getError('pattern')"
                     >
-                      Min 8,Max 16 ,special Char and number
-                    </p>
+                    password must contain charachters or numbers only, min 3 and max 30                    </p>
                   </div>
                 </div>
 
                 <div
                   class="col-md-12 d-flex justify-content-start align-items-center"
                 >
-                  <button  class="button" *ngIf="isLoading ==false">
+                  <button [disabled]="!registerForm.valid" class="button" *ngIf="isLoading ==false">
                     <span class="text fw-bold">Sign up</span
                       ><span><i class="fa-solid  fa-circle-check"></i></span>
                   </button>
