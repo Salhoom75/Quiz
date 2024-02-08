@@ -5,8 +5,8 @@ export interface ILogin {
   password: string;
 }
 export interface IReset {
+  otp: string;
   email: string;
-  OTP: string;
   password: string;
 }
 export interface ILogin {
