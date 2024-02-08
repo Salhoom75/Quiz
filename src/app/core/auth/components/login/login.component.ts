@@ -23,9 +23,9 @@ export class LoginComponent {
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [
       Validators.required,
-      // Validators.pattern(
-      //   // /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      // ),
+      Validators.pattern(
+        /^[a-zA-Z0-9]{3,30}$/
+        ),
     ]),
   });
   onLogin(data: FormGroup) {
@@ -40,7 +40,7 @@ export class LoginComponent {
         // localStorage.setItem('Id', res.data.profile._id);
         this._AuthService.getUserToken()
          this._ToastrService.success(res.data.profile.userName , 'Welcome')
-        
+
 
       },error:(err)=>{
         this.isLoading=false;

@@ -49,7 +49,7 @@
                       </div>
                       <div class="alert alert-danger py-1" *ngIf="loginForm.get('password')?.touched&&loginForm.get('password')?.status=='INVALID'">
                         <p class="mb-0" *ngIf="loginForm.get('password')?.getError('required')">Password is required</p>
-                        <p class="mb-0" *ngIf="loginForm.get('password')?.getError('pattern')">Min 8,Max 16 ,special Char and number</p>
+                        <p class="mb-0" *ngIf="loginForm.get('password')?.getError('pattern')">password must contain charachters or numbers only, min 3 and max 30</p>
                       </div>
                     </div>
 
