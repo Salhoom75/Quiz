@@ -42,9 +42,7 @@ export class AuthService {
     return this._httpClient.post('auth/login', data);
   }
   onForgetPassword(data: string): Observable<any> {
-    return this._httpClient.post('auth/forgot-password ', {
-      email: data,
-    });
+    return this._httpClient.post('auth/forgot-password', {email: data});
   }
 
   onResetPassword(data: IReset): Observable<any> {
