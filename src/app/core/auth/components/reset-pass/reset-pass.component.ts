@@ -18,40 +18,20 @@ export class ResetPassComponent {
   hide: boolean = true;
   userEmail = localStorage.getItem('email');
   message: any;
-  resetPassword = new FormGroup(
-    {
-      email: new FormControl(this.userEmail, [
-        Validators.required,
-        Validators.email,
-      ]),
-      seed: new FormControl(null, [Validators.required]),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(
-          '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$'
-        ),
-      ]),
-      confirmPassword: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(
-          '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$'
-        ),
-      ]),
-    },
-    { validators: this.passwordMatchValidator }
-  );
-  passwordMatchValidator(control: any) {
-    let password = control.get('password');
-    let confirmPassword = control.get('confirmPassword');
-    if (password.value == confirmPassword.value) {
-      return null;
-    } else {
-      control
-        .get('confirmPassword')
-        ?.setErrors({ invalid: 'password and confirm password not match' });
-      return { invalid: 'password and confirm password not match' };
-    }
-  }
+  resetPassword = new FormGroup({
+    email: new FormControl(this.userEmail, [
+      Validators.required,
+      Validators.email,
+    ]),
+    seed: new FormControl(null, [Validators.required]),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(
+        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$'
+      ),
+    ]),
+  });
+
   onsubmit(data: FormGroup) {
     this._AuthService.onResetPassword(data.value).subscribe({
       next: (res) => {

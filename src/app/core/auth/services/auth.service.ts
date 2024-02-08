@@ -42,8 +42,7 @@ export class AuthService {
   }
 
   onResetPassword(data: IReset): Observable<any> {
-    return this._httpClient.post('portal/users/reset-password', data);
-
+    return this._httpClient.post('auth/reset-password', data);
   }
   onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('portal/users', data);
