@@ -18,20 +18,31 @@ export class ResetPassComponent {
   hide: boolean = true;
   userEmail = localStorage.getItem('email');
   message: any;
-  resetPassword = new FormGroup({
-    email: new FormControl(this.userEmail, [
-      Validators.required,
-      Validators.email,
-    ]),
-    seed: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [
-      Validators.required,
-      Validators.pattern(
-        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$'
-      ),
-    ]),
-  });
+  resetPassword = new FormGroup(
+    {
+      otp: new FormControl(null, [Validators.required]),
+      email: new FormControl(this.userEmail, [
+        Validators.required,
+        Validators.email,
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9]{3,30}$/),
+      ]),
+    }
+    // { validators: this.matchpasswords }
+  );
 
+  // matchpasswords(form: any) {
+  //   let pass = form.get('password');
+  //   let confimpass = form.get('confirmPassword');
+  //   if (pass.value == confimpass.value) {
+  //     return null;
+  //   } else {
+  //     confimpass.setErrors({ invalid: 'pass w confirmpass not match' });
+  //     return { invalid: 'pass w confirmpass' };
+  //   }
+  // }
   onsubmit(data: FormGroup) {
     this._AuthService.onResetPassword(data.value).subscribe({
       next: (res) => {
