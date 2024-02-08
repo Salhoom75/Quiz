@@ -1,15 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditComponent } from '../add-edit/add-edit.component';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
+import { GroupService } from '../../services/group.service';
+import { Group } from '../../models/group';
 
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',
   styleUrls: ['./groups.component.scss']
 })
-export class GroupsComponent {
-  constructor(public dialog: MatDialog) {}
+export class GroupsComponent implements OnInit{
+
+  Groupdata1:Group[]=[];
+  Groupdata2:Group[]=[];
+  constructor(public dialog: MatDialog,private _GroupService:GroupService) {}
+ngOnInit(): void {
+  this.onGetAllGroups()
+}
+
+  onGetAllGroups(){
+    this._GroupService.getAllGroups().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.Groupdata1=res.slice(0,5);
+        this.Groupdata2=res.slice(5,10);
+      }
+    })
+  }
 
   openDialogAddEdit(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {

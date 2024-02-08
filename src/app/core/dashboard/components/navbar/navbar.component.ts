@@ -16,7 +16,7 @@ export class NavbarComponent {
   resdata: any;
   constructor(public dialog: MatDialog, private _UsersService: UsersService) {}
   ngOnInit(): void {
-    this.getuserProfile(this.userId);
+    // this.getuserProfile(this.userId);
   }
 
   openDialog(): void {
