@@ -8,40 +8,47 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  isLoading: boolean = false;
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     public dialog: MatDialog,
     private _ToastrService: ToastrService
   ) {}
-  loginForm = new FormGroup({
+  registerForm = new FormGroup({
+    first_name: new FormControl(null, [
+      Validators.required,
+    ]),
+    last_name: new FormControl(null, [
+      Validators.required,
+    ]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [
       Validators.required,
       Validators.pattern(
-        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      ),
+        /^[a-zA-Z0-9]{3,30}$/
+        ),
     ]),
+    role: new FormControl('Student', [Validators.required]),
   });
-  onLogin(data: FormGroup) {
+  onRegister(data: FormGroup) {
+    this.isLoading=true;
     console.log(data.value);
-    this._AuthService.onLogin(data.value).subscribe({
+    this._AuthService.onRegister(data.value).subscribe({
       next: (res) => {
         console.log(res);
-
-        localStorage.setItem('userToken', res.data.token);
-
-        localStorage.setItem('role', res.data.user.role);
-        localStorage.setItem('userName', res.data.user.userName);
-        localStorage.setItem('Id', res.data.user._id);
-        this._ToastrService.success(res.data.user.userName, 'Welcome');
-        this._Router.navigate(['/dashboard']);
+        this._ToastrService.success(res.message,'Welcome You can Login Now');
       },
       error: (err) => {
-        this._ToastrService.error(err.error.message, 'error');
+        this.isLoading=false;
+        this._ToastrService.error(err.error.message, 'Error');
+      },
+      complete: () => {
+        this.isLoading=false;
+        this._Router.navigate(['auth/login']);
       },
     });
   }

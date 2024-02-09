@@ -1,3 +1,5 @@
+@import "../abstracts/variables";
+
 img{
     width: 100%;
     display: block;
@@ -7,15 +9,27 @@ a{
   text-decoration: none;
 
 }
+.pointer{
+    cursor: pointer;
+}
 
 //ovveride bootstrap
 .form-select:focus,
 .form-control:focus{
-  border-color: #009247;
+  border-color: $sec-color;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgb(0 146 71 / 21%);
+
+}
+.dropdown-menu{
+
+  --bs-dropdown-link-active-bg:#C5D86D;
 }
 
-.pointer{
-    cursor: pointer;
+.pagination{
+  --bs-pagination-color: $bg-color;
+  --bs-link-hover-color: #C5D86D;
+  --bs-pagination-active-bg: #C5D86D;
+  --bs-pagination-active-border-color: #C5D86D;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgb(0 146 71 / 21%);
 }

@@ -7,13 +7,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TestComponent } from './components/test/test.component';
+import { LogoutComponent } from './components/navbar/components/logout/logout.component';
+import { ChangePassComponent } from './components/navbar/components/change-pass/change-pass.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     NavbarComponent,
     SidebarComponent,
-    TestComponent
+    TestComponent,
+    LogoutComponent,
+    ChangePassComponent
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule],
 })

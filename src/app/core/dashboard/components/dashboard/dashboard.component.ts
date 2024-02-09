@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  receivedBoolean: boolean = true;
 
+  constructor() { }
+
+  handleBooleanChange(value: boolean) {
+    this.receivedBoolean = value;
+  }
 }

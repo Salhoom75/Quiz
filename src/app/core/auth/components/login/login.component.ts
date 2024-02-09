@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  isLoading: boolean = false;
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
@@ -23,33 +24,26 @@ export class LoginComponent {
     password: new FormControl(null, [
       Validators.required,
       Validators.pattern(
-        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      ),
+        /^[a-zA-Z0-9]{3,30}$/
+        ),
     ]),
   });
   onLogin(data: FormGroup) {
+    this.isLoading=true;
     console.log(data.value);
     this._AuthService.onLogin(data.value).subscribe({
       next: (res) => {
         console.log(res);
+        localStorage.setItem('userToken', res.data.accessToken);
+        this._AuthService.getUserToken();
+        this._ToastrService.success(res.data.profile.userName , 'Welcome');
 
-        localStorage.setItem('userToken', res.data.token);
-
-        localStorage.setItem('role', res.data.user.role);
-        localStorage.setItem('userName', res.data.user.userName);
-        localStorage.setItem('Id', res.data.user._id);
-         this._ToastrService.success(res.data.user.userName , 'Welcome')
-          // this._Router.navigate(['/dashboard/student'])
-          if(localStorage.getItem('role')=='user'){
-            this._Router.navigate(['/dashboard/student/home'])
-           }
-           else{
-            this._Router.navigate(['/dashboard/instructor/home']);
-           }
-       
-  
       },error:(err)=>{
+        this.isLoading=false;
          this._ToastrService.error(err.error.message , 'error')
+      },complete:()=>{
+        this.isLoading=false;
+        this._Router.navigate(['/dashboard'])
       }
     })
   }

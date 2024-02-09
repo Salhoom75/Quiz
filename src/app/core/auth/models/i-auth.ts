@@ -5,12 +5,21 @@ export interface ILogin {
   password: string;
 }
 export interface IReset {
+  otp: string;
   email: string;
-  OTP: string;
   password: string;
-  confirmPassword: string;
 }
 export interface ILogin {
+  email: string;
+  password: string;
+}
+
+
+export interface IRegister{
+    first_name:string,
+    last_name:string,
     email:string,
-    password:string
+    password:string,
+    role:string
+
 }

@@ -1,69 +1,305 @@
 @import "../abstracts/variables";
-
-#forget-pass {
-  div:first-child {
-    border-bottom:1px solid #18181a;
-    a{
-      border-left:1px solid #18181a;
-
+#login ,#reset-pass{
+  height: 100vh;
+  background-color: $bg-color;
+  .row {
+    padding: 15px;
+    .left-side {
+      .content {
+        h2 {
+          font-weight: 700;
+          color: $sec-color;
+          font-size: 1.7rem;
+        }
+        .two-sign {
+          display: flex;
+          .sign {
+            background-color: #333;
+            padding: 10px 30px;
+            border-radius: 10px;
+            margin: 5px;
+            &.active {
+              border: 3px solid $sec-color;
+            }
+            div {
+              font-size: 40px;
+            }
+            h3 {
+              font-size: 20px;
+              color: #fff;
+            }
+          }
+        }
+        form {
+          .col-md-12 {
+            margin: 20px 0;
+            label {
+              color: white;
+              margin: 5px 0;
+            }
+            .input-group-text {
+              background-color: transparent;
+            }
+            input {
+              background-color: transparent;
+              border: 2px solid white;
+              padding: 10px;
+              color: #fff;
+              &::placeholder {
+                color: white;
+              }
+            }
+            a {
+              color: white;
+            }
+          }
+        }
+        .col-md-12 {
+          button {
+            // background-color: #fff;
+            // color: $bg-color;
+            font-size: 20px;
+            font-weight: 600;
+            // padding: 10px 20px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+    .reset-btn{
+      background-color: #fff;
+      color:black;
+font-size: 23px;
+font-weight: 550;    }
+  }
+  .col-md-6 {
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-color;
+      border-radius: 10px;
+      height: 100%;
+      img {
+        width: 60% !important;
+      }
     }
   }
-  .button{
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #18181a;
-    color: #18181a;
-    display: inline-block;
-    font-size: 15px;
-    line-height: 15px;
-    padding: 18px 18px 17px;
-    text-decoration: none;
-    cursor: pointer;
-    background: #fff;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  .button span:first-child {
-    position: relative;
-    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
-    z-index: 10;
-  }
-  .button span:last-child {
-    color: $sec-color;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-    z-index: 100;
-    opacity: 0;
-    top: 50%;
-    left: 50%;
-    transform: translateY(225%) translateX(-50%);
-    height: 14px;
-    line-height: 13px;
-  }
+}
 
-  .button:after {
-    content: "";
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#change-pass {
+  background-color: $bg-color;
+  .form-control {
+    background-color: transparent;
+  
+  }
+  ::placeholder { 
+    color:    rgba(255, 255, 255, 0.477);
+    font-size: 14px;
+ }
+  .row {
+    padding: 15px;
+    .left-side {
+      .content {
+        h2 {
+          font-weight: 700;
+          color: $sec-color;
+          font-size: 1.7rem;
+        }
+        .two-sign {
+          display: flex;
+          .sign {
+            background-color: #333;
+            padding: 10px 30px;
+            border-radius: 10px;
+            margin: 5px;
+            &.active {
+              border: 3px solid $sec-color;
+            }
+            div {
+              font-size: 40px;
+            }
+            h3 {
+              font-size: 20px;
+              color: #fff;
+            }
+          }
+        }
+        form {
+          .col-md-12 {
+            margin: 20px 0;
+            label {
+              color: white;
+              margin: 5px 0;
+            }
+            .input-group-text {
+              background-color: transparent;
+            }
+            input {
+              background-color: transparent;
+              border: 2px solid white;
+              padding: 10px;
+              color: #fff;
+              &::placeholder {
+                color: white;
+              }
+            }
+            a {
+              color: white;
+            }
+          }
+        }
+        .col-md-12 {
+          button {
+            // background-color: #fff;
+            // color: $bg-color;
+            font-size: 20px;
+            font-weight: 600;
+            // padding: 10px 20px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+  .col-md-6 {
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-color;
+      border-radius: 10px;
+      height: 100%;
+      img {
+        width: 60% !important;
+      }
+    }
+  }
+  .green-text {
+    color: $sec-color;
+  }
+}
+#forget-pass {
+  div:first-child {
+    border-bottom: 1px solid #18181a;
+    a {
+      border-left: 1px solid #18181a;
+    }
+  }
+}
+
+// #reset-pass {
+//   background-color: $bg-color;
+//   .paragh {
+//     h4 {
+//       color: $sec-color;
+//     }
+//   }
+//   span i {
+//     background-color: $sec-color;
+//   }
+//   .eye-icon {
+//     position: absolute;
+//     top: 30%;
+//     right: 5%;
+//     z-index: 100;
+//   }
+// }
+
+#reg-auth {
+  background-color: $bg-color;
+  .row {
+    padding: 15px;
+    .left-side {
+      .content {
+        h2 {
+          font-weight: 700;
+          color: $sec-color;
+          font-size: 1.7rem;
+        }
+        .two-sign {
+          display: flex;
+          .sign {
+            background-color: #333;
+            padding: 10px 30px;
+            border-radius: 10px;
+            margin: 5px;
+            &.active {
+              border: 3px solid $sec-color;
+            }
+            div {
+              font-size: 40px;
+            }
+            h3 {
+              font-size: 20px;
+              color: #fff;
+            }
+          }
+        }
+        form {
+          .col-md-12,
+          .col-md-6 {
+            label {
+              color: white;
+              margin: 5px 0;
+            }
+            .input-group-text {
+              background-color: transparent;
+            }
+            input {
+              background-color: transparent;
+              // border: 2px solid white;
+              padding: 10px;
+              color: #fff;
+              &::placeholder {
+                color: white;
+              }
+            }
+
+            a {
+              color: white;
+            }
+            #inputState {
+              color: white;
+              background-color: $bg-color;
+            }
+          }
+        }
+        .col-md-12 {
+          button {
+            // background-color: #fff;
+            // color: $bg-color;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+  .col-md-6 {
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-color;
+      border-radius: 10px;
+      height: 100%;
+      img {
+        width: 60% !important;
+      }
+    }
+  }
+  select {
+    position: relative;
+    color: white;
     background-color: $bg-color;
-    transform-origin: bottom center;
-    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
-    transform: skewY(9.3deg) scaleY(0);
-    z-index: 50;
   }
-  .button:hover span:last-child {
-    transform: translateX(-50%) translateY(-100%);
-    opacity: 1;
-    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
-  }
-  .button:hover::after {
-    transform-origin: bottom center;
-    transform: skewY(9.3deg) scale(4);
+  select + .fa-arrow-down {
+    color: $bg-color;
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }

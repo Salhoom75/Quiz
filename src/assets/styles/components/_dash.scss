@@ -1,0 +1,124 @@
+@import "../abstracts/variables";
+
+#side-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  .container-fluid{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: $border-cardWidth;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    transition: all 600ms ease-in-out;
+    div:first-child {
+      border-bottom: $border-cardWidth;
+      a {
+        border-radius: 12px;
+        padding: 2px 5px;
+        color: black;
+      }
+      a:hover {
+        background-color: antiquewhite;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li,
+    .ico-item {
+      cursor: pointer;
+      display: flex;
+      position: relative;
+      // justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+      gap: 0.5rem;
+      border-bottom: $border-cardWidth;
+      svg {
+        background-color: antiquewhite;
+        border-radius: 12px;
+        padding: 2px 5px;
+        color: black;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    li:hover::before,
+    .ico-item:hover::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      background-color: black;
+      right: 0;
+      top: 0;
+    }
+    .ico-item {
+      position: relative;
+      border-top: $border-cardWidth;
+    }
+  }
+
+}
+
+#nav-bar {
+  height: 82.9px;
+  display: flex;
+  flex-direction: row;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  transition: all 600ms ease-in-out;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  // padding: 12.5px 0px;
+  .green-text {
+    color: $sec-color;
+  }
+  // .line {
+  //   // border-right: $border-cardWidth;
+  // }
+  .row {
+    .col-md-8 {
+      padding: 22.5px;
+    }
+    .col-md-4 {
+      border-left: $border-cardWidth;
+    }
+  }
+
+}
+#addgroup{
+  color: #000000  ;
+
+ .title{
+  border-bottom: $border-cardWidth;
+
+ }
+ .icon {
+  border-left: $border-cardWidth;
+ 
+  .fa-check{
+    border-right: $border-cardWidth;
+
+  }
+ }
+ .col-md-12 span{
+background-color:$primary-color;
+ }
+}
+#log-out,#delete-dialog {
+  align-content: center;
+  margin: auto;
+  padding: 20px 20px;
+  background-color: blanchedalmond;
+  position: relative;
+
+}

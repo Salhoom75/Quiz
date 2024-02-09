@@ -1,75 +1,235 @@
-<section class="">
+<section id="reg-auth">
   <div class="container-fluid h-100 p-4">
     <div class="row h-100">
       <div class="col-md-6">
-
-          <div class="col-md-3">
-            <div>
-              <img src="../../../../../assets/styles/images/Logo-white.svg" alt="" />
-            </div>
-
+        <div class="col-md-3">
+          <div>
+            <img
+              src="../../../../../assets/images/Logo-white.svg"
+              alt=""
+            />
+          </div>
         </div>
-       <div class="left-side mt-5">
-        <div class="content ">
+        <div class="left-side mt-5">
+          <div class="content">
             <h2>Continue your learning journey with QuizWiz!</h2>
             <div class="two-sign">
-              <div class="sign pointer" routerLink="/auth/login" routerLinkActive="active">
-
-                      <div class="text-center mb-2"><img src="../../../../../assets/styles/images/signin-ico.svg"  class="img-fluid w-75"></div>
-                      <h3>Sign in</h3>
-
+              <div
+                class="sign pointer"
+                routerLink="/auth/login"
+                routerLinkActive="active"
+              >
+                <div class="mb-2 d-flex justify-content-center">
+                  <img
+                    src="../../../../../assets/images/signin-ico.svg"
+                    class="img-fluid w-75"
+                  />
+                </div>
+                <h3>Sign in</h3>
               </div>
-              <div class="sign pointer" routerLink="/auth/register" routerLinkActive="active">
-                <div class="text-center mb-2"><img src="../../../../../assets/styles/images/signup-ico.svg"  class="img-fluid text-white w-100"></div>
+              <div
+                class="sign pointer"
+                routerLink="/auth/register"
+                routerLinkActive="active"
+              >
+                <div class="text-center mb-2">
+                  <img
+                    src="../../../../../assets/images/signup-ico.svg"
+                    class="img-fluid w-100"
+                  />
+                </div>
                 <h3>Sign up</h3>
-
               </div>
             </div>
 
-            <form [formGroup]="loginForm" (submit)="onLogin(loginForm)">
-              <div class=" gy-4 mt-3">
-                <div class="col-md-12">
-                    <label for="">Registered email address</label>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-envelope" style="color: #FFf;"></i></span>
-                      <input type="text" class="form-control"formControlName="email"  placeholder="email" aria-describedby="basic-addon3">
+            <form
+              [formGroup]="registerForm"
+              (submit)="onRegister(registerForm)"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="">Your First Name</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                      ><i class="fa-solid fa-id-card text-white"></i></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="first_name"
+                      placeholder="First name"
+                      aria-describedby="basic-addon3"
+                    />
+                  </div>
+                  <div
+                    class="alert alert-danger py-1"
+                    *ngIf="
+                      registerForm.get('first_name')?.touched &&
+                      registerForm.get('first_name')?.status == 'INVALID'
+                    "
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('first_name')?.getError('required')"
+                    >
+                   First Name is required
+                    </p>
 
                   </div>
-                  <div class="alert alert-danger py-1" *ngIf="loginForm.get('email')?.touched&&loginForm.get('email')?.status=='INVALID'">
-                      <p class="mb-0" *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
-                      <p class="mb-0" *ngIf="loginForm.get('email')?.getError('email')">Please Enter a valid email ex:abc@abc</p>
-                    </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="">Your Last Name</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                      ><i class="fa-solid fa-id-card text-white"></i></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="last_name"
+                      placeholder="Last name"
+                      aria-describedby="basic-addon3"
+
+                    />
+                  </div>
+                  <div
+                    class="alert alert-danger py-1"
+                    *ngIf="
+                    registerForm.get('last_name')?.touched &&
+                    registerForm.get('last_name')?.status == 'INVALID'
+                  "
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('last_name')?.getError('required')"
+                    >
+                   Last Name is required
+                    </p>
+
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="">Your E-mail address</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                      ><i class="fa-solid fa-envelope" style="color: #fff"></i
+                    ></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="email"
+                      placeholder="email"
+                      aria-describedby="basic-addon3"
+                    />
+                  </div>
+                  <div
+                    class="alert alert-danger py-1"
+                    *ngIf="
+                      registerForm.get('email')?.touched &&
+                      registerForm.get('email')?.status == 'INVALID'
+                    "
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('email')?.getError('required')"
+                    >
+                      Email is required
+                    </p>
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('email')?.getError('email')"
+                    >
+                      Please Enter a valid email ex:abc@abc
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="">Your Role</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                      ><i class="fa-solid fa-envelope" style="color: #fff"></i
+                    ></span>
+
+                    <select id="inputState" class="form-control btn-lg position-relative" formControlName="role" >
+                      <option selected>Student</option>
+                      <option>Instructor</option>
+
+                    </select>
+
+                    <i class="fa-solid fa-arrow-down text-white"></i>
+
+                  </div>
+                  <div
+                    class="alert alert-danger py-1"
+                    *ngIf="
+                      registerForm.get('role')?.touched &&
+                      registerForm.get('role')?.status == 'INVALID'
+                    "
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('role')?.getError('required')"
+                    >
+                    role is required
+                    </p>
+                  </div>
                 </div>
                 <div class="col-md-12 position-relative">
-                    <label for="">Password</label>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon3"><i class="fa-solid fa-key" style="color: #FFf;"></i></span>
-                      <input type="password" formControlName="password" class="form-control" id="basic-url" placeholder="password" aria-describedby="basic-addon3">
-                    </div>
-                    <div class="alert alert-danger py-1" *ngIf="loginForm.get('password')?.touched&&loginForm.get('password')?.status=='INVALID'">
-                      <p class="mb-0" *ngIf="loginForm.get('password')?.getError('required')">Password is required</p>
-                      <p class="mb-0" *ngIf="loginForm.get('password')?.getError('pattern')">Min 8,Max 16 ,special Char and number</p>
-                    </div>
+                  <label for="">Your Password</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                      ><i class="fa-solid fa-key" style="color: #fff"></i
+                    ></span>
+                    <input
+                      type="password"
+                      formControlName="password"
+                      class="form-control"
+                      id="basic-url"
+                      placeholder="password"
+                      aria-describedby="basic-addon3"
+                    />
                   </div>
-
-
-                <div class="col-md-12 d-flex justify-content-between align-items-center">
-                    <button [disabled]="loginForm.invalid">Sign in</button>
-                    <a >Forget Password?</a>
+                  <div
+                    class="alert alert-danger py-1"
+                    *ngIf="
+                      registerForm.get('password')?.touched &&
+                      registerForm.get('password')?.status == 'INVALID'
+                    "
+                  >
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('password')?.getError('required')"
+                    >
+                      Password is required
+                    </p>
+                    <p
+                      class="mb-0"
+                      *ngIf="registerForm.get('password')?.getError('pattern')"
+                    >
+                    password must contain charachters or numbers only, min 3 and max 30                    </p>
+                  </div>
                 </div>
 
+                <div
+                  class="col-md-12 d-flex justify-content-start align-items-center"
+                >
+                  <button [disabled]="!registerForm.valid" class="button" *ngIf="isLoading ==false">
+                    <span class="text fw-bold">Sign up</span
+                      ><span><i class="fa-solid  fa-circle-check"></i></span>
+                  </button>
+                  <button *ngIf="isLoading ==true" class="butt-loader w-25">
+
+                    <app-button-loader class="position-relative"></app-button-loader>
+
+                  </button>
+                </div>
               </div>
-
-
             </form>
           </div>
-       </div>
+        </div>
       </div>
-      <div class="col-md-6  ">
-          <div class="image">
-              <img src="../../../../../assets/styles/images/BGImage.svg" alt="">
-          </div>
-
+      <div class="col-md-6">
+        <div class="image">
+          <img src="../../../../../assets/images/BGImage.svg" alt="" />
+        </div>
       </div>
     </div>
   </div>
