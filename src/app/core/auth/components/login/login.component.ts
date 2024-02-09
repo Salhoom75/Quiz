@@ -35,12 +35,8 @@ export class LoginComponent {
       next: (res) => {
         console.log(res);
         localStorage.setItem('userToken', res.data.accessToken);
-        // localStorage.setItem('role', res.data.profile.role);
-        // localStorage.setItem('userName', res.data.profile.first_name);
-        // localStorage.setItem('Id', res.data.profile._id);
-        this._AuthService.getUserToken()
-         this._ToastrService.success(res.data.profile.userName , 'Welcome')
-
+        this._AuthService.getUserToken();
+        this._ToastrService.success(res.data.profile.userName , 'Welcome');
 
       },error:(err)=>{
         this.isLoading=false;

@@ -1,6 +1,5 @@
 <section id="side-bar">
   <div class="container-fluid p-0">
-
     <div
       class="d-flex pt-4 px-4 py-3"
       [class]="isOpened ? 'justify-content-between' : 'justify-content-center'"
@@ -14,50 +13,25 @@
     </div>
     <div>
       <ul>
-        <li
-          [class]="isOpened ? '' : 'justify-content-center'"
-          routerLink="/dashboard/instructor/home"
-        >
-          <app-home-icon></app-home-icon
-          ><span [ngClass]="isOpened ? '' : 'd-none'">Dashboard</span>
-        </li>
-        <li
-          [class]="isOpened ? '' : 'justify-content-center'"
-          routerLink="/dashboard/instructor/students"
-        >
-          <app-students-icon></app-students-icon>
-          <span [ngClass]="isOpened ? '' : 'd-none'">Students</span>
-        </li>
-        <li
-          [class]="isOpened ? '' : 'justify-content-center'"
-          routerLink="/dashboard/instructor/quizes"
-        >
-          <app-quizes-icon></app-quizes-icon>
 
-          <span [ngClass]="isOpened ? '' : 'd-none'">Quizes</span>
-        </li>
-        <li
-          [class]="isOpened ? '' : 'justify-content-center'"
-          routerLink="/dashboard/instructor/results"
-        >
-          <app-result-icon></app-result-icon>
+        <ng-container *ngFor="let item of menu" >
 
-          <span [ngClass]="isOpened ? '' : 'd-none'">Results</span>
-        </li>
-        <li
+          <li
+             *ngIf="item.isActive"
+            [class]="isOpened ? '' : 'justify-content-center'"
+            [routerLink]="item.link"
+          >
+          <span [ngClass]="item.icon"></span>
+            <span [ngClass]="isOpened ? '' : 'd-none'">{{ item.title }}</span>
+          </li>
 
-          [class]="isOpened ? '' : 'justify-content-center'"
-          routerLink="/dashboard/instructor/groups"
-        >
-          <app-students-icon></app-students-icon>
-          <span [ngClass]="isOpened ? '' : 'd-none'">Groups</span>
-        </li>
+        </ng-container>
+
       </ul>
     </div>
     <div class="mt-auto ico-item">
       <i class="fa-regular fa-2x fa-circle-question"></i>
       <span [ngClass]="isOpened ? '' : 'd-none'">Help</span>
     </div>
-
   </div>
 </section>
