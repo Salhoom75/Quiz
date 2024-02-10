@@ -4,6 +4,10 @@ export interface ILogin {
   email: string;
   password: string;
 }
+export interface IChange {
+  password: string;
+  password_new: string;
+}
 export interface IReset {
   email: string;
   OTP: string;
