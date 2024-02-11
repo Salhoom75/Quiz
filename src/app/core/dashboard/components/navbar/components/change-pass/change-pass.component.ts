@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +14,8 @@ export class ChangePassComponent {
   constructor(
     private _AuthService: AuthService,
     private _ToastrService: ToastrService,
-    private _Router: Router
+    private _Router: Router,
+    private _DialogRef:DialogRef
   ) {}
 
   isLoading: boolean = false;
@@ -32,18 +34,12 @@ export class ChangePassComponent {
     ]),
   });
 
-  onChangePass(data: FormGroup) {
+  ChangePass(data: FormGroup) {
     this.isLoading = true;
-    console.log(data.value);
     this._AuthService.onChangePass(data.value).subscribe({
       next: (res) => {
-        console.log(res);
-        localStorage.setItem('userToken', res.data.token);
-        localStorage.setItem('role', res.data.user.role);
-        localStorage.setItem('userName', res.data.user.userName);
-        localStorage.setItem('Id', res.data.user._id);
-        this._ToastrService.success(res.data.user.userName, 'Welcome');
-        this._Router.navigate(['/dashboard']);
+        this._ToastrService.success(res.message)
+
       },
       error: (err) => {
         this.isLoading = false;
@@ -53,5 +49,9 @@ export class ChangePassComponent {
         this.isLoading = false;
       },
     });
+  }
+
+  onClose():void{
+    this._DialogRef.close();
   }
 }
