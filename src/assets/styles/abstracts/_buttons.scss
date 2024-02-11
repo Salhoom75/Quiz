@@ -112,3 +112,11 @@
   color:$sec-color;
   transform: scale(1.5);
 }
+
+.orange-btn{
+  background-color: $primary-color;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: $border-reduis;
+  border: 0;
+}

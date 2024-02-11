@@ -79,6 +79,9 @@
 #set-up {
   padding-left: 20px;
   .container {
+    >div{
+      border-bottom: 1px solid gray;
+    }
     .truefalse {
       display: flex;
       cursor: pointer;
@@ -208,4 +211,50 @@
       }
     }
   }
+}
+
+#view-result{
+  padding: 20px;
+  h3{
+      font-size: 25px;
+      margin-left: 0;
+      span{
+          margin: 0 8px;
+          color: $sec-color;
+      }
+
+  }
+  .col-md-7{
+      margin-top: 20px;
+      border: 1px solid rgba(128, 128, 128, 0.486);
+      border-radius: 10px;
+      padding: 10px;
+
+  }
+}
+
+#questions-table{
+  table {
+    .i-org {
+      color: #fb7c19;
+    }
+  }
+
+  .groups-card {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 15px;
+    .groups-card:hover {
+      background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
+    }
+  }
+  .i-circle {
+    background-color: #000000c7;
+    border-radius: 50%;
+    height: 7px;
+    width: 7px;
+    color: white;
+  }
+
 }

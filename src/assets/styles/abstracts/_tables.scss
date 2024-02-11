@@ -2,7 +2,7 @@
 
 table {
   text-wrap: nowrap;
-  border-collapse: collapse; // 1 
+  border-collapse: collapse; // 1
   border-spacing: 0;
   * {
     font-size: 12px;
@@ -33,13 +33,15 @@ table {
     td:first-child,
     td:last-child {
       border: $border-cardWidth;
-      display: block;
+      display: table-cell;
+      // display: block;
+
     }
     td:first-child {
-      border-radius: 10px 0px 0px 10px;
+      // border-radius: 10px 0px 0px 10px;
     }
     td:last-child {
-      border-radius: 0px 10px 10px 0px;
+      // border-radius: 0px 10px 10px 0px;
     }
     hr {
       height: 5px;

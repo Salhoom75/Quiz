@@ -6,27 +6,25 @@ import { studentGuard } from '../guards/student.guard';
 import { TestComponent } from './components/test/test.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-
   {
     path: '',
     component: DashboardComponent,
     children: [
-      {path:'',redirectTo:'instructor',pathMatch:'full'},
       {
         path: 'instructor',
-        // canActivate: [instructorGuard],
+        canActivate: [instructorGuard],
         loadChildren: () =>
-          import('./instructor/instructor.module').then(
+          import('../dashboard/instructor/instructor.module').then(
             (m) => m.InstructorModule
           ),
       },
-
       {
         path: 'student',
-        // canActivate: [studentGuard],
+        canActivate: [studentGuard],
         loadChildren: () =>
-          import('./student/student.module').then((m) => m.StudentModule),
+          import('../dashboard/student/student.module').then(
+            (m) => m.StudentModule
+          ),
       },
     ],
   },

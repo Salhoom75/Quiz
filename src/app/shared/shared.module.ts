@@ -13,6 +13,7 @@ import { ResultIconComponent } from './svg/result-icon/result-icon.component';
 import { StudentsIconComponent } from './svg/students-icon/students-icon.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ResultIconComponent,
     StudentsIconComponent,
     DeleteDialogComponent,
+    TrimDescptionPipe,
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    FormsModule,
     HttpClientModule,
     RouterModule,
     MatDialogModule,
@@ -49,7 +50,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ResultIconComponent,
     StudentsIconComponent,
     MatPaginatorModule,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    TrimDescptionPipe
   ],
 })
 export class SharedModule {}

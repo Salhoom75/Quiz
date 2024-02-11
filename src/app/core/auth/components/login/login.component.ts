@@ -24,8 +24,8 @@ export class LoginComponent {
     password: new FormControl(null, [
       Validators.required,
       Validators.pattern(
-        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
-      ),
+        /^[a-zA-Z0-9]{3,30}$/
+        ),
     ]),
   });
   onLogin(data: FormGroup) {
@@ -34,21 +34,16 @@ export class LoginComponent {
     this._AuthService.onLogin(data.value).subscribe({
       next: (res) => {
         console.log(res);
-
-        localStorage.setItem('userToken', res.data.token);
-
-        localStorage.setItem('role', res.data.user.role);
-        localStorage.setItem('userName', res.data.user.userName);
-        localStorage.setItem('Id', res.data.user._id);
-         this._ToastrService.success(res.data.user.userName , 'Welcome')
-          this._Router.navigate(['/dashboard'])
+        localStorage.setItem('userToken', res.data.accessToken);
+        this._AuthService.getUserToken();
+        this._ToastrService.success(res.data.profile.userName , 'Welcome');
 
       },error:(err)=>{
         this.isLoading=false;
          this._ToastrService.error(err.error.message , 'error')
       },complete:()=>{
         this.isLoading=false;
-
+        this._Router.navigate(['/dashboard'])
       }
     })
   }
