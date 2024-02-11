@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       closeButton: true,
       timeOut: 4000,
@@ -26,6 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       useClass: GlobalInterceptor,
       multi: true,
     },
+    
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: SpinnerInterceptor,
+        multi: true,
+      }
+    
   ],
   bootstrap: [AppComponent],
 })

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditComponent } from '../add-edit/add-edit.component';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
-import { GroupService } from '../../services/group.service';
+import { Group } from '../../models/group';
+import { ToastrService } from 'ngx-toastr';
 import { Group, addGroup } from '../../models/group';
 
 @Component({
@@ -10,6 +11,8 @@ import { Group, addGroup } from '../../models/group';
   templateUrl: './groups.component.html',
   styleUrls: ['./groups.component.scss'],
 })
+
+
 export class GroupsComponent implements OnInit {
   Groupdata1: Group[] = [];
   Groupdata2: Group[] = [];
@@ -22,6 +25,7 @@ export class GroupsComponent implements OnInit {
     this._GroupService.getAllGroups().subscribe({
       next: (res) => {
         console.log(res);
+        this.Groupdata=res;
         this.Groupdata1 = res.slice(0, 5);
         this.Groupdata2 = res.slice(5, 10);
       },
@@ -48,17 +52,33 @@ export class GroupsComponent implements OnInit {
       }
     });
   }
-  openDialogDelete(): void {
+  openDialogDelete(data:any): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {},
+      data: {data},
       width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-      console.log(result);
+      console.log(result.data._id);
       if (result) {
+         this.deleteGroup(result.data._id)
+
+        
       }
     });
   }
+
+ deleteGroup(id:string){
+  this._GroupService.deleteGroup(id).subscribe({
+    next:(res)=>{
+      console.log(res);
+      this._Toastr.success("Group Deleted Succesfully")
+    },error:(err)=>{
+      this._Toastr.error(err.error)
+    },complete:()=>{
+this.onGetAllGroups()
+    }
+  })
+ }
 }
