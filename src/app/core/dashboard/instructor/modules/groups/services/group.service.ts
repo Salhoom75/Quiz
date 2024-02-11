@@ -14,10 +14,14 @@ export class GroupService {
     return this._HttpClient.get('group');
   }
 
-  deleteGroup(id:string):Observable<any>{
-    return this._HttpClient.delete(`group/${id}`)
+  deleteGroup(id: string): Observable<any> {
+    return this._HttpClient.delete(`group/${id}`);
   }
-  getGroupbyId(id:string):Observable<any>{
-    return this._HttpClient.get(`group/${id}`)
+  getGroupbyId(id: string): Observable<any> {
+    return this._HttpClient.get(`group/${id}`);
   }
+  createGroups(data: addGroup): Observable<any> {
+    return this._HttpClient.post('group', data);
+  }
+
 }
