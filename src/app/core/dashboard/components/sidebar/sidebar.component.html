@@ -20,9 +20,10 @@
              *ngIf="item.isActive"
             [class]="isOpened ? '' : 'justify-content-center'"
             [routerLink]="item.link"
+            routerLinkActive="bg-active"
           >
-          <span [ngClass]="item.icon"></span>
-            <span [ngClass]="isOpened ? '' : 'd-none'">{{ item.title }}</span>
+          <span class="icon" [ngClass]="item.iconDark" [routerLinkActive]="item.iconLight" ></span>
+          <span [ngClass]="isOpened ? '' : 'd-none'">{{ item.title }}</span>
           </li>
 
         </ng-container>
@@ -30,8 +31,10 @@
       </ul>
     </div>
     <div class="mt-auto ico-item">
-      <i class="fa-regular fa-2x fa-circle-question"></i>
+      <span> <i class="fa-regular fa-2x fa-circle-question"></i></span>
       <span [ngClass]="isOpened ? '' : 'd-none'">Help</span>
     </div>
   </div>
 </section>
+
+
