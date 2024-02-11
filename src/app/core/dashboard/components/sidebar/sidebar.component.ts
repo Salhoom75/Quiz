@@ -5,10 +5,11 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 interface IMenu {
-  title: string,
-  icon: string,
-  link: string,
-  isActive: Boolean
+  title: string;
+  iconDark: string;
+  iconLight: string;
+  link: string;
+  isActive: Boolean;
 }
 @Component({
   selector: 'app-sidebar',
@@ -18,50 +19,65 @@ interface IMenu {
 export class SidebarComponent {
   @Output() isOpenedValue = new EventEmitter<boolean>();
   isOpened: boolean = true;
-  constructor(private _authService: AuthService, private _router: Router,
-    private toastr: ToastrService, public dialog: MatDialog) { }
+  constructor(
+    private _authService: AuthService,
+    private _router: Router,
+    private toastr: ToastrService,
+    public dialog: MatDialog
+  ) {}
   ngOnInit() {
     if (this.isInstructor()) {
-      this._router.navigate(['/dashboard/instructor/home'])
-    }
-    else if (this.isStudent()) {
-      this._router.navigate(['/dashboard/student/home'])
+      this._router.navigate(['/dashboard/instructor/home']);
+    } else if (this.isStudent()) {
+      this._router.navigate(['/dashboard/student/home']);
     }
   }
 
-  menu:IMenu[]=[
+  menu: IMenu[] = [
     {
       title: 'Dashboard',
-      icon: 'dash-icon',
+      iconDark: 'dash-icon-dark',
+      iconLight: 'dash-icon-light',
       link: '/dashboard/instructor/home',
-      isActive: this.isInstructor()
+      isActive: this.isInstructor(),
     },
 
     {
       title: 'Students',
-      icon: 'students-icon',
+      iconDark: 'students-icon-dark',
+      iconLight: 'students-icon-light',
       link: '/dashboard/instructor/students',
-      isActive: this.isInstructor()
+      isActive: this.isInstructor(),
+    },
+    {
+      title: 'Quizes',
+      iconDark: 'quizes-icon-dark',
+      iconLight: 'quizes-icon-light',
+      link: '/dashboard/instructor/quizes',
+      isActive: this.isInstructor(),
     },
     {
       title: 'Results',
-      icon: 'results-icon',
+      iconDark: 'results-icon-dark',
+      iconLight: 'results-icon-light',
       link: '/dashboard/instructor/results',
-      isActive: this.isInstructor()
+      isActive: this.isInstructor(),
     },
     {
       title: 'Groups',
-      icon: 'groups-icon',
+      iconDark: 'students-icon-dark',
+      iconLight: 'students-icon-light',
       link: '/dashboard/instructor/groups',
-      isActive: this.isInstructor()
+      isActive: this.isInstructor(),
     },
     {
       title: 'Dashboard',
-     icon: 'dash-icon',
-     link: '/dashboard/student/home',
-     isActive: this.isStudent()
-   }
-  ]
+      iconDark: 'dash-icon-dark',
+      iconLight: 'dash-icon-light',
+      link: '/dashboard/student/home',
+      isActive: this.isStudent(),
+    },
+  ];
   isInstructor(): boolean {
     return this._authService.role == 'Instructor' ? true : false;
   }
@@ -73,6 +89,4 @@ export class SidebarComponent {
     this.isOpenedValue.emit(this.isOpened);
     console.log(this.isOpened);
   }
-
-
 }
