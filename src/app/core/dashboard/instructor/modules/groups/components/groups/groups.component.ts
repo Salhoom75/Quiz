@@ -14,6 +14,7 @@ import { GroupService } from '../../services/group.service';
 export class GroupsComponent implements OnInit {
   Groupdata1: Group[] = [];
   Groupdata2: Group[] = [];
+  Groupdata: Group[] = [];
   constructor(public dialog: MatDialog, private _GroupService: GroupService,private _Toastr:ToastrService) {}
   ngOnInit(): void {
     this.onGetAllGroups();
@@ -23,7 +24,7 @@ export class GroupsComponent implements OnInit {
     this._GroupService.getAllGroups().subscribe({
       next: (res) => {
         console.log(res);
-        // this.Groupdata = res;
+        this.Groupdata = res;
         this.Groupdata1 = res.slice(0, 5);
         this.Groupdata2 = res.slice(5, 10);
       },
