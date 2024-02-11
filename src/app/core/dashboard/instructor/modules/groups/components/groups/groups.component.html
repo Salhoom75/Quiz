@@ -10,60 +10,28 @@
         Add group
       </h2>
     </div>
-    <div class="row col-md-11 m-auto my-2 p-3 groups-card">
-      <div class="d-flex">
-        <div class="col-md-6">
-          <div *ngFor="let group of Groupdata1"
-            class="groups-card p-2 mx-2 d-flex justify-content-between align-items-center"
-          >
-            <div >
-              <h5>Group: <span>{{group.name}}</span></h5>
-              <p>No. of student: <span>{{group.students.length}}</span></p>
+    <div class="row m-4 p-3 groups-card">
+     
+          <div class="col-md-6" *ngFor="let group of Groupdata">
+            <div 
+              class="groups-card p-2 mx-2 d-flex justify-content-between align-items-center"
+            >
+              <div >
+                <h5>Group: <span>{{group.name}}</span></h5>
+                <p>No. of student: <span>{{group.students.length}}</span></p>
+              </div>
+              <div>
+                <a (click)="openDialogAddEdit()"> <i class="fa-regular fa-pen-to-square px-2 fs-5 editHover"></i></a>
+                <a (click)="openDialogDelete(group)"> <i class="fa-solid fa-trash fs-5 deleteHover" ></i></a>
+              </div>
             </div>
-            <div>
-              <a (click)="openDialogAddEdit()"> <i class="fa-regular fa-pen-to-square px-2 fs-5 editHover"></i></a>
-              <a (click)="openDialogDelete()"> <i class="fa-solid fa-trash fs-5 deleteHover" ></i></a>
-            </div>
-          </div>
-         
-
-        </div>
-        <div class="col-md-6">
-          <div *ngFor="let group of Groupdata2"
-          class="groups-card p-2 mx-2 d-flex justify-content-between align-items-center"
-        >
-          <div >
-            <h5>Group: <span>{{group.name}}</span></h5>
-            <p>No. of student: <span>{{group.students.length}}</span></p>
-          </div>
-          <div>
-            <a (click)="openDialogAddEdit()"> <i class="fa-regular fa-pen-to-square px-2 fs-5 editHover"></i></a>
-            <a (click)="openDialogDelete()"> <i class="fa-solid fa-trash fs-5 deleteHover" ></i></a>
-          </div>
-        </div>
-         
-
-        </div>
+           
+  
+        
+      
+       
       </div>
-      <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" >1</a></li>
-          <li class="page-item"><a class="page-link" >2</a></li>
-          <li class="page-item"><a class="page-link" >3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      
     </div>
   </div>
 </section>
