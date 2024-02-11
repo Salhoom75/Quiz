@@ -8,10 +8,9 @@ _id:string,
 pageSize:number,
 pageNumber:number
 }
-export interface IGroup {
 
-name:string,
 
-students:string[],
-
+export interface addGroup {
+  name: string;
+  student_id: string[];
 }

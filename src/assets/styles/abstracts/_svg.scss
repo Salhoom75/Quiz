@@ -1,0 +1,36 @@
+
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+.dash-icon-dark {
+  background-image: url(../../images/Dashboardicon.svg);
+}
+.dash-icon-light {
+  background-image: url(../../images/DashboardiconLight.svg);
+}
+.students-icon-dark {
+  background-image: url(../../images/Studentsicon.svg);
+}
+.students-icon-light {
+  background-image: url(../../images/StudentsiconLight.svg);
+}
+.quizes-icon-dark {
+  background-image: url(../../images/Quizicon.svg);
+}
+.quizes-icon-light {
+  background-image: url(../../images/QuiziconLight.svg);
+}
+
+.results-icon-dark {
+  background-image: url(../../images/Resultsicon.svg);
+}
+.results-icon-light {
+  background-image: url(../../images/ResultsiconLight.svg);
+}

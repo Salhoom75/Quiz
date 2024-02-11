@@ -13,21 +13,16 @@ export class AuthService {
   constructor(private _httpClient: HttpClient) {
     if (localStorage.getItem('userToken') !== null) {
       this.getUserToken();
-    }else{
-      console.log("notfound");
-
     }
   }
   getUserToken() {
     let encoded: any = localStorage.getItem('userToken');
     let decoded:any = jwtDecode(encoded);
      console.log(decoded);
-
-  localStorage.setItem('role', decoded.role);
-
-  localStorage.setItem('userName',decoded.email);
-  localStorage.setItem('Id', decoded.sub);
-
+     console.log(decoded.role);
+     localStorage.setItem('role', decoded.role);
+     localStorage.setItem('userName',decoded.email);
+     localStorage.setItem('Id', decoded.sub);
     this.getRole();
   }
   getRole() {
@@ -46,8 +41,7 @@ export class AuthService {
   }
 
   onResetPassword(data: IReset): Observable<any> {
-    return this._httpClient.post('portal/users/reset-password', data);
-
+    return this._httpClient.post('auth/reset-password', data);
   }
   onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('auth/register', data);

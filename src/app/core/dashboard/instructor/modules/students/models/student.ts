@@ -6,3 +6,4 @@ export interface Student {
     status: string,
     _id: string
 }
+

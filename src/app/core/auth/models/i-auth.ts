@@ -5,15 +5,15 @@ export interface ILogin {
   password: string;
 }
 export interface IReset {
+  otp: string;
   email: string;
-  OTP: string;
   password: string;
-  confirmPassword: string;
 }
 export interface ILogin {
-    email:string,
-    password:string
+  email: string;
+  password: string;
 }
+
 
 export interface IRegister{
     first_name:string,
@@ -21,4 +21,5 @@ export interface IRegister{
     email:string,
     password:string,
     role:string
+
 }
