@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -10,24 +11,24 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LogoutComponent {
   constructor(
-    public dialogRef: MatDialogRef<LogoutComponent>,
+    public DialogRef: MatDialogRef<LogoutComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private tostar: ToastrService,
     private router: Router
-    ) {}
-    ngOnInit(): void {
-      //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-      //Add 'implements OnInit' to the class.
-    }
-
-  logout() {
-    localStorage.clear();
-    this.onNoClick();
-    this.tostar.success('You Logout Now');
-    this.router.navigate(['/auth/login']);
+  ) {}
+  ngOnInit(): void {
+    
   }
+
   onNoClick(): void {
-    this.dialogRef.close();
-    localStorage.clear();
+    this.DialogRef.close();
+  }
+  onLogout() {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('role');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+    this.router.navigate(['/auth']);
+    this.DialogRef.close();
   }
 }
