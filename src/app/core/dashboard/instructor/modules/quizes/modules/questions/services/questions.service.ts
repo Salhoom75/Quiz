@@ -11,4 +11,7 @@ export class QuestionsService {
   getAllQuestions(): Observable<any> {
     return this._HttpClient.get('question');
   }
+  deletequestion(id: string) {
+    return this._HttpClient.delete(`question/${id}`);
+  }
 }

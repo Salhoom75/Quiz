@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddEditQuestionComponent } from '../add-edit-question/add-edit-question.component';
 import { QuestionsService } from '../../services/questions.service';
 import { Iquestion } from '../../models/iquestion';
+import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-questions',
@@ -10,10 +12,11 @@ import { Iquestion } from '../../models/iquestion';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-  questionsResponse: Iquestion[] =[];
+  questionsResponse: Iquestion[] = [];
   constructor(
     public dialog: MatDialog,
-    private _questionsService: QuestionsService
+    private _questionsService: QuestionsService,
+    private tostar: ToastrService
   ) {}
   ngOnInit(): void {
     this.getAllQuestions();
@@ -21,8 +24,8 @@ export class QuestionsComponent implements OnInit {
   getAllQuestions() {
     this._questionsService.getAllQuestions().subscribe({
       next: (res) => {
-        console.log(res)
-        this.questionsResponse=res;
+        console.log(res);
+        this.questionsResponse = res;
       },
     });
   }
@@ -38,6 +41,37 @@ export class QuestionsComponent implements OnInit {
       console.log(result);
       if (result) {
       }
+    });
+  }
+
+  openDialogDelete(data: any): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: { data },
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(data);
+
+      if (result) {
+        console.log(result.data._id);
+        this.ondelete(result.data._id);
+      }
+    });
+  }
+  ondelete(id: string) {
+    this._questionsService.deletequestion(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.tostar.success('question deleted');
+      },
+      error: (err) => {
+        this.tostar.error(err.message, 'Error');
+      },
+      complete: () => {
+        this.getAllQuestions();
+      },
     });
   }
 }
