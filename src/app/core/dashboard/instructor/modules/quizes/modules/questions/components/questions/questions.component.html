@@ -28,31 +28,21 @@
         </thead>
         <tbody>
           <hr />
-          <tr *ngFor="let question of questionsResponse">
-            <td scope="row">{{question.title | trimDescption:20}}</td>
-            <td>{{question.description | trimDescption:10}}</td>
-            <td>{{question.difficulty}}</td>
-            <td>{{question.status}}</td>
-            <td class="m-auto text-center pointer">
-              <a (click)="openViewDialog(question._id,true)"><i  class="fa-solid fa-eye fs-5 i-org pointer"></i></a> 
-              <a (click)="openEditDialog(question._id)"><i  class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"></i></a>  
-              <i class="fa-solid fa-trash-can fs-5 i-org pointer"></i>
-            </td>
-          </tr>
-          <hr />
+          <ng-container  *ngFor="let question of questionsResponse">
+            <tr>
+              <td scope="row">{{question.title | trimDescption:20}}</td>
+              <td>{{question.description | trimDescption:10}}</td>
+              <td>{{question.difficulty}}</td>
+              <td>{{question.status}}</td>
+              <td class="m-auto text-center pointer">
+                <a (click)="openViewDialog(question._id,true)"><i  class="fa-solid fa-eye fs-5 i-org pointer"></i></a>
+                <a (click)="openEditDialog(question._id)"><i  class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"></i></a>
+                <i class="fa-solid fa-trash-can fs-5 i-org pointer"></i>
+              </td>
+            </tr>
+            <hr />
+          </ng-container>
 
-          <hr />
-          <tr>
-            <td scope="row">Assembly language</td>
-            <td>Larry the Bird</td>
-            <td>Larry the Bird</td>
-            <td>12 /02/ 2023</td>
-            <td class="m-auto text-center pointer ">
-              <i class="fa-solid fa-eye fs-5 i-org"></i>
-              <i class="fa-solid fa-pen-to-square i-org px-3 fs-5"></i>
-              <i class="fa-solid fa-trash-can fs-5 i-org"></i>
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
