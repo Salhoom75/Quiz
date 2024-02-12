@@ -14,6 +14,8 @@ import { StudentsIconComponent } from './svg/students-icon/students-icon.compone
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
+import { MatFormField } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
     RouterModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatSelectModule,
   ],
   exports: [
     FormsModule,
@@ -51,7 +54,9 @@ import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
     StudentsIconComponent,
     MatPaginatorModule,
     DeleteDialogComponent,
-    TrimDescptionPipe
+    TrimDescptionPipe,
+    MatSelectModule,
+    MatFormField,
   ],
 })
 export class SharedModule {}

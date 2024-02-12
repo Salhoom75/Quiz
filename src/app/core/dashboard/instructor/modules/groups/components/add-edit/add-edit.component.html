@@ -1,4 +1,4 @@
-<section id="addgroup">
+<!-- <section id="addgroup">
   <div class="container">
     <div class="row">
       <div>
@@ -38,5 +38,62 @@
         </div>
       </div>
     </div>
+  </div>
+</section> -->
+
+<section id="set-up">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <div class="mt-3"><h3>Set up a new Group</h3></div>
+      <div class="truefalse">
+        <div>
+          <a (click)="onSubmit()">
+            <i class="fa-solid fa-check"></i>
+          </a>
+        </div>
+
+        <div>
+          <a [mat-dialog-close]="data" (click)="onNoClick()">
+            <i class="fa-solid fa-x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="AddGroupForm" class="my-3 pe-3">
+      <h5>Details</h5>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group input-group-default mb-3">
+            <span class="input-group-text bg" id="inputGroup-sizing-default">
+              Group Name:</span
+            >
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm"
+            />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="input-group input-group-default mb-3">
+            <span class="input-group-text bg" id="inputGroup-sizing-default"
+              >List students:</span
+            >
+            <select
+              formControlName="students"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>All</option>
+              <option *ngFor="let item of groupdata" [value]="item._id">
+                {{ item.first_name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </section>

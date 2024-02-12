@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddEditComponent } from '../add-edit/add-edit.component';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { ToastrService } from 'ngx-toastr';
-import { Group, addGroup } from '../../models/group';
+import { Group, AddGroup } from '../../models/group';
 import { GroupService } from '../../services/group.service';
 
 @Component({
@@ -15,7 +15,12 @@ export class GroupsComponent implements OnInit {
   Groupdata1: Group[] = [];
   Groupdata2: Group[] = [];
   Groupdata: Group[] = [];
-  constructor(public dialog: MatDialog, private _GroupService: GroupService,private _Toastr:ToastrService) {}
+  data: any;
+  constructor(
+    public dialog: MatDialog,
+    private _GroupService: GroupService,
+    private _Toastr: ToastrService
+  ) {}
   ngOnInit(): void {
     this.onGetAllGroups();
   }
@@ -31,24 +36,30 @@ export class GroupsComponent implements OnInit {
     });
   }
 
-  createGroup(data: addGroup) {
-    this._GroupService.createGroups(data).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-    });
-  }
-  openDialogAddEdit(): void {
+  openDialogAddEdit(groupdata: any): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
-      data: {},
+      data: groupdata,
       width: '50%',
     });
+    console.log(groupdata.name);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-      console.log(result);
+      this.onGetAllGroups();
       if (result) {
+        this.onEditGroup(result._id, groupdata.name);
       }
+    });
+  }
+  onEditGroup(_id: string, data: any) {
+    this._GroupService.editGroup(_id, data).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {},
+      complete: () => {
+        this.onGetAllGroups();
+      },
     });
   }
   openDialogDelete(data: any): void {
