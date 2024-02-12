@@ -32,7 +32,36 @@ export class QuestionsComponent implements OnInit {
 
   openDialogAddEdit(): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
-      data: {},
+      
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getAllQuestions()
+      console.log('The dialog was closed');
+     
+    });
+  }
+
+  openEditDialog(id:string): void {
+    const dialogRef = this.dialog.open(AddEditQuestionComponent, {
+      data: {id},
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.getAllQuestions()
+      console.log(result);
+      if (result) {
+      }
+    });
+}
+  openViewDialog(id:string,view:boolean): void {
+    const dialogRef = this.dialog.open(AddEditQuestionComponent, {
+      data: {id,view},
+
+     
       width: '50%',
     });
 

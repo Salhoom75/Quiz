@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILogin, IRegister, IReset } from '../models/i-auth';
+import { IChange, ILogin, IRegister, IReset } from '../models/i-auth';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -36,12 +36,18 @@ export class AuthService {
   onLogin(data: ILogin): Observable<any> {
     return this._httpClient.post('auth/login', data);
   }
+
+  onChangePass(data: IChange): Observable<any> {
+    return this._httpClient.post('portal/users/', data);
+  }
+
   onForgetPassword(data: string): Observable<any> {
     return this._httpClient.post('auth/forgot-password', {email: data});
   }
 
   onResetPassword(data: IReset): Observable<any> {
-    return this._httpClient.post('auth/reset-password', data);
+    return this._httpClient.post('portal/users/reset-password', data);
+  
   }
   onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('auth/register', data);

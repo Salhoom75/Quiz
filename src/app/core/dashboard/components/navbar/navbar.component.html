@@ -1,10 +1,12 @@
 <section id="nav-bar">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 d-flex justify-content-between line m-auto  text-center">
+      <div
+        class="col-md-8 d-flex justify-content-between line m-auto text-center"
+      >
         <h3 class="fs-4 fw-bold">Dashboard</h3>
-        <div class="border rounded-5 py-1 px-4 pointer ">
-          <h2 class="fs-5 m-auto fw-bold" (click)="startQuiz()" >
+        <div class="border rounded-5 py-1 px-4 pointer">
+          <h2 class="fs-5 m-auto fw-bold" (click)="startQuiz()">
             <i class="fa-solid fa-stopwatch"></i> New Quiz
           </h2>
         </div>
@@ -16,9 +18,9 @@
       </div> -->
       </div>
       <!-- <div class="col-1 py-2 d-flex justify-content-between"></div> -->
-      <div class="col-md-4 d-flex justify-content-between align-items-center ">
+      <div class="col-md-4 d-flex justify-content-between align-items-center">
         <div class="">
-          <h5>Nwabuikwu Chizuruoke</h5>
+          <h5>{{ userName }}</h5>
           <span class="green-text">Instructor</span>
         </div>
         <div class="dropdown mx-2">
@@ -39,7 +41,7 @@
               </a>
             </li>
             <li>
-              <a (click)="openDialogChange()"  class="dropdown-item pointer">
+              <a (click)="openDialogChange()" class="dropdown-item pointer">
                 <span><i class="fa-solid fa-unlock me-2"></i></span>
                 Change Password
               </a>
