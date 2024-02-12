@@ -1,4 +1,3 @@
-
 <section id="questions-table">
   <div class="container">
     <div class="row groups-card m-auto col-md-11 mt-3 p-3">
@@ -37,7 +36,9 @@
               <td class="m-auto text-center pointer">
                 <a (click)="openViewDialog(question._id,true)"><i  class="fa-solid fa-eye fs-5 i-org pointer"></i></a>
                 <a (click)="openEditDialog(question._id)"><i  class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"></i></a>
-                <i class="fa-solid fa-trash-can fs-5 i-org pointer"></i>
+                <a (click)="openDialogDelete(question)">
+                  <i class="fa-solid fa-trash-can fs-5 i-org pointer"></i>
+                 </a>
               </td>
             </tr>
             <hr />

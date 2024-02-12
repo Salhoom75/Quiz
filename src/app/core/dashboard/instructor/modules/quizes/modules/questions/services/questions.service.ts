@@ -12,6 +12,9 @@ export class QuestionsService {
   getAllQuestions(): Observable<any> {
     return this._HttpClient.get('question');
   }
+  deletequestion(id: string) {
+    return this._HttpClient.delete(`question/${id}`);
+  }
   addQuestion(data:Iquestion): Observable<any> {
     return this._HttpClient.post('question',data);
   }
@@ -20,5 +23,6 @@ export class QuestionsService {
   }
   getQuestionById(id:string): Observable<any> {
     return this._HttpClient.get(`question/${id}`);
+
   }
 }
