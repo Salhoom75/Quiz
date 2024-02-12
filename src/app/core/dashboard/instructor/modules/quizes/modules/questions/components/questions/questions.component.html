@@ -34,8 +34,8 @@
             <td>{{question.difficulty}}</td>
             <td>{{question.status}}</td>
             <td class="m-auto text-center pointer">
-              <i class="fa-solid fa-eye fs-5 i-org pointer"></i>
-              <i class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"></i>
+              <a (click)="openViewDialog(question._id,true)"><i  class="fa-solid fa-eye fs-5 i-org pointer"></i></a> 
+              <a (click)="openEditDialog(question._id)"><i  class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"></i></a>  
               <i class="fa-solid fa-trash-can fs-5 i-org pointer"></i>
             </td>
           </tr>
