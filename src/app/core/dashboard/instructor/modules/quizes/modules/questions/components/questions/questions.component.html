@@ -3,13 +3,23 @@
     <div class="row groups-card m-auto col-md-11 mt-3 p-3">
       <div class="d-flex justify-content-between my-2">
         <h3>Bank Of Questions</h3>
-        <div class="py-2 pointer text-center col-md-2 m-auto me-0">
+        <div class="py-2 d-flex pointer text-center col-md-4 m-auto me-0">
+          <div class="mx-2">
+            <input
+              class="form-control"
+              placeholder="serach by type"
+              type="text"
+              (change)="serach()"
+              [(ngModel)]="typeofquestion"
+            />
+          </div>
           <div>
             <input
               class="form-control"
-              placeholder="serach by title"
+              placeholder="serach by difficulty"
               type="text"
-              (keyup)="serach()"
+              (change)="serach()"
+              [(ngModel)]="difficultyquestion"
             />
           </div>
         </div>

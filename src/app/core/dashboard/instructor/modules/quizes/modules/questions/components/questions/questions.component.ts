@@ -13,17 +13,13 @@ import { Subject } from 'rxjs';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-  searchValue: string = '';
-  private searchSubject: Subject<string> = new Subject<string>();
-
-  difficulty: any;
+  difficultyquestion: string = '';
   items: any;
-  hard: any;
-  type: any;
+  typeofquestion: string = '';
   tabledata: any;
   title: any;
-  SearchValue: string = '';
   questionsResponse: Iquestion[] = [];
+  name: any;
   constructor(
     public dialog: MatDialog,
     private _questionsService: QuestionsService,
@@ -42,8 +38,8 @@ export class QuestionsComponent implements OnInit {
   }
   serach() {
     let params = {
-      difficulty: this.difficulty,
-      type: this.type,
+      difficulty: this.difficultyquestion,
+      type: this.typeofquestion,
     };
     this._questionsService.Searchquestion(params).subscribe({
       next: (res) => {
@@ -57,9 +53,7 @@ export class QuestionsComponent implements OnInit {
       },
     });
   }
-  onSearchInputChange() {
-    this.searchSubject.next(this.tabledata);
-  }
+
   openDialogAddEdit(): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
       width: '50%',
