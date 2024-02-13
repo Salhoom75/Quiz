@@ -5,6 +5,8 @@ import { QuestionsService } from '../../services/questions.service';
 import { Iquestion } from '../../models/iquestion';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -12,7 +14,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
+  difficultyQuestion: string = '';
+  items: any;
+  typeOfQuestion: string = '';
+  tabledata: any;
+  title: any;
   questionsResponse: Iquestion[] = [];
+  name: any;
   constructor(
     public dialog: MatDialog,
     private _questionsService: QuestionsService,
@@ -21,6 +29,7 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllQuestions();
   }
+
   getAllQuestions() {
     this._questionsService.getAllQuestions().subscribe({
       next: (res) => {
@@ -29,6 +38,21 @@ export class QuestionsComponent implements OnInit {
       },
     });
   }
+  serach() {
+    let params = {
+      difficulty: this.difficultyQuestion,
+      type: this.typeOfQuestion,
+    };
+    console.log(this.difficultyQuestion);
+    console.log(this.typeOfQuestion);
+    console.log(params)
+    this._questionsService.Searchquestion(this.difficultyQuestion,this.typeOfQuestion).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.questionsResponse = res;
+        console.log(this.questionsResponse);
+      },
+    })}
 
   openDialogAddEdit(): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
@@ -40,24 +64,26 @@ export class QuestionsComponent implements OnInit {
       this.getAllQuestions()
       console.log('The dialog was closed');
 
-    });
+    
+  })
   }
+ 
 
-  openEditDialog(id:string): void {
+  openEditDialog(id: string): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
-      data: {id},
+      data: { id },
       width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-      this.getAllQuestions()
+      this.getAllQuestions();
       console.log(result);
       if (result) {
       }
     });
-}
-  openViewDialog(id:string,view:boolean): void {
+  }
+  openViewDialog(id: string, view: boolean): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
       data: {id,view},
       width: '50%',
