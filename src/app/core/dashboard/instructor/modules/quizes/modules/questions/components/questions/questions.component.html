@@ -3,7 +3,16 @@
     <div class="row groups-card m-auto col-md-11 mt-3 p-3">
       <div class="d-flex justify-content-between my-2">
         <h3>Bank Of Questions</h3>
-
+        <div class="py-2 pointer text-center col-md-2 m-auto me-0">
+          <div>
+            <input
+              class="form-control"
+              placeholder="serach by title"
+              type="text"
+              (keyup)="serach()"
+            />
+          </div>
+        </div>
         <div
           class="border rounded-5 py-2 pointer text-center col-md-2 m-auto me-0"
         >
@@ -27,23 +36,28 @@
         </thead>
         <tbody>
           <hr />
-          <ng-container  *ngFor="let question of questionsResponse">
+          <ng-container *ngFor="let question of questionsResponse">
             <tr>
-              <td scope="row">{{question.title | trimDescption:20}}</td>
-              <td>{{question.description | trimDescption:10}}</td>
-              <td>{{question.difficulty}}</td>
-              <td>{{question.status}}</td>
+              <td scope="row">{{ question.title | trimDescption : 20 }}</td>
+              <td>{{ question.description | trimDescption : 10 }}</td>
+              <td>{{ question.difficulty }}</td>
+              <td>{{ question.status }}</td>
               <td class="m-auto text-center pointer">
-                <a (click)="openViewDialog(question._id,true)"><i  class="fa-solid fa-eye fs-5 i-org pointer"></i></a>
-                <a (click)="openEditDialog(question._id)"><i  class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"></i></a>
+                <a (click)="openViewDialog(question._id, true)"
+                  ><i class="fa-solid fa-eye fs-5 i-org pointer"></i
+                ></a>
+                <a (click)="openEditDialog(question._id)"
+                  ><i
+                    class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"
+                  ></i
+                ></a>
                 <a (click)="openDialogDelete(question)">
                   <i class="fa-solid fa-trash-can fs-5 i-org pointer"></i>
-                 </a>
+                </a>
               </td>
             </tr>
             <hr />
           </ng-container>
-
         </tbody>
       </table>
     </div>
