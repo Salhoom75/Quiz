@@ -14,13 +14,11 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-  difficultyQuestion: string = '';
-  items: any;
-  typeOfQuestion: string = '';
-  tabledata: any;
-  title: any;
+  difficultyQuestion: string = 'easy';
+  typeOfQuestion: string = 'FE';
   questionsResponse: Iquestion[] = [];
-  name: any;
+  diffcultyLevels: string[]= ["hard","medium","easy"];
+  categoryTypes: string[]= ["FE","BE","DO"]
   constructor(
     public dialog: MatDialog,
     private _questionsService: QuestionsService,
@@ -64,10 +62,10 @@ export class QuestionsComponent implements OnInit {
       this.getAllQuestions()
       console.log('The dialog was closed');
 
-    
+
   })
   }
- 
+
 
   openEditDialog(id: string): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
