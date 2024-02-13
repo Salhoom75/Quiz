@@ -32,14 +32,14 @@ export class QuestionsComponent implements OnInit {
 
   openDialogAddEdit(): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
-      
+
       width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       this.getAllQuestions()
       console.log('The dialog was closed');
-     
+
     });
   }
 
@@ -60,8 +60,6 @@ export class QuestionsComponent implements OnInit {
   openViewDialog(id:string,view:boolean): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
       data: {id,view},
-
-     
       width: '50%',
     });
 
