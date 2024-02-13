@@ -12,7 +12,21 @@ a{
 .pointer{
     cursor: pointer;
 }
+.activeStatus{
+  border-radius: $border-reduis;
+  background-color: $sec-color;
+  color: $bg-color;
+  text-align: center;
+  padding:5px;
+}
+.inActiveStatus{
+  border-radius: $border-reduis;
+  background-color: $bg-color;
+  color: white;
+  text-align: center;
+  padding:5px;
 
+}
 //ovveride bootstrap
 .form-select:focus,
 .form-control:focus{
