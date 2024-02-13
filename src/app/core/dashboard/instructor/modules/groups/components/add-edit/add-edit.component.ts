@@ -42,6 +42,7 @@ export class AddEditComponent {
       name: this.AddGroupForm.get('name')?.value,
       students: [this.AddGroupForm.get('students')?.value],
     };
+    console.log(postObj);
     if (this.data) {
       this.updateGroup(this.idGroup, postObj);
     } else {

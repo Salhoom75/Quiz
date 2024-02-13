@@ -38,7 +38,6 @@ export class GroupsComponent implements OnInit {
 
   openDialogAdd(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
-      data: {},
       width: '50%',
     });
 
