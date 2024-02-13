@@ -24,6 +24,6 @@ export class GroupService {
     return this._HttpClient.post('group', data);
   }
   editGroup(id: string, data: AddGroup): Observable<any> {
-    return this._HttpClient.put(`group/${id}`, { name: data });
+    return this._HttpClient.put(`group/${id}`,  data );
   }
 }

@@ -3,7 +3,7 @@
     <div
       class="border rounded-5 py-2 mt-3 pointer text-center col-md-2 m-auto me-5"
     >
-      <h2 class="fs-5 m-auto" (click)="openDialogAddEdit(Groupdata)">
+      <h2 class="fs-5 m-auto" (click)="openDialogAdd()">
         <span class="i-circle px-1"
           ><i class="fa-solid fa-plus fw-bold"></i
         ></span>
@@ -24,7 +24,7 @@
             </p>
           </div>
           <div>
-            <a (click)="openDialogAddEdit(group)">
+            <a (click)="openDialogEdit(group)">
               <i class="fa-regular fa-pen-to-square px-2 fs-5 editHover"></i
             ></a>
             <a (click)="openDialogDelete(group)">

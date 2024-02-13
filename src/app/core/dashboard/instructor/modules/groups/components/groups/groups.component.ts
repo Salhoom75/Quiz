@@ -36,30 +36,32 @@ export class GroupsComponent implements OnInit {
     });
   }
 
-  openDialogAddEdit(groupdata: any): void {
+  openDialogAdd(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
-      data: groupdata,
+      data: {},
       width: '50%',
     });
-    console.log(groupdata.name);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       this.onGetAllGroups();
       if (result) {
-        this.onEditGroup(result._id, groupdata.name);
+        console.log(result);
       }
     });
   }
-  onEditGroup(_id: string, data: any) {
-    this._GroupService.editGroup(_id, data).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {},
-      complete: () => {
-        this.onGetAllGroups();
-      },
+  openDialogEdit(groupData:Group): void {
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: {groupData},
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.onGetAllGroups();
+      if (result) {
+        console.log(result);
+      }
     });
   }
   openDialogDelete(data: any): void {
