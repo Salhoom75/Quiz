@@ -6,6 +6,7 @@ import { Iquestion } from '../../models/iquestion';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -13,9 +14,9 @@ import { Subject } from 'rxjs';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-  difficultyquestion: string = '';
+  difficultyQuestion: string = '';
   items: any;
-  typeofquestion: string = '';
+  typeOfQuestion: string = '';
   tabledata: any;
   title: any;
   questionsResponse: Iquestion[] = [];
@@ -28,6 +29,7 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllQuestions();
   }
+
   getAllQuestions() {
     this._questionsService.getAllQuestions().subscribe({
       next: (res) => {
@@ -38,17 +40,17 @@ export class QuestionsComponent implements OnInit {
   }
   serach() {
     let params = {
-      difficulty: this.difficultyquestion,
-      type: this.typeofquestion,
+      difficulty: this.difficultyQuestion,
+      type: this.typeOfQuestion,
     };
-    this._questionsService.Searchquestion(params).subscribe({
+    console.log(this.difficultyQuestion);
+    console.log(this.typeOfQuestion);
+    console.log(params)
+
+    this._questionsService.Searchquestion(this.difficultyQuestion,this.typeOfQuestion).subscribe({
       next: (res) => {
         console.log(res);
-
-        this.tabledata = res;
-        this.tabledata = this.tabledata;
         this.questionsResponse = res;
-
         console.log(this.questionsResponse);
       },
     });

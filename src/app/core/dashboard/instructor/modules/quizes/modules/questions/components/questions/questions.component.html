@@ -9,8 +9,8 @@
               class="form-control"
               placeholder="serach by type"
               type="text"
-              (change)="serach()"
-              [(ngModel)]="typeofquestion"
+              (keyup.enter)="serach()"
+              [(ngModel)]="typeOfQuestion"
             />
           </div>
           <div>
@@ -18,8 +18,8 @@
               class="form-control"
               placeholder="serach by difficulty"
               type="text"
-              (change)="serach()"
-              [(ngModel)]="difficultyquestion"
+              (keyup.enter)="serach()"
+              [(ngModel)]="difficultyQuestion"
             />
           </div>
         </div>

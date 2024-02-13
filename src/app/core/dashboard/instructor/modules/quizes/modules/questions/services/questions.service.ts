@@ -24,7 +24,7 @@ export class QuestionsService {
   getQuestionById(id: string): Observable<any> {
     return this._HttpClient.get(`question/${id}`);
   }
-  Searchquestion(params: any): Observable<any> {
-    return this._HttpClient.post('question/search', { params: params });
+  Searchquestion(diff:string,type:string): Observable<any> {
+    return this._HttpClient.post(`question/search?difficulty=${diff}&type=${type}`,{});
   }
 }
