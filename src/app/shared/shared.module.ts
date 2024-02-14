@@ -16,7 +16,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     ButtonLoaderComponent,
@@ -38,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatTabsModule
   ],
   exports: [
     FormsModule,
@@ -57,6 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     TrimDescptionPipe,
     MatSelectModule,
     MatFormField,
+    MatTabsModule
   ],
 })
 export class SharedModule {}

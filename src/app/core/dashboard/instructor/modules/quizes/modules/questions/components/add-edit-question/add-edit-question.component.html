@@ -23,6 +23,9 @@
               aria-describedby="inputGroup-sizing-sm"
             />
           </div>
+          <div class="alert alert-danger" *ngIf="questionForm.get('title')?.touched&&questionForm.get('title')?.status=='INVALID'">
+            <p>Title is required</p>
+          </div>
         </div>
         <div class="col-md-12">
           <div class="input-group input-group-lg mb-3">
@@ -31,6 +34,9 @@
             >
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" formControlName="description"></textarea>
 
+          </div>
+          <div class="alert alert-danger" *ngIf="questionForm.get('description')?.touched&&questionForm.get('description')?.status=='INVALID'">
+            <p>Description is required</p>
           </div>
         </div>
       
@@ -48,6 +54,9 @@
                 aria-describedby="inputGroup-sizing-sm"
               />
             </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('options.A')?.touched&&questionForm.get('options.A')?.status=='INVALID'">
+              <p>This answer is required</p>
+            </div>
           </div>
           <div class="col-md-6 pe-0">
             <div class="input-group input-group-default mb-3">
@@ -61,6 +70,9 @@
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm"
               />
+            </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('options.B')?.touched&&questionForm.get('options.B')?.status=='INVALID'">
+              <p>This answer is required</p>
             </div>
           </div>
           <div class="col-md-6 pe-0">
@@ -76,6 +88,9 @@
                 aria-describedby="inputGroup-sizing-sm"
               />
             </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('options.c')?.touched&&questionForm.get('options.c')?.status=='INVALID'">
+              <p>This answer is required</p>
+            </div>
           </div>
           <div class="col-md-6 pe-0">
             <div class="input-group input-group-default mb-3">
@@ -89,6 +104,9 @@
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm"
               />
+            </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('options.D')?.touched&&questionForm.get('options.D')?.status=='INVALID'">
+              <p>This answer is required</p>
             </div>
           </div>
          </div>
@@ -104,6 +122,9 @@
                 
               </select>
             </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('difficulty')?.touched&&questionForm.get('difficulty')?.status=='INVALID'">
+              <p>Difficulty is required</p>
+            </div>
           </div>
           <div class="col-md-4">
             <div class="input-group mb-3">
@@ -117,6 +138,9 @@
                 <option value="D">D</option>
               </select>
             </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('answer')?.touched&&questionForm.get('answer')?.status=='INVALID'">
+              <p>Answer is required</p>
+            </div>
           </div>
           <div class="col-md-4">
             <div class="input-group mb-3">
@@ -128,6 +152,9 @@
                 <option value="BE">BE</option>
                 <option value="DO">DO</option>
               </select>
+            </div>
+            <div class="alert alert-danger" *ngIf="questionForm.get('type')?.touched&&questionForm.get('type')?.status=='INVALID'">
+              <p>Type is required</p>
             </div>
           </div>
         </div>
