@@ -6,6 +6,20 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'home/:id', component: HomeComponent },
+  {
+    path: 'quizes',
+    loadChildren: () =>
+      import('../student/modules/quizes/quizes.module').then(
+        (m) => m.QuizesModule
+      ),
+  },
+  {
+    path: 'results',
+    loadChildren: () =>
+      import('../student/modules/results/results.module').then(
+        (m) => m.ResultsModule
+      ),
+  },
 ];
 
 @NgModule({

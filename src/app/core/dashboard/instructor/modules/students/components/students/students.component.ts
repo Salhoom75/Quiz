@@ -30,6 +30,7 @@ export class StudentsComponent implements OnInit {
     this.getAllStudents();
     this.getAllStudentsWithoutGroup();
     this.getAllGroups();
+    this.getGroupById(this.allGroups[0]._id)
   }
   getAllStudents() {
     this._StudentService.getAllStudents().subscribe({
