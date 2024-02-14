@@ -39,7 +39,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
     MatTabsModule
   ],
   exports: [
@@ -60,7 +60,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     TrimDescptionPipe,
     MatSelectModule,
     MatFormField,
-    MatFormFieldModule
+    MatFormFieldModule,
     MatTabsModule
   ],
 })
