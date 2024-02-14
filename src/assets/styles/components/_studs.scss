@@ -1,0 +1,19 @@
+@import "../abstracts/variables";
+#quizes{
+
+
+    .quiz-header{
+        border-radius: $border-reduis;
+        border: $border-cardWidth;
+        padding: $padding-card;
+                  margin-bottom: 15px;
+                  overflow: hidden;
+
+
+    }
+
+img{
+    background-color: $primary-color;
+}
+
+}
