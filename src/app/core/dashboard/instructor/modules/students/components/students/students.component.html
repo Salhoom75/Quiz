@@ -39,7 +39,7 @@
                 </div>
               </div>
             </div>
-          
+
           </mat-tab>
           <mat-tab label="Students Without Group">
             <div class="container">
@@ -81,22 +81,51 @@
           <mat-tab label="Groups" >
             <div class="container">
               <div class="row">
-                <div class="col-md-4" *ngFor="let group of allGroups">
-                  <div class="student-card p-3">
-                  
-                    <h3>{{group.name}}</h3>
-  
-                    <ol class="alternating-colors">
-                      <li >
-                        <h5>{{studentName?.first_name}}</h5>
-                      </li> 
-                     
-                    </ol>
-                  </div>
+                <div class="student-header">
+
+                  <a *ngFor="let group of allGroups" class=" mx-3 btn-secondry" (click)="getGroupById(group._id)">{{group.name}}</a>
+
+                  <!-- <a class=" btn-sec-active mx-3 btn-secondry">Group 1</a>
+                  <a class=" mx-3 btn-secondry">Group 1</a> -->
                 </div>
+                <div class="alert alert-warning my-3" role="alert" *ngIf="studentsGroupName.length ==0">
+                  This is a warning No Data Found
+                </div>
+                  <div class="row">
+                    <div
+                      class="col-md-6"
+                      *ngFor="let student of studentsGroupName"
+                    >
+                      <div class="student-card">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <img
+                              src="../../../../../../assets/images/Avatar-Profile-Vector-PNG-Pic.png"
+                              class="h-100"
+                              alt=""
+                            />
+                          </div>
+                          <div class="col-md-9 p-0">
+                            <div>
+                              <h5>
+                                {{ student.first_name }} {{ student.last_name }}
+                              </h5>
+                              <p>{{ student.email }}</p>
+                            </div>
+                            <div class="pe-4 fs-4">
+                              <a class="pe-1" (click)="deleteStudent(student._id)"
+                                ><i class="fa-solid fa-trash" style="color: red"></i
+                              ></a>
+                              <a><i class="fa-solid fa-circle-arrow-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
-          
+
           </mat-tab>
         </mat-tab-group>
       </div>
