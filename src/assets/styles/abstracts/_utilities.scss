@@ -47,3 +47,19 @@ a{
   --bs-pagination-active-border-color: #C5D86D;
   --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgb(0 146 71 / 21%);
 }
+//override angular mrtl
+.mat-mdc-form-field-subscript-wrapper{
+  display: none;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  --mdc-filled-text-field-container-color: white
+}
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{
+  --mat-option-selected-state-label-text-color: #C5D86D;
+}
+.mat-mdc-form-field-focus-overlay{
+  display: none;
+}
+.mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full{
+  background: #C5D86D;
+}

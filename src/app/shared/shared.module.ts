@@ -16,6 +16,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatFormFieldModule
     MatTabsModule
   ],
   exports: [
@@ -58,6 +60,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     TrimDescptionPipe,
     MatSelectModule,
     MatFormField,
+    MatFormFieldModule
     MatTabsModule
   ],
 })

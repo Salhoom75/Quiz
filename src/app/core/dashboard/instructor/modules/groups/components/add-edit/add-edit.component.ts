@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddEditComponent {
   Groupdata: Group[] = [];
-  listStudents: any[] = [];
+  listStudents: any[] | any = [];
   idGroup: string = '';
   constructor(
     public dialogRef: MatDialogRef<AddEditComponent>,
@@ -37,10 +37,11 @@ export class AddEditComponent {
     name: new FormControl('',[Validators.required]),
     students: new FormControl([''],[Validators.required]),
   });
+
   onSubmit() {
     let postObj: any = {
       name: this.AddGroupForm.get('name')?.value,
-      students: [this.AddGroupForm.get('students')?.value],
+      students: this.AddGroupForm.get('students')?.value,
     };
     console.log(postObj);
     if (this.data) {
