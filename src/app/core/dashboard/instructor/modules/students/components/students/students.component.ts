@@ -10,116 +10,122 @@ import { Group } from '../../../groups/models/group';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
-  styleUrls: ['./students.component.scss']
+  styleUrls: ['./students.component.scss'],
 })
-export class StudentsComponent implements OnInit{
-
-  allStudents:Student[]=[];
-  studentswithoutGroup:Student[]=[];
-  allGroups:Group[]=[]
-  studentName?:Student
-  constructor(public dialog: MatDialog,private _StudentService:StudentsService,
-    private _GroupService:GroupService
-    ,private _Toastr: ToastrService){
-    
+export class StudentsComponent implements OnInit {
+  allStudents: Student[] = [];
+  studentswithoutGroup: Student[] = [];
+  allGroups: Group[] = [];
+  groupData: Group | any;
+  studentName?: Student;
+  studentsGroupName: Student[] = [];
+  matchGroupId: boolean = false;
+  constructor(
+    public dialog: MatDialog,
+    private _StudentService: StudentsService,
+    private _GroupService: GroupService,
+    private _Toastr: ToastrService
+  ) {}
+  ngOnInit(): void {
+    this.getAllStudents();
+    this.getAllStudentsWithoutGroup();
+    this.getAllGroups();
   }
-ngOnInit(): void {
-  this.getAllStudents()
-  this.getAllStudentsWithoutGroup()
-  this.getAllGroups()
-}
-  getAllStudents(){
+  getAllStudents() {
     this._StudentService.getAllStudents().subscribe({
-      next:(res)=>{
-console.log(res);
-this.allStudents=res
-      }
-    })
+      next: (res) => {
+        console.log(res);
+        this.allStudents = res;
+      },
+    });
   }
-  getAllStudentsWithoutGroup(){
+  getAllStudentsWithoutGroup() {
     this._StudentService.getAllStudentsWithoutGroup().subscribe({
-      next:(res)=>{
-console.log(res);
-this.studentswithoutGroup=res
-      }
-    })
+      next: (res) => {
+        console.log(res);
+        this.studentswithoutGroup = res;
+      },
+    });
   }
 
-  deleteStudent(id:string){
-this._StudentService.deleteStudent(id).subscribe({
-  next:(res)=>{
-    console.log(res);
-    this._Toastr.success(res.message)
-          }, error: (err) => {
-            this._Toastr.error(err.error.message);
-          },
-          complete: () => {
-            this.getAllStudents()
-          },
-})
+  deleteStudent(id: string) {
+    this._StudentService.deleteStudent(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this._Toastr.success(res.message);
+      },
+      error: (err) => {
+        this._Toastr.error(err.error.message);
+      },
+      complete: () => {
+        this.getAllStudents();
+      },
+    });
   }
 
-  getAllGroups(){
+  getAllGroups() {
     this._GroupService.getAllGroups().subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-        this.allGroups=res
-         for(const group of  this.allGroups){
-          for(const student of  group.students){
-             this.getStudentById(student)
-            console.log(student);
-            
+        this.allGroups = res;
+        // this.allGroups.forEach((groupStudents) => {
+        //   groupStudents.students.forEach((studentId) => {
+        //     console.log(studentId)
+        //     this._StudentService.getStudentById(studentId).subscribe({
+        //       next: (res:Student)=> {console.log(res)}
+        //     });
 
-          }
-         
-          
-         }
-              }, error: (err) => {
-                this._Toastr.error(err.error.message);
-              },
-              complete: () => {
-                
-              },
-    })
+        //   }
+        //   );
+        // });
+      },
+      error: (err) => {
+        this._Toastr.error(err.error.message);
+      },
+      complete: () => {},
+    });
   }
-  getStudentById(id:string){
+  getStudentById(id: string) {
     this._StudentService.getStudentById(id).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-  this.studentName=res
-              }, error: (err) => {
-                
-              },
-              complete: () => {
-                
-              },
-    })
+        this.studentName = res;
+      },
+      error: (err) => {},
+      complete: () => {},
+    });
   }
-  getGroupById(id:string){
+  getGroupById(id: string) {
     this._GroupService.getGroupbyId(id).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-  
-              }, error: (err) => {
-                this._Toastr.error(err.error.message);
-              },
-              complete: () => {
-                
-              },
-    })
+        this.groupData = res;
+        this.studentsGroupName = this.groupData.students;
+        console.log(this.studentsGroupName);
+      },
+      error: (err) => {
+        this._Toastr.error(err.error.message);
+      },
+      complete: () => {},
+    });
   }
-openAddDialogue(): void {
-  const dialogRef = this.dialog.open(AddUpdateStudentComponent, {
-    data: {},
-    width: '40%',
-  });
+  matchGroupIdFn() {
+    this.allGroups.forEach((group: Group) => {
+      if (group._id == this.groupData._id) this.matchGroupId = true;
+      console.log(this.matchGroupId);
+    });
+  }
+  openAddDialogue(): void {
+    const dialogRef = this.dialog.open(AddUpdateStudentComponent, {
+      data: {},
+      width: '40%',
+    });
 
-  dialogRef.afterClosed().subscribe((result) => {
-    console.log('The dialog was closed');
-    console.log(result);
-    if(result){
-
-    }
-  });
-}
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+      }
+    });
+  }
 }
