@@ -14,6 +14,9 @@ export class StudentsService {
   deleteStudent(id:string): Observable<any> {
     return this._HttpClient.delete(`student/${id}`);
   }
+  getStudentById(id:string): Observable<any> {
+    return this._HttpClient.get(`student/${id}`);
+  }
   getAllStudentsWithoutGroup(): Observable<any> {
     return this._HttpClient.get('student/without-group');
   }

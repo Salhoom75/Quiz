@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { StudentsService } from '../../services/students.service';
 import { Student } from '../../models/student';
 import { ToastrService } from 'ngx-toastr';
+import { GroupService } from '../../../groups/services/group.service';
+import { Group } from '../../../groups/models/group';
 
 @Component({
   selector: 'app-students',
@@ -14,12 +16,17 @@ export class StudentsComponent implements OnInit{
 
   allStudents:Student[]=[];
   studentswithoutGroup:Student[]=[];
-  constructor(public dialog: MatDialog,private _StudentService:StudentsService,private _Toastr: ToastrService){
+  allGroups:Group[]=[]
+  studentName?:Student
+  constructor(public dialog: MatDialog,private _StudentService:StudentsService,
+    private _GroupService:GroupService
+    ,private _Toastr: ToastrService){
     
   }
 ngOnInit(): void {
   this.getAllStudents()
   this.getAllStudentsWithoutGroup()
+  this.getAllGroups()
 }
   getAllStudents(){
     this._StudentService.getAllStudents().subscribe({
@@ -50,6 +57,56 @@ this._StudentService.deleteStudent(id).subscribe({
             this.getAllStudents()
           },
 })
+  }
+
+  getAllGroups(){
+    this._GroupService.getAllGroups().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.allGroups=res
+         for(const group of  this.allGroups){
+          for(const student of  group.students){
+             this.getStudentById(student)
+            console.log(student);
+            
+
+          }
+         
+          
+         }
+              }, error: (err) => {
+                this._Toastr.error(err.error.message);
+              },
+              complete: () => {
+                
+              },
+    })
+  }
+  getStudentById(id:string){
+    this._StudentService.getStudentById(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+  this.studentName=res
+              }, error: (err) => {
+                
+              },
+              complete: () => {
+                
+              },
+    })
+  }
+  getGroupById(id:string){
+    this._GroupService.getGroupbyId(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+  
+              }, error: (err) => {
+                this._Toastr.error(err.error.message);
+              },
+              complete: () => {
+                
+              },
+    })
   }
 openAddDialogue(): void {
   const dialogRef = this.dialog.open(AddUpdateStudentComponent, {
