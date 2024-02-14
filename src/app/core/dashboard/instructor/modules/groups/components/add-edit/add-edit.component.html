@@ -18,7 +18,7 @@
       </div>
     </div>
     <form [formGroup]="AddGroupForm" class="my-3 pe-3">
-      <h5>Details</h5>
+      <!-- <h5>Details</h5> -->
       <div class="row">
         <div class="col-md-12">
           <div class="input-group input-group-default mb-3">
@@ -42,16 +42,22 @@
             <span class="input-group-text bg" id="inputGroup-sizing-default"
               >List students:</span
             >
-            <select
-              formControlName="students"
-              class="form-select"
-              aria-label="Default select example"
-            >
-              <option selected>All</option>
-              <option *ngFor="let item of listStudents" [value]="item._id">
-                {{ item.first_name }}
-              </option>
-            </select>
+            <div class="form-control">
+
+              <mat-form-field class="w-100">
+                <mat-select [formControl]="AddGroupForm.controls.students" multiple>
+                  <mat-select-trigger>
+                    {{AddGroupForm.controls.students.value?.[0] || ''}}
+                      <span *ngIf=" ((AddGroupForm.controls.students.value?.length || 0) > 1)" class="example-additional-selection">
+                        (+{{(AddGroupForm.controls.students.value?.length || 0) - 1}} {{AddGroupForm.controls.students.value?.length === 4 ? 'other' : 'others'}})
+                      </span>
+                  </mat-select-trigger>
+
+                    <mat-option *ngFor="let student of listStudents;" [value]="student._id">{{student.email}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
           </div>
           <div class="alert alert-danger py-1" *ngIf="AddGroupForm.get('students')?.touched&&AddGroupForm.get('students')?.status=='INVALID'">
             <p class="mb-0" *ngIf="AddGroupForm.get('students')?.getError('required')">Students is required</p>
