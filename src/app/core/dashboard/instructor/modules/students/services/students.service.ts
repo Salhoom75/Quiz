@@ -7,8 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class StudentsService {
   constructor(private _HttpClient: HttpClient) {}
-  getAllGroups(): Observable<any> {
+ 
+  getAllStudents(): Observable<any> {
     return this._HttpClient.get('student');
+  }
+  deleteStudent(id:string): Observable<any> {
+    return this._HttpClient.delete(`student/${id}`);
+  }
+  getStudentById(id:string): Observable<any> {
+    return this._HttpClient.get(`student/${id}`);
   }
   getAllStudentsWithoutGroup(): Observable<any> {
     return this._HttpClient.get('student/without-group');
