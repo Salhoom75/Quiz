@@ -58,7 +58,9 @@ export class AddEditQuestionComponent {
           console.log(res);
           this._Toastr.success(res.message);
         },
-        error: (err) => {},
+        error: (err) => {
+          this._Toastr.error(err.error.message);
+        },
         complete: () => {
           this.onClose();
         },
@@ -97,7 +99,9 @@ export class AddEditQuestionComponent {
         console.log(res);
         this._Toastr.success('question updated succesfully');
       },
-      error: (err) => {},
+      error: (err) => {
+        this._Toastr.error(err.error.message);
+      },
       complete: () => {
         this.onClose();
       },
