@@ -87,6 +87,7 @@ export class AddEditQuestionComponent {
             D: this.questionData.options.D,
           },
         });
+        this.disableFormControlsWithoutAns();
       },
     });
   }
@@ -103,7 +104,13 @@ export class AddEditQuestionComponent {
       },
     });
   }
-
+  disableFormControlsWithoutAns() {
+    this.questionForm.get('title')?.disable();
+    this.questionForm.get('description')?.disable();
+    this.questionForm.get('type')?.disable();
+    this.questionForm.get('difficulty')?.disable();
+    this.questionForm.get('options')?.disable();
+  }
   onClose() {
     this.dialogRef.close();
   }
