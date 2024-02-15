@@ -18,15 +18,15 @@
             <h5 class="mt-2">Question Bank</h5>
           </a>
         </div>
-        <div class="py-5 container-fluid">
-          <h3>Get All Quizes</h3>
+        <div class="container-fluid">
           <div class="quiz-card">
+            <h3>Get All Quizes</h3>
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th scope="col">Title</th>
-                  <th scope="col">code</th>
-                  <th scope="col">group</th>
+                  <th scope="col">Code</th>
+                  <th scope="col">Schadule</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
@@ -35,7 +35,7 @@
                 <tr *ngFor="let item of quizes">
                   <td scope="row">{{ item.title }}</td>
                   <td>{{ item.code }}</td>
-                  <td>{{ item.group }}</td>
+                  <td>{{ item.schadule| date:'dd-MM-yyy' }}</td>
                   <td class="m-auto text-center pointer">
                     <a><i class="fa-solid fa-eye fs-5 i-org pointer"></i></a>
                     <a
