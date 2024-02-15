@@ -18,6 +18,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 @NgModule({
   declarations: [
     ButtonLoaderComponent,
@@ -40,7 +41,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatPaginatorModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatTabsModule
+    MatTabsModule,
+    ClipboardModule
   ],
   exports: [
     FormsModule,
@@ -61,7 +63,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSelectModule,
     MatFormField,
     MatFormFieldModule,
-    MatTabsModule
+    MatTabsModule,
+    ClipboardModule
   ],
 })
 export class SharedModule {}

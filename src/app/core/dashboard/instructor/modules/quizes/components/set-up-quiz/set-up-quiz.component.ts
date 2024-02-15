@@ -18,6 +18,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SetUpQuizComponent implements OnInit{
   allGroups:Group[]=[]
+  myObject: number[]=[]
+  questionCode:string='';
   constructor(
     public dialog: MatDialog,
     private _GroupService:GroupService,
@@ -26,7 +28,12 @@ export class SetUpQuizComponent implements OnInit{
     public dialogRef: MatDialogRef<SetUpQuizComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-   
+    for (let i = 1; i < 30; i++){
+      i=i+2
+      this.myObject.push(i)
+1     
+    }
+    
   }
 ngOnInit(): void {
   this.getAllGroups()
@@ -48,13 +55,14 @@ console.log(form.value);
 this._QuizesService.createQuiz(form.value).subscribe({
   next:(res)=>{
     console.log(res);
+    this.questionCode=res.data.code
     this._Toastr.success('quiz created Succesfully');
   },
   error: (err) => {
     this._Toastr.error(err.error);
   },
   complete: () => {
-    this.openDialog();
+     this.openDialog(this.questionCode);
   },
 })
 
@@ -72,9 +80,10 @@ this._GroupService.getAllGroups().subscribe({
     this.dialogRef.close();
   }
 
-  openDialog(): void {
+  openDialog(data:string): void {
     this.onClose();
     const dialogRef = this.dialog.open(QuizCreatedComponent, {
+      data:data,
       width: '30%',
     });
 
