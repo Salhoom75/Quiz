@@ -1,0 +1,24 @@
+@import "../abstracts/variables";
+#quizes {
+  .quiz-header {
+    border-radius: $border-reduis;
+    border: $border-cardWidth;
+    padding: $padding-card;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  .quiz-header {
+    .quiz-header:hover {
+      background-color: $bs-table-hover-bg;
+    }
+  }
+  a {
+    &.quiz-header:hover{
+      background-color: $bs-table-hover-bg;
+
+    }
+  }
+  img {
+    background-color: $primary-color;
+  }
+}
