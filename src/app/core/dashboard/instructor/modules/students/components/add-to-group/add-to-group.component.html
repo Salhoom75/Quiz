@@ -1,0 +1,44 @@
+<section id="set-up">
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <div class="mt-3"><h3>Add to Group</h3></div>
+        <div class="truefalse">
+          <div>
+            <a (click)="onSubmit(addForm)">
+              <i class="fa-solid fa-check"></i>
+            </a>
+          </div>
+  
+          <div>
+            <a [mat-dialog-close]="data" (click)="onNoClick()">
+              <i class="fa-solid fa-x"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="addForm" class="my-3 pe-3">
+       <div class="row">
+        <div class="col-md-12">
+            <h3
+            >Name:{{data.first_name}} {{data.last_name}}</h3
+          >
+        </div>
+        <div class="col-md-12 py-4">
+            <div class="input-group input-group-lg">
+              <span class="input-group-text bg" id="inputGroup-sizing-lg"
+                >Groups</span
+              >
+              <select class="form-select" id="inputGroupSelect01" formControlName="group">
+            
+                  <option [value]="group._id" *ngFor="let group of allGroups">{{group.name}}</option>
+                  
+                </select>
+            </div>
+            <div class="alert alert-danger mt-2" *ngIf="addForm.get('group')?.touched&&addForm.get('group')?.status=='INVALID'">
+                <p>Group is required</p>
+            </div>
+          </div>
+       </div>
+      </form>
+    </div>
+  </section>

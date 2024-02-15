@@ -26,7 +26,7 @@
           <p class="m-auto py-3 fs-4">
             Are you Sure Delete This Item?
             <span class="text-bg-danger">{{
-              data?.userName || data.data.name || data.data.title || "Name-tem"
+              data?.userName || data.data.name || data.data.title ||data.first_name|| "Name-tem"
             }}</span>
           </p>
           <p class="text-muted w-75 m-auto">
@@ -39,7 +39,7 @@
           </button>
 
           <button
-            [mat-dialog-close]="data"
+            [mat-dialog-close]="data" (click)="deleteStudent(data._id)"
             class="btn butt-loader py-2 shadow-lg px-4 btn-out"
           >
             Yes <i class="fa-solid fa-arrow-right text-muted fw-light"></i>
