@@ -16,78 +16,72 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './set-up-quiz.component.html',
   styleUrls: ['./set-up-quiz.component.scss'],
 })
-export class SetUpQuizComponent implements OnInit{
-  allGroups:Group[]=[]
-  myObject: number[]=[]
-  questionCode:string='';
+export class SetUpQuizComponent implements OnInit {
+  allGroups: Group[] = [];
+  myObject: number[] = [];
+  questionCode: string = '';
   constructor(
     public dialog: MatDialog,
-    private _GroupService:GroupService,
-    private _QuizesService:QuizesService,
+    private _GroupService: GroupService,
+    private _QuizesService: QuizesService,
     private _Toastr: ToastrService,
     public dialogRef: MatDialogRef<SetUpQuizComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-<<<<<<< HEAD
-
-=======
-    for (let i = 1; i < 30; i++){
-      i=i+2
-      this.myObject.push(i)
-1     
+    for (let i = 1; i < 30; i++) {
+      i = i + 2;
+      this.myObject.push(i);
+      1;
     }
-    
->>>>>>> origin/E-createQuiez
   }
-ngOnInit(): void {
-  this.getAllGroups()
-}
-quizForm=new FormGroup({
-  title:new FormControl(null,[Validators.required]),
-  description:new FormControl(null,[Validators.required]),
-  group:new FormControl(null,[Validators.required]),
-  questions_number:new FormControl(null,[Validators.required]),
-  difficulty:new FormControl(null,[Validators.required]),
-  type:new FormControl(null,[Validators.required]),
-  schadule:new FormControl(null,[Validators.required]),
-  duration:new FormControl(null,[Validators.required]),
-  score_per_question:new FormControl(null,[Validators.required])
-})
-
-submit(form:FormGroup){
-console.log(form.value);
-this._QuizesService.createQuiz(form.value).subscribe({
-  next:(res)=>{
-    console.log(res);
-    this.questionCode=res.data.code
-    this._Toastr.success('quiz created Succesfully');
-  },
-  error: (err) => {
-    this._Toastr.error(err.error);
-  },
-  complete: () => {
-     this.openDialog(this.questionCode);
-  },
-})
-
-}
-
-getAllGroups(){
-this._GroupService.getAllGroups().subscribe({
-  next:(res)=>{
-    console.log(res);
-    this.allGroups=res
+  ngOnInit(): void {
+    this.getAllGroups();
   }
-})
-}
+  quizForm = new FormGroup({
+    title: new FormControl(null, [Validators.required]),
+    description: new FormControl(null, [Validators.required]),
+    group: new FormControl(null, [Validators.required]),
+    questions_number: new FormControl(null, [Validators.required]),
+    difficulty: new FormControl(null, [Validators.required]),
+    type: new FormControl(null, [Validators.required]),
+    schadule: new FormControl(null, [Validators.required]),
+    duration: new FormControl(null, [Validators.required]),
+    score_per_question: new FormControl(null, [Validators.required]),
+  });
+
+  submit(form: FormGroup) {
+    console.log(form.value);
+    this._QuizesService.createQuiz(form.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.questionCode = res.data.code;
+        this._Toastr.success('quiz created Succesfully');
+      },
+      error: (err) => {
+        this._Toastr.error(err.error);
+      },
+      complete: () => {
+        this.openDialog(this.questionCode);
+      },
+    });
+  }
+
+  getAllGroups() {
+    this._GroupService.getAllGroups().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.allGroups = res;
+      },
+    });
+  }
   onClose() {
     this.dialogRef.close();
   }
 
-  openDialog(data:string): void {
+  openDialog(data: string): void {
     this.onClose();
     const dialogRef = this.dialog.open(QuizCreatedComponent, {
-      data:data,
+      data: data,
       width: '30%',
     });
 
