@@ -30,8 +30,7 @@ export class GroupsComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.Groupdata = res;
-        this.Groupdata1 = res.slice(0, 5);
-        this.Groupdata2 = res.slice(5, 10);
+        
       },
     });
   }
