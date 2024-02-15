@@ -6,6 +6,8 @@ import { Student } from '../../models/student';
 import { ToastrService } from 'ngx-toastr';
 import { GroupService } from '../../../groups/services/group.service';
 import { Group } from '../../../groups/models/group';
+import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
+import { AddToGroupComponent } from '../add-to-group/add-to-group.component';
 
 @Component({
   selector: 'app-students',
@@ -116,9 +118,37 @@ export class StudentsComponent implements OnInit {
       console.log(this.matchGroupId);
     });
   }
+  openDeleteDialog(data:Student):void{
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: data,
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+        this.getAllStudents()
+      }
+    });
+  }
+  openAddToGroupDialogue(data:Student): void {
+    const dialogRef = this.dialog.open(AddToGroupComponent, {
+      data: data,
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      
+        this.getAllStudentsWithoutGroup()
+      
+    });
+  }
   openAddDialogue(): void {
     const dialogRef = this.dialog.open(AddUpdateStudentComponent, {
-      data: {},
+      data:{} ,
       width: '40%',
     });
 

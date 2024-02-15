@@ -28,7 +28,7 @@
                           <span class="span-succes">{{ student.status }}</span>
                         </div>
                         <div class="pe-4 fs-4">
-                          <a class="pe-1" (click)="deleteStudent(student._id)"
+                          <a class="pe-1" (click)="openDeleteDialog(student)"
                             ><i class="fa-solid fa-trash" style="color: red"></i
                           ></a>
                           <a><i class="fa-solid fa-circle-arrow-right"></i></a>
@@ -66,10 +66,10 @@
                           <span class="span-succes">{{ student.status }}</span>
                         </div>
                         <div class="pe-4 fs-4">
-                          <a class="pe-1" (click)="deleteStudent(student._id)"
+                          <a class="pe-1" (click)="openDeleteDialog(student)"
                             ><i class="fa-solid fa-trash" style="color: red"></i
                           ></a>
-                          <a><i class="fa-solid fa-circle-arrow-right"></i></a>
+                          <a (click)="openAddToGroupDialogue(student)"><i class="fa-solid fa-circle-plus"></i></a>
                         </div>
                       </div>
                     </div>
