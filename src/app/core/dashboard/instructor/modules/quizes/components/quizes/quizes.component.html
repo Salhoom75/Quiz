@@ -1,6 +1,6 @@
 <section id="quiz-instructor">
   <div class="container">
-    <div class="row gx-3">
+    <div class="row gx-3 gap-3">
       <div class="col-md-5 me-3">
         <div class="m-3 d-flex justify-content-around gap-1">
           <a
@@ -32,7 +32,9 @@
               </thead>
               <tbody>
                 <hr />
-                <tr *ngFor="let item of quizes">
+                <ng-container *ngFor="let item of quizes">
+
+                <tr >
                   <td scope="row">{{ item.title }}</td>
                   <td>{{ item.code }}</td>
                   <td>{{ item.schadule| date:'dd-MM-yyy' }}</td>
@@ -48,12 +50,14 @@
                     </a>
                   </td>
                 </tr>
+                <hr>
+                </ng-container>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="m-3 quiz-card">
           <div class="quiz-header">
             <h4>Upcoming 5 quizzes</h4>
