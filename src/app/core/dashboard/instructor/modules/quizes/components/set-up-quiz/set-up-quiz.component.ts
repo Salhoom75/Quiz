@@ -4,7 +4,7 @@ import {
   MAT_DIALOG_DATA,
   MatDialog,
 } from '@angular/material/dialog';
-import { QuizCreatedComponent } from './components/quiz-created/quiz-created.component';
+import { QuizCreatedComponent } from '../quiz-created/quiz-created.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GroupService } from '../../../groups/services/group.service';
 import { Group } from '../../../groups/models/group';
@@ -26,7 +26,7 @@ export class SetUpQuizComponent implements OnInit{
     public dialogRef: MatDialogRef<SetUpQuizComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-   
+
   }
 ngOnInit(): void {
   this.getAllGroups()

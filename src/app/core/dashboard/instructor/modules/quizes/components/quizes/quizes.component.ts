@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SetUpQuizComponent } from '../set-up-quiz/set-up-quiz.component';
 import { MatDialog } from '@angular/material/dialog';
-import { QuizesService } from './services/quizes.service';
+import { QuizesService } from '../../services/quizes.service';
 import { IQuiztable } from '../../models/quiz';
 
 @Component({
@@ -16,8 +16,6 @@ export class QuizesComponent {
     private _QuizesService: QuizesService
   ) {}
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.getAllquizes();
   }
   getAllquizes() {

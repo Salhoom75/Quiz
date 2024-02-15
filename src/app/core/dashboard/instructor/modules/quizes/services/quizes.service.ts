@@ -13,4 +13,7 @@ export class QuizesService {
   createQuiz(data: Quiz): Observable<any> {
     return this._HttpClient.post('quiz', data);
   }
+  getAllQuizes(): Observable<any> {
+    return this._HttpClient.get('quiz');
+  }
 }
