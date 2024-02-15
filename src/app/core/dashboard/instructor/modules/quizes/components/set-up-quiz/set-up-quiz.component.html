@@ -23,6 +23,9 @@
               aria-describedby="inputGroup-sizing-sm"
             />
           </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('title')?.touched&&quizForm.get('title')?.status=='INVALID'">
+            <p>Title is required</p>
+          </div>
         </div>
         <div class="col-md-4">
           <div class="input-group mb-3">
@@ -36,6 +39,9 @@
               
             </select>
           </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('duration')?.touched&&quizForm.get('duration')?.status=='INVALID'">
+            <p>Duration is required</p>
+          </div>
         </div>
         <div class="col-md-4">
           <div class="input-group mb-3">
@@ -43,11 +49,12 @@
               >No. of Questions</label
             >
             <select class="form-select" id="inputGroupSelect01" formControlName="questions_number">
-              <option selected>1</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              
+              <option value="1">1</option>
+              <option  [value]="N" *ngFor="let N of myObject">{{N}}</option>
             </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('questions_numbers')?.touched&&quizForm.get('questions_numbers')?.status=='INVALID'">
+            <p>Questions_numbers is required</p>
           </div>
         </div>
         <div class="col-md-4">
@@ -56,12 +63,13 @@
               >Score per Question</label 
             >
             <select class="form-select" id="inputGroupSelect01" formControlName="score_per_question">
-              <option  value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
+              <option  [value]="N" *ngFor="let N of myObject">{{N}}</option>
+             
             </select>
             
+          </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('score_per_question')?.touched&&quizForm.get('score_per_question')?.status=='INVALID'">
+            <p>Score_per_question is required</p>
           </div>
         </div>
         <div class="col-md-12">
@@ -71,6 +79,9 @@
             >
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" formControlName="description"></textarea>
 
+          </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('description')?.touched&&quizForm.get('description')?.status=='INVALID'">
+            <p>Description is required</p>
           </div>
         </div>
         <div class="col-md-12">
@@ -86,6 +97,9 @@
               aria-describedby="inputGroup-sizing-sm"
             />
           </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('schadule')?.touched&&quizForm.get('schadule')?.status=='INVALID'">
+            <p>schadule is required</p>
+          </div>
         </div>
         <div class="col-md-4">
           <div class="input-group mb-3">
@@ -94,10 +108,13 @@
             >
             <select class="form-select" id="inputGroupSelect01" formControlName="difficulty">
              
-              <option value="easy">entry</option>
+              <option value="easy">easy</option>
               <option value="medium">medium</option>
               <option value="hard">hard</option>
             </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('difficulty')?.touched&&quizForm.get('difficulty')?.status=='INVALID'">
+            <p>Difficulty is required</p>
           </div>
         </div>
         <div class="col-md-4">
@@ -111,6 +128,9 @@
               <option value="DO">DO</option>
             </select>
           </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('type')?.touched&&quizForm.get('type')?.status=='INVALID'">
+            <p>Type is required</p>
+          </div>
         </div>
         <div class="col-md-4">
           <div class="input-group mb-3">
@@ -122,6 +142,9 @@
               <option [value]="group._id" *ngFor="let group of allGroups">{{group.name}}</option>
               
             </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="quizForm.get('group')?.touched&&quizForm.get('group')?.status=='INVALID'">
+            <p>Group is required</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
-import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quiz-created',
@@ -8,7 +9,15 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./quiz-created.component.scss']
 })
 export class QuizCreatedComponent {
-  constructor( private dialogRef:DialogRef ){}
+  constructor( 
+    private _Toastr:ToastrService,
+    public dialogRef: MatDialogRef<QuizCreatedComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any){}
+
+    copyCode(){
+     this._Toastr.success('Code copied to your clipboard');
+     this.onNoClick()
+    }
   onNoClick(): void {
     this.dialogRef.close();
   }
