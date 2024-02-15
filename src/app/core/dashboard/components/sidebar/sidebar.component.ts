@@ -77,6 +77,20 @@ export class SidebarComponent {
       link: '/dashboard/student/home',
       isActive: this.isStudent(),
     },
+    {
+      title: 'Quizes',
+      iconDark: 'quizes-icon-dark',
+      iconLight: 'quizes-icon-light',
+      link: '/dashboard/student/quizes',
+      isActive: this.isStudent(),
+    },
+    {
+      title: 'Results',
+      iconDark: 'results-icon-dark',
+      iconLight: 'results-icon-light',
+      link: '/dashboard/student/results',
+      isActive: this.isStudent(),
+    }
   ];
   isInstructor(): boolean {
     return this._authService.role == 'Instructor' ? true : false;

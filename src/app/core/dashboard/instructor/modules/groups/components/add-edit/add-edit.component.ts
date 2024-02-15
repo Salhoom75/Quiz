@@ -16,6 +16,8 @@ export class AddEditComponent {
   Groupdata: Group[] = [];
   listStudents: any[] | any = [];
   idGroup: string = '';
+  groupData: Group | any;
+
   constructor(
     public dialogRef: MatDialogRef<AddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -29,7 +31,7 @@ export class AddEditComponent {
   ngOnInit(): void {
     this.getAllStudentsWithoutGroup();
     if (this.data) {
-      this.patchValueForm(this.data.groupData);
+      this.getGroupById(this.data.groupData._id)
       this.idGroup = this.data.groupData._id;
     }
   }
@@ -65,7 +67,20 @@ export class AddEditComponent {
       },
     });
   }
+  getGroupById(id: string) {
+    this._GroupService.getGroupbyId(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.groupData = res;
+        this.patchValueForm(this.groupData);
 
+      },
+      error: (err) => {
+        this.tostar.error(err.error.message);
+      },
+      complete: () => {},
+    });
+  }
   patchValueForm(groupData: Group) {
     this.AddGroupForm.patchValue({
       name: groupData.name,

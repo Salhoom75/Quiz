@@ -1,19 +1,35 @@
 import { Component } from '@angular/core';
 import { SetUpQuizComponent } from '../set-up-quiz/set-up-quiz.component';
 import { MatDialog } from '@angular/material/dialog';
+import { QuizesService } from './services/quizes.service';
+import { IQuiztable } from '../../models/quiz';
 
 @Component({
   selector: 'app-quizes',
   templateUrl: './quizes.component.html',
-  styleUrls: ['./quizes.component.scss']
+  styleUrls: ['./quizes.component.scss'],
 })
 export class QuizesComponent {
- constructor(public dialog: MatDialog,){
+  quizes: IQuiztable[] = [];
+  constructor(
+    public dialog: MatDialog,
+    private _QuizesService: QuizesService
+  ) {}
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getAllquizes();
+  }
+  getAllquizes() {
+    this._QuizesService.getAllQuizes().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.quizes = res;
+      },
+    });
+  }
 
- }
-
-
-  startQuiz(){
+  startQuiz() {
     const dialogRef = this.dialog.open(SetUpQuizComponent, {
       data: {},
       width: '60%',
@@ -22,8 +38,7 @@ export class QuizesComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
-      if(result){
-        
+      if (result) {
       }
     });
   }
