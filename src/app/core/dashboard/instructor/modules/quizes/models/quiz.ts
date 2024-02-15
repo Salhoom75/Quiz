@@ -19,7 +19,7 @@ export interface IQuiztable {
   group: string;
   questions_number: number;
   questions: string[];
-  schadule: string;
+  schadule: Date;
   duration: number;
   score_per_question: number;
   type: string;
