@@ -1,0 +1,36 @@
+<section id="join-quiz">
+  <div class="container">
+    <div class="quiz text-center p-3 my-3">
+      <h3>Join Quiz</h3>
+
+      <p class="pt-3" style="color: #000">
+        Input the code received for the quiz below to join
+      </p>
+      <form [formGroup]="joinQuizForm">
+        <div class="input-group input-group p-2 mb-3">
+          <span
+            style="background-color: #ffeddf"
+            class="input-group-text bg"
+            id="inputGroup-sizing-default"
+            >code</span
+          >
+          <input
+            type="text"
+            formControlName="code"
+            class="form-control form-control-sm"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="d-flex quiz-card justify-content-center">
+      <span>
+        <a (click)="onsubmit(joinQuizForm)">
+          <i class="icon fa-solid fa-check fa-2x mx-0"></i>
+        </a>
+        <a (click)="onNoClick()"> <i class="icon fa-solid fa-2x fa-x"></i></a>
+      </span>
+    </div>
+  </div>
+</section>
