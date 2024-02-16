@@ -17,21 +17,19 @@
           <div>
             <h4>Upcoming quizzes</h4>
           </div>
-          <div class="quiz-card p-0">
-            <div class="row quiz-header">
+          <div class="p-0 quiz-header" *ngFor="let quiz of quizzes">
+            <div class="row">
               <div class="col-md-3">
                 <img src="../../../../../../assets/images/img.svg" alt="" />
               </div>
               <div class="col-md-9 p-2">
                 <div>
-                  <h5>Introduction to computer programming</h5>
-                  <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
+                  <h5>{{quiz.title}}</h5>
+                  <p>{{quiz.schadule | date:'yyyy-MM-dd'}}</p>
                 </div>
                 <div class="d-flex justify-content-between pe-3">
-                  <p>No. of student’s enrolled: 17</p>
+                  <p>Code: {{quiz.code}}</p>
                   <a
-                    routerLink="/dashboard/instructor/quizes/quiz-detalis"
-                    class="text-darkColor"
                     >Open
                     <i
                       class="fa-solid fa-circle-arrow-right"
@@ -43,29 +41,7 @@
             </div>
           </div>
         </div>
-        <div class="p-0 quiz-header">
-          <div class="row">
-            <div class="col-md-3">
-              <img src="../../../../../../assets/images/img.svg" alt="" />
-            </div>
-            <div class="col-md-9 p-2">
-              <div>
-                <h5>Introduction to computer programming</h5>
-                <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
-              </div>
-              <div class="d-flex justify-content-between pe-3">
-                <p>No. of student’s enrolled: 17</p>
-                <a
-                  >Open
-                  <i
-                    class="fa-solid fa-circle-arrow-right"
-                    style="color: #c5d86d"
-                  ></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
       <div class="col-md-5 quiz-header">
         <div class="m-3 quiz">
