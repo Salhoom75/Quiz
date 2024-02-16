@@ -69,15 +69,19 @@
                         <h4>Top 5 Students</h4>
                         <a>All students &rarr;</a>
                     </div>
-                    <div class="student-card">
+                    <div class="student-card" *ngFor="let student of topStudents">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="../../../../../../assets/images/user img.svg" alt="">
+                                <img
+                                src="../../../../../../assets/images/Avatar-Profile-Vector-PNG-Pic.png"
+                                class="h-100"
+                                alt=""
+                              />
                             </div>
                             <div class="col-md-9 p-0">
                                <div>
-                                <h5>Emmanuel James</h5>
-                                <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
+                                <h5>{{student.first_name}} {{student.last_name}}</h5>
+                                <p>{{student.email}}</p>
                                </div>
                                <div class="pe-4 fs-4">
                                 <i class="fa-solid fa-circle-arrow-right"></i>
@@ -87,42 +91,7 @@
                         </div>
 
                     </div>
-                    <div class="student-card">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="../../../../../../assets/images/user img (1).svg" alt="">
-                            </div>
-                            <div class="col-md-9 p-0">
-                                <div>
-                                 <h5>Emmanuel James</h5>
-                                 <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
-                                </div>
-                                <div class="pe-4 fs-4">
-                                 <i class="fa-solid fa-circle-arrow-right"></i>
-                                </div>
-
-                             </div>
-                        </div>
-
-                    </div>
-                    <div class="student-card">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="../../../../../../assets/images/user img (2).svg" alt="">
-                            </div>
-                            <div class="col-md-9 p-0">
-                                <div>
-                                 <h5>Emmanuel James</h5>
-                                 <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
-                                </div>
-                                <div class="pe-4 fs-4">
-                                 <i class="fa-solid fa-circle-arrow-right"></i>
-                                </div>
-
-                             </div>
-                        </div>
-
-                    </div>
+                    
                 </div>
             </div>
         </div>
