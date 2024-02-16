@@ -8,6 +8,7 @@ import { GroupService } from '../../../groups/services/group.service';
 import { Group } from '../../../groups/models/group';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { AddToGroupComponent } from '../add-to-group/add-to-group.component';
+import { UpdateGroupComponent } from '../update-group/update-group.component';
 
 @Component({
   selector: 'app-students',
@@ -15,12 +16,14 @@ import { AddToGroupComponent } from '../add-to-group/add-to-group.component';
   styleUrls: ['./students.component.scss'],
 })
 export class StudentsComponent implements OnInit {
-  allStudents: Student[] = [];
+  // allStudents: Student[] = [];
+  allStudents: any;
   studentswithoutGroup: Student[] = [];
   allGroups: Group[] = [];
   groupData: Group | any;
   studentName?: Student;
   studentsGroupName: Student[] = [];
+  
   matchGroupId: boolean = false;
   constructor(
     public dialog: MatDialog,
@@ -39,6 +42,7 @@ export class StudentsComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.allStudents = res;
+        
       },
     });
   }
@@ -118,6 +122,17 @@ export class StudentsComponent implements OnInit {
       console.log(this.matchGroupId);
     });
   }
+  openUpdateGroupDialog(data:Student){
+    const dialogRef = this.dialog.open(UpdateGroupComponent, {
+      data: data,
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+  })
+}
   openDeleteDialog(data:Student):void{
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: data,
