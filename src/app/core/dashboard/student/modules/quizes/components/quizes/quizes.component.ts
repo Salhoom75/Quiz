@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizesService } from 'src/app/core/dashboard/instructor/modules/quizes/services/quizes.service';
 import { QuizeStudentService } from '../../services/quize-student.service';
+import { IQuizStudent } from '../../models/iquiz-student';
 
 @Component({
   selector: 'app-quizes',
@@ -8,7 +9,7 @@ import { QuizeStudentService } from '../../services/quize-student.service';
   styleUrls: ['./quizes.component.scss']
 })
 export class QuizesComponent implements OnInit{
-  quizzes:any[]=[]
+  quizzes:IQuizStudent[]=[]
 constructor(private _QuizService:QuizeStudentService){}
 
 ngOnInit(): void {
