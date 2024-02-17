@@ -23,7 +23,7 @@ export class StudentsComponent implements OnInit {
   groupData: Group | any;
   studentName?: Student;
   studentsGroupName: Student[] = [];
-  
+  recentId:string=''
   matchGroupId: boolean = false;
   constructor(
     public dialog: MatDialog,
@@ -35,7 +35,7 @@ export class StudentsComponent implements OnInit {
     this.getAllStudents();
     this.getAllStudentsWithoutGroup();
     this.getAllGroups();
-    this.getGroupById(this.allGroups[0]._id)
+    // this.getGroupById(this.allGroups[0]._id)
   }
   getAllStudents() {
     this._StudentService.getAllStudents().subscribe({
@@ -103,6 +103,7 @@ export class StudentsComponent implements OnInit {
     });
   }
   getGroupById(id: string) {
+    this.recentId=id
     this._GroupService.getGroupbyId(id).subscribe({
       next: (res) => {
         console.log(res);
@@ -131,6 +132,7 @@ export class StudentsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
+      this.getGroupById(this.recentId)
   })
 }
   openDeleteDialog(data:Student):void{

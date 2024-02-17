@@ -12,8 +12,7 @@ import { GroupService } from '../../services/group.service';
   styleUrls: ['./groups.component.scss'],
 })
 export class GroupsComponent implements OnInit {
-  Groupdata1: Group[] = [];
-  Groupdata2: Group[] = [];
+ 
   Groupdata: Group[] = [];
   data: any;
   constructor(
