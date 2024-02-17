@@ -6,6 +6,7 @@ import { Group, AddGroup } from '../../models/group';
 import { GroupService } from '../../services/group.service';
 import { StudentsService } from '../../../students/services/students.service';
 import { ToastrService } from 'ngx-toastr';
+import { Student } from '../../../students/models/student';
 
 @Component({
   selector: 'app-add-edit',
@@ -14,10 +15,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddEditComponent {
   Groupdata: Group[] = [];
-  listStudents: any[] | any = [];
+  listStudents: Student[] | any = [];
   idGroup: string = '';
-  groupData: Group | any;
-
+  groupData: Group | any = '';
+  isUpdated: boolean = false;
+  studentsForm: Student[] | any = [];
   constructor(
     public dialogRef: MatDialogRef<AddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -31,13 +33,14 @@ export class AddEditComponent {
   ngOnInit(): void {
     this.getAllStudentsWithoutGroup();
     if (this.data) {
-      this.getGroupById(this.data.groupData._id)
-      this.idGroup = this.data.groupData._id;
+      this.isUpdated = true;
+      this.getGroupById(this.data);
+      this.idGroup = this.data;
     }
   }
   AddGroupForm = new FormGroup({
-    name: new FormControl('',[Validators.required]),
-    students: new FormControl([''],[Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    students: new FormControl(this.studentsForm, [Validators.required]),
   });
 
   onSubmit() {
@@ -73,7 +76,6 @@ export class AddEditComponent {
         console.log(res);
         this.groupData = res;
         this.patchValueForm(this.groupData);
-
       },
       error: (err) => {
         this.tostar.error(err.error.message);
@@ -85,6 +87,9 @@ export class AddEditComponent {
     this.AddGroupForm.patchValue({
       name: groupData.name,
       students: groupData.students,
+    });
+    groupData.students.forEach((student) => {
+      this.listStudents.push(student);
     });
     console.log(this.AddGroupForm.value);
   }

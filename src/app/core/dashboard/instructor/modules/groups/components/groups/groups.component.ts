@@ -30,7 +30,7 @@ export class GroupsComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.Groupdata = res;
-        
+
       },
     });
   }
@@ -48,9 +48,9 @@ export class GroupsComponent implements OnInit {
       }
     });
   }
-  openDialogEdit(groupData:Group): void {
+  openDialogEdit(id:string): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
-      data: {groupData},
+      data: id,
       width: '50%',
     });
 
