@@ -26,7 +26,7 @@ export class StudentsService {
   addStudentToGroup(studentId: string, groupId: string): Observable<any> {
     return this._HttpClient.get(`student/${studentId}/${groupId}`);
   }
-  updateStudentToGroup(studentId: string, groupId: string): Observable<any> {
+  updateStudentGroup(studentId: string, groupId: any): Observable<any> {
     return this._HttpClient.put(`student/${studentId}/${groupId}`,{});
   }
 }
