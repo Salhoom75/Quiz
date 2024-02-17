@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SetUpQuizComponent } from '../set-up-quiz/set-up-quiz.component';
 import { MatDialog } from '@angular/material/dialog';
 import { QuizesService } from '../../services/quizes.service';
-import { IQuiztable } from '../../models/quiz';
+import { IQuiztable, Incomming } from '../../models/quiz';
 
 @Component({
   selector: 'app-quizes',
@@ -11,12 +11,14 @@ import { IQuiztable } from '../../models/quiz';
 })
 export class QuizesComponent {
   quizes: IQuiztable[] = [];
+  IncomingStudents: Incomming[] | any = [];
   constructor(
     public dialog: MatDialog,
     private _QuizesService: QuizesService
   ) {}
   ngOnInit(): void {
     this.getAllquizes();
+    this.getFiveIncommingStudents();
   }
   getAllquizes() {
     this._QuizesService.getAllQuizes().subscribe({
@@ -38,6 +40,14 @@ export class QuizesComponent {
       console.log(result);
       if (result) {
       }
+    });
+  }
+  getFiveIncommingStudents() {
+    this._QuizesService.getFiveIncommingStudents().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.IncomingStudents = res;
+      },
     });
   }
 }
