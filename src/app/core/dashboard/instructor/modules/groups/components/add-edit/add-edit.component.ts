@@ -44,9 +44,15 @@ export class AddEditComponent {
   });
 
   onSubmit() {
+    let students = this.AddGroupForm.get('students')?.value;
+    let studentsId: string[] =[];
+    students.forEach((student: Student) => {
+      studentsId.push(student._id);
+    });
+    console.log(studentsId)
     let postObj: any = {
       name: this.AddGroupForm.get('name')?.value,
-      students: this.AddGroupForm.get('students')?.value,
+      students: studentsId,
     };
     console.log(postObj);
     if (this.data) {
