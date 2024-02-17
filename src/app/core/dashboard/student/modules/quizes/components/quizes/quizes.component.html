@@ -2,14 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-5">
-        <div class="py-3 d-flex mx-0 gap-3">
-          <a class="p-4 quiz-header student-card text-center text-darkColor px-5 mx-2">
+        <div (click)="JoinQuizDialoug()" class="py-3 d-flex mx-0 gap-3">
+          <a
+            class="p-4 quiz-header student-card text-center text-darkColor px-5 mx-2"
+          >
             <app-timer-quiz-ico></app-timer-quiz-ico>
             <h5 class="mt-2">Join Quiz</h5>
           </a>
         </div>
       </div>
-
     </div>
     <div class="row mx-2 gap-3">
       <div class="col-md-6 quiz-header">
@@ -24,11 +25,11 @@
               </div>
               <div class="col-md-9 p-2">
                 <div>
-                  <h5>{{quiz.title}}</h5>
-                  <p>{{quiz.schadule | date:'yyyy-MM-dd'}}</p>
+                  <h5>{{ quiz.title }}</h5>
+                  <p>{{ quiz.schadule | date : "yyyy-MM-dd" }}</p>
                 </div>
                 <div class="d-flex justify-content-between pe-3">
-                  <p>Code: {{quiz.code}}</p>
+                  <p>Code: {{ quiz.code }}</p>
                   <a
                     >Open
                     <i
@@ -41,7 +42,6 @@
             </div>
           </div>
         </div>
-       
       </div>
       <div class="col-md-5 quiz-header">
         <div class="m-3 quiz">
