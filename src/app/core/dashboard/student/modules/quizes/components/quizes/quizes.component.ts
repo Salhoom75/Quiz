@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizeStudentService } from '../../services/quize-student.service';
 import { IQuizStudent } from '../../models/iquiz-student';
-import { JoinQuizComponent } from './join-quiz/join-quiz.component';
+import { JoinQuizComponent } from '../join-quiz/join-quiz.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
