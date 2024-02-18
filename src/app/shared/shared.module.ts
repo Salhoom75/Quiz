@@ -19,6 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     ButtonLoaderComponent,
@@ -42,7 +44,9 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     MatSelectModule,
     MatFormFieldModule,
     MatTabsModule,
-    ClipboardModule
+    ClipboardModule,
+    MatStepperModule,
+    MatRadioModule
   ],
   exports: [
     FormsModule,
@@ -64,7 +68,9 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     MatFormField,
     MatFormFieldModule,
     MatTabsModule,
-    ClipboardModule
+    ClipboardModule,
+    MatStepperModule,
+    MatRadioModule
   ],
 })
 export class SharedModule {}

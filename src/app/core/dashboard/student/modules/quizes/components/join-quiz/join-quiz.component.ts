@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class JoinQuizComponent {
   Message: any;
+  codeResult:any;
   joinQuizForm = new FormGroup({
     code: new FormControl(null),
   });
@@ -29,15 +30,16 @@ export class JoinQuizComponent {
   onsubmit(code: any) {
     this._QuizeStudentService.joinQuiz(code.value).subscribe({
       next: (res: any) => {
-        console.log(res);
+        console.log(res.data.quiz);
+        this.codeResult=res
         this.Message = res.data.message;
       },
       error: (err: any) => {
-        console.log(err.message);
+        this._ToastrService.error(err.error.message)
       },
       complete: () => {
         this.onNoClick();
-        this._Router.navigate(['/dashboard/student/quizes/exam'])
+        this._Router.navigate(['/dashboard/student/quizes/exam'],{queryParams:{quiz:this.codeResult.data.quiz}})
       },
     });
   }
