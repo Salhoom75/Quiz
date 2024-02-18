@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { QuizeStudentService } from '../../../services/quize-student.service';
+import { QuizeStudentService } from '../../services/quize-student.service';
 import { QuizCodeComponent } from '../quiz-code/quiz-code.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-join-quiz',
@@ -19,10 +20,12 @@ export class JoinQuizComponent {
     private _QuizeStudentService: QuizeStudentService,
     public dialogRef: MatDialogRef<JoinQuizComponent>,
     private _ToastrService: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private _Router:Router
   ) {}
 
-  ngOnInit(): void {}
+  
+
   onsubmit(code: any) {
     this._QuizeStudentService.joinQuiz(code.value).subscribe({
       next: (res: any) => {
@@ -34,7 +37,7 @@ export class JoinQuizComponent {
       },
       complete: () => {
         this.onNoClick();
-        this.JoinCodeResult();
+        this._Router.navigate(['/dashboard/student/quizes/exam'])
       },
     });
   }
