@@ -30,19 +30,8 @@ export class ResetPassComponent {
         Validators.pattern(/^[a-zA-Z0-9]{3,30}$/),
       ]),
     }
-    // { validators: this.matchpasswords }
   );
 
-  // matchpasswords(form: any) {
-  //   let pass = form.get('password');
-  //   let confimpass = form.get('confirmPassword');
-  //   if (pass.value == confimpass.value) {
-  //     return null;
-  //   } else {
-  //     confimpass.setErrors({ invalid: 'pass w confirmpass not match' });
-  //     return { invalid: 'pass w confirmpass' };
-  //   }
-  // }
   onsubmit(data: FormGroup) {
     this._AuthService.onResetPassword(data.value).subscribe({
       next: (res) => {
