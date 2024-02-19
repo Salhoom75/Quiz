@@ -17,12 +17,12 @@ export class AuthService {
   }
   getUserToken() {
     let encoded: any = localStorage.getItem('userToken');
-    let decoded:any = jwtDecode(encoded);
-     console.log(decoded);
-     console.log(decoded.role);
-     localStorage.setItem('role', decoded.role);
-     localStorage.setItem('userName',decoded.email);
-     localStorage.setItem('Id', decoded.sub);
+    let decoded: any = jwtDecode(encoded);
+    console.log(decoded);
+    console.log(decoded.role);
+    localStorage.setItem('role', decoded.role);
+    localStorage.setItem('userName', decoded.email);
+    localStorage.setItem('Id', decoded.sub);
     this.getRole();
   }
   getRole() {
@@ -42,14 +42,16 @@ export class AuthService {
   }
 
   onForgetPassword(data: string): Observable<any> {
-    return this._httpClient.post('auth/forgot-password', {email: data});
+    return this._httpClient.post('auth/forgot-password', { email: data });
   }
 
   onResetPassword(data: IReset): Observable<any> {
     return this._httpClient.post('portal/users/reset-password', data);
-  
   }
   onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('auth/register', data);
+  }
+  UpdatemyAccount(data: string) {
+    return this._httpClient.put('instructor', data);
   }
 }

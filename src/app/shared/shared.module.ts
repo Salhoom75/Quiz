@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     ButtonLoaderComponent,
@@ -30,6 +31,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     StudentsIconComponent,
     DeleteDialogComponent,
     TrimDescptionPipe,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,

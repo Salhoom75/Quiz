@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { instructorGuard } from '../guards/instructor.guard';
 import { studentGuard } from '../guards/student.guard';
 import { TestComponent } from './components/test/test.component';
+import { EditProfileComponent } from 'src/app/shared/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'edit/:id', component: EditProfileComponent },
 ];
 
 @NgModule({

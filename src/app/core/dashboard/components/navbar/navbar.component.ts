@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UsersService } from './services/users.service';
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { SetUpQuizComponent } from '../../instructor/modules/quizes/components/set-up-quiz/set-up-quiz.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +13,17 @@ import { SetUpQuizComponent } from '../../instructor/modules/quizes/components/s
 })
 export class NavbarComponent {
   userName = localStorage.getItem('userName');
-  userId: any = localStorage.getItem('id');
+  userId: any = localStorage.getItem('_id');
+  role: any = localStorage.getItem('role');
+  Id: any;
   resdata: any;
-  constructor(public dialog: MatDialog, private _UsersService: UsersService) {}
+  constructor(
+    public dialog: MatDialog,
+    private _UsersService: UsersService,
+    private ActivatedRoute: ActivatedRoute
+  ) {
+    this.Id = console.log(this.ActivatedRoute.snapshot.params['_id']);
+  }
   ngOnInit(): void {
     // this.getuserProfile(this.userId);
   }
@@ -37,9 +46,6 @@ export class NavbarComponent {
     });
   }
 
-
-
-
   openDialogChange(): void {
     const dialogRef = this.dialog.open(ChangePassComponent, {
       width: '60%',
@@ -51,7 +57,7 @@ export class NavbarComponent {
     });
   }
 
-  startQuiz(){
+  startQuiz() {
     const dialogRef = this.dialog.open(SetUpQuizComponent, {
       data: {},
       width: '60%',
@@ -60,8 +66,7 @@ export class NavbarComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
-      if(result){
-
+      if (result) {
       }
     });
   }
