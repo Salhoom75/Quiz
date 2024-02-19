@@ -18,7 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SetUpQuizComponent implements OnInit {
   allGroups: Group[] = [];
-  myObject: number[] = [];
+ 
   questionCode: string = '';
   constructor(
     public dialog: MatDialog,
@@ -28,11 +28,7 @@ export class SetUpQuizComponent implements OnInit {
     public dialogRef: MatDialogRef<SetUpQuizComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    for (let i = 1; i < 30; i++) {
-      i = i + 2;
-      this.myObject.push(i);
-      1;
-    }
+   
   }
   ngOnInit(): void {
     this.getAllGroups();
