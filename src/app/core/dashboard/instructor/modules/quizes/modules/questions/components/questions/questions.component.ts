@@ -95,9 +95,10 @@ export class QuestionsComponent implements OnInit {
     });
   }
 
-  openDialogDelete(data: any): void {
+
+  openDialogDelete(data: Iquestion): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: { data },
+      data: { data, name:data.title},
       width: '40%',
     });
 

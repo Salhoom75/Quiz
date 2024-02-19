@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  isLoading: boolean = false;
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
@@ -29,7 +28,6 @@ export class LoginComponent {
     ]),
   });
   onLogin(data: FormGroup) {
-    this.isLoading=true;
     console.log(data.value);
     this._AuthService.onLogin(data.value).subscribe({
       next: (res) => {
@@ -39,10 +37,8 @@ export class LoginComponent {
         this._ToastrService.success(res.data.profile.userName , 'Welcome');
 
       },error:(err)=>{
-        this.isLoading=false;
          this._ToastrService.error(err.error.message , 'error')
       },complete:()=>{
-        this.isLoading=false;
         this._Router.navigate(['/dashboard'])
       }
     })

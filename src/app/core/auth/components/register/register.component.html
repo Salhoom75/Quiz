@@ -211,15 +211,11 @@
                 <div
                   class="col-md-12 d-flex justify-content-start align-items-center"
                 >
-                  <button [disabled]="!registerForm.valid" class="button" *ngIf="isLoading ==false">
+                  <button [disabled]="!registerForm.valid" class="button" >
                     <span class="text fw-bold">Sign up</span
                       ><span><i class="fa-solid  fa-circle-check"></i></span>
                   </button>
-                  <button *ngIf="isLoading ==true" class="butt-loader w-25">
 
-                    <app-button-loader class="position-relative"></app-button-loader>
-
-                  </button>
                 </div>
               </div>
             </form>

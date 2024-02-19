@@ -11,7 +11,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  isLoading: boolean = false;
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
@@ -35,7 +34,6 @@ export class RegisterComponent {
     role: new FormControl('Student', [Validators.required]),
   });
   onRegister(data: FormGroup) {
-    this.isLoading=true;
     console.log(data.value);
     this._AuthService.onRegister(data.value).subscribe({
       next: (res) => {
@@ -43,11 +41,9 @@ export class RegisterComponent {
         this._ToastrService.success(res.message,'Welcome You can Login Now');
       },
       error: (err) => {
-        this.isLoading=false;
         this._ToastrService.error(err.error.message, 'Error');
       },
       complete: () => {
-        this.isLoading=false;
         this._Router.navigate(['auth/login']);
       },
     });
