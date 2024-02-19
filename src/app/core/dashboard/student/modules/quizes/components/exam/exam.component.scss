@@ -1,3 +1,4 @@
+@import "../../../../../../../../assets/styles/abstracts/variables";
 .example-radio-group {
     display: flex;
     flex-direction: column;
@@ -7,4 +8,17 @@
   
   .example-radio-button {
     margin: 5px;
+  }
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  .timer{
+    background-color: $primary-color;
+    padding: 0 20px;
+    border-radius: 5px;
+  
+    p{
+        font-size: 40px;
+        color: black;
+    }
   }
