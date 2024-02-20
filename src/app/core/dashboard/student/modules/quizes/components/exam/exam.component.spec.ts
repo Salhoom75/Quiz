@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeIconComponent } from './home-icon.component';
+import { ExamComponent } from './exam.component';
 
-describe('HomeIconComponent', () => {
-  let component: HomeIconComponent;
-  let fixture: ComponentFixture<HomeIconComponent>;
+describe('ExamComponent', () => {
+  let component: ExamComponent;
+  let fixture: ComponentFixture<ExamComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeIconComponent]
+      declarations: [ExamComponent]
     });
-    fixture = TestBed.createComponent(HomeIconComponent);
+    fixture = TestBed.createComponent(ExamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,53 @@
+<section id="exam">
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-12 d-flex justify-content-end">
+           <div class="timer">
+            <p > 
+             {{ timeRemaining$ | async | date:'mm:ss' }}      
+              </p>
+           </div>
+        </div>
+         <mat-stepper #stepper>
+            <mat-step 
+             *ngFor="let question of questions">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>New question</ng-template>
+                <label id="example-radio-group-label">{{question.title}}</label>
+                <mat-radio-group
+                  aria-labelledby="example-radio-group-label"
+                  class="example-radio-group"
+                 formControlName="answer">
+                  
+                
+                 <mat-radio-button  class="example-radio-button" value="a">{{question.options.A}}</mat-radio-button>
+                 <mat-radio-button  class="example-radio-button" value="b">{{question.options.B}}</mat-radio-button>
+                 <mat-radio-button  class="example-radio-button" value="c">{{question.options.C}}</mat-radio-button>
+                 <mat-radio-button  class="example-radio-button" value="d">{{question.options.D}}</mat-radio-button>
+
+                             
+                </mat-radio-group>
+                
+                <div>
+                  
+                  <button mat-button matStepperNext 
+                  class="btn btn-primary m-2"
+                   (click)="addAnswers(firstFormGroup,question._id)">Next</button>
+                </div>
+              </form>
+            </mat-step>
+           
+            <mat-step>
+              <ng-template matStepLabel>Complete</ng-template>
+              <p class="fs-2">You are now done.</p>
+              <div>
+                <button mat-button matStepperPrevious class="btn btn-primary m-2">Back</button>
+                <button mat-button (click)="resetForm()" (click)="stepper.reset()" class="btn btn-danger m-2">Reset</button>
+                <button mat-button (click)="submitAnswers()" class="btn btn-success m-2">Submit Answers</button>
+              </div>
+            </mat-step>
+          </mat-stepper> 
+    </div>
+</div>
+</section>
+  

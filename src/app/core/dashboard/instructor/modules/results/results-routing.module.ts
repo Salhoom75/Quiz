@@ -5,7 +5,7 @@ import { ViewResultComponent } from './components/view-result/view-result.compon
 
 const routes: Routes = [
   {path:'', component: ResultsComponent},
-  {path:'view-result', component: ViewResultComponent},
+  {path:'view-result/:id', component: ViewResultComponent},
 ];
 
 @NgModule({

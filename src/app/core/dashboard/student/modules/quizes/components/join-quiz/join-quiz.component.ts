@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { QuizeStudentService } from '../../../services/quize-student.service';
+import { QuizeStudentService } from '../../services/quize-student.service';
 import { QuizCodeComponent } from '../quiz-code/quiz-code.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-join-quiz',
@@ -12,6 +13,7 @@ import { QuizCodeComponent } from '../quiz-code/quiz-code.component';
 })
 export class JoinQuizComponent {
   Message: any;
+  codeResult:any;
   joinQuizForm = new FormGroup({
     code: new FormControl(null),
   });
@@ -19,22 +21,25 @@ export class JoinQuizComponent {
     private _QuizeStudentService: QuizeStudentService,
     public dialogRef: MatDialogRef<JoinQuizComponent>,
     private _ToastrService: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private _Router:Router
   ) {}
 
-  ngOnInit(): void {}
+  
+
   onsubmit(code: any) {
     this._QuizeStudentService.joinQuiz(code.value).subscribe({
       next: (res: any) => {
-        console.log(res);
+        console.log(res.data.quiz);
+        this.codeResult=res
         this.Message = res.data.message;
       },
       error: (err: any) => {
-        console.log(err.message);
+        this._ToastrService.error(err.error.message)
       },
       complete: () => {
         this.onNoClick();
-        this.JoinCodeResult();
+        this._Router.navigate(['/dashboard/student/quizes/exam'],{queryParams:{quiz:this.codeResult.data.quiz}})
       },
     });
   }

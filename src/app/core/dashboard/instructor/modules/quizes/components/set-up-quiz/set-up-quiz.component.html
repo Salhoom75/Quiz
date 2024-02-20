@@ -33,7 +33,8 @@
               >Duration <span>(in minutes)</span></label
             >
             <select class="form-select" id="inputGroupSelect01" formControlName="duration">
-              <option selected>10</option>
+              <option value="1">1</option>
+              <option value="10">10</option>
               <option value="20">20</option>
               <option value="30">30</option>
               
@@ -50,7 +51,11 @@
             >
             <select class="form-select" id="inputGroupSelect01" formControlName="questions_number">
               <option value="1">1</option>
-              <option  [value]="N" *ngFor="let N of myObject">{{N}}</option>
+              <option  value="2">2</option>
+              <option  value="3">3</option>
+              <option  value="4">4</option>
+              <option  value="5">5</option>
+              <option  value="6">5</option>
             </select>
           </div>
           <div class="alert alert-danger" *ngIf="quizForm.get('questions_numbers')?.touched&&quizForm.get('questions_numbers')?.status=='INVALID'">
@@ -63,7 +68,9 @@
               >Score per Question</label 
             >
             <select class="form-select" id="inputGroupSelect01" formControlName="score_per_question">
-              <option  [value]="N" *ngFor="let N of myObject">{{N}}</option>
+              <option  value="5">5</option>
+              <option  value="10">10</option>
+              <option  value="15">15</option>
              
             </select>
             

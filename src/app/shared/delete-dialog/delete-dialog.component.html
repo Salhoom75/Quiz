@@ -25,9 +25,7 @@
         <div class="text-center">
           <p class="m-auto py-3 fs-4">
             Are you Sure Delete This Item?
-            <span class="text-bg-danger">{{
-              data?.userName || data.data.name || data.data.title ||data.first_name|| "Name-tem"
-            }}</span>
+            <span class="text-danger">{{data.name+' '+fromGroup}}</span>
           </p>
           <p class="text-muted w-75 m-auto">
             If you delete this item you lost it for ever please make sure
@@ -39,7 +37,7 @@
           </button>
 
           <button
-            [mat-dialog-close]="data" (click)="deleteStudent(data._id)"
+            [mat-dialog-close]="data"
             class="btn butt-loader py-2 shadow-lg px-4 btn-out"
           >
             Yes <i class="fa-solid fa-arrow-right text-muted fw-light"></i>

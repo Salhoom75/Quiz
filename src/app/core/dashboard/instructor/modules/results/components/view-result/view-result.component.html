@@ -1,6 +1,6 @@
 <section id="view-result">
     <div class="container-fluid ">
-<h3>Quizzes <span>>></span> Data Strucrure quiz one</h3>
+<h3>Quizzes <span>>></span> {{quizTitle}}</h3>
  <div class="row">
     <div class="col-md-7">
         <h3 class="my-3">Results</h3>
@@ -15,19 +15,14 @@
             </thead>
             <tbody>
               <hr/>
-              <tr>
-                <td scope="row">Eman Mohamed</td>
-                <td>100</td>
-                <td>100</td>
-                <td>30</td>
+              <tr *ngFor="let participant of participants">
+                <td scope="row">{{participant.participant.first_name}} {{participant.participant.last_name}}</td>
+                <td>{{participant.score}}</td>
+                <td>{{participant.score}}</td>
+                <td>{{participant.started_at| date:"dd-MM-YYYY 'at' hh:mm a"}}</td>
               </tr>
               <hr/>
-              <tr>
-                <td scope="row">Eman Mohamed</td>
-                <td>100</td>
-                <td>100</td>
-                <td>30</td>
-              </tr>
+             
             </tbody>
           </table>
     </div>
