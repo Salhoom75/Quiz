@@ -19,38 +19,18 @@
       </thead>
       <tbody>
         <hr />
-        <tr>
-          <td scope="row">Assembly language</td>
-          <td>Group 1</td>
-          <td>23 persons</td>
-          <td>20 participants</td>
-          <td>12 /02/ 2023</td>
+        <tr *ngFor="let quiz of completedQuizzes">
+          <td scope="row" >{{quiz.title}}</td>
+          <td>{{groupName}}</td>
+          <td>{{numerOfStudents}}</td>
+          <td>{{quiz.participants}}</td>
+          <td>{{quiz.closed_at | date:"dd ,MM , yyyy 'at' hh:mm a"}}</td>
           <td class="text-center">
-            <button style="background-color: #c5d86d" class="btn" routerLink="/dashboard/instructor/results/view-result">View</button>
+            <button style="background-color: #c5d86d" class="btn" [routerLink]="'/dashboard/instructor/results/view-result/'+quiz._id">View</button>
           </td>
         </tr>
         <hr />
-        <tr>
-          <td scope="row">Assembly language</td>
-          <td>Group 1</td>
-          <td>23 persons</td>
-          <td>20 participants</td>
-          <td>12 /02/ 2023</td>
-          <td class="text-center">
-            <button style="background-color: #c5d86d" class="btn" >View</button>
-          </td>
-        </tr>
-        <hr />
-        <tr>
-          <td scope="row">Assembly language</td>
-          <td>Group 1</td>
-          <td>23 persons</td>
-          <td>20 participants</td>
-          <td>12 /02/ 2023</td>
-          <td class="text-center">
-            <button style="background-color: #c5d86d" class="btn">View</button>
-          </td>
-        </tr>
+      
       </tbody>
     </table>
   </div>

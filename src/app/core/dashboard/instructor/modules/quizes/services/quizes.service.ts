@@ -18,7 +18,14 @@ export class QuizesService {
   getFiveIncommingStudents(): Observable<Incomming> {
     return this._HttpClient.get<Incomming>('quiz/incomming');
   }
+
   deleteQuiz(quizId:string): Observable<IQuiztable> {
     return this._HttpClient.delete<IQuiztable>(`quiz/${quizId}`);
+  }
+  completedQuizzes(): Observable<any> {
+    return this._HttpClient.get('quiz/completed');
+  }
+  getQuizById(id:string): Observable<any> {
+    return this._HttpClient.get(`quiz/${id}`);
   }
 }
