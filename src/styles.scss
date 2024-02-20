@@ -12,8 +12,75 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$Quiz-primary: mat.define-palette(mat.$indigo-palette);
-$Quiz-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+
+//light theme colors for override ng mtrls palette
+$light-color-palette: (
+  50: #fdfcf9,
+  100: #fbf9f4,
+  200: #f9f5ee,
+  300: #f8f2e8,
+  400: #f6efe3,
+  500: #FFEDDF,
+  600: #f4e2ce,
+  700: #f2dfc9,
+  800: #f1dbc3,
+  900: #f0d8be,
+  A100: #FFFFFF,
+  A200: #FFFFFF,
+  A400: #FFFFFF,
+  A700: #FFFFFF,
+  contrast: (
+    50: rgba(white, 0.87),
+    100: rgba(white, 0.87),
+    200: rgba(white, 0.87),
+    300: rgba(white, 0.87),
+    400: rgba(white, 0.87),
+    500: rgba(white, 0.87),
+    600: rgba(white, 0.87),
+    700: rgba(white, 0.87),
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  )
+);
+$dark-color-palette: (
+  50: #1d283b,
+  100: #1a2534,
+  200: #17212d,
+  300: #141e26,
+  400: #111b1f,
+  500: #0e1621,
+  600: #0b131a,
+  700: #081013,
+  800: #050d0c,
+  900: #020604,
+  A100: #6b7380,
+  A200: #8c90a0,
+  A400: #adb1bf,
+  A700: #c0c4d0,
+  contrast: (
+    50: rgba(white, 0.87),
+    100: rgba(white, 0.87),
+    200: rgba(white, 0.87),
+    300: rgba(white, 0.87),
+    400: rgba(white, 0.87),
+    500: rgba(white, 0.87),
+    600: rgba(white, 0.87),
+    700: rgba(white, 0.87),
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  )
+);
+$Quiz-primary: mat.define-palette($dark-color-palette, 700, 300, 900);
+$Quiz-accent: mat.define-palette($light-color-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $Quiz-warn: mat.define-palette(mat.$red-palette);

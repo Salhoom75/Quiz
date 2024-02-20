@@ -18,8 +18,8 @@ export class QuestionsService {
   addQuestion(data: Iquestion): Observable<any> {
     return this._HttpClient.post('question', data);
   }
-  updateQuestion(id: string, answer: string): Observable<any> {
-    return this._HttpClient.put(`question/${id}`, { answer: answer });
+  updateQuestion(id: string, data: string): Observable<any> {
+    return this._HttpClient.put(`question/${id}`,  data );
   }
   getQuestionById(id: string): Observable<any> {
     return this._HttpClient.get(`question/${id}`);

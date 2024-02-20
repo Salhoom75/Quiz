@@ -58,10 +58,12 @@
                 </mat-select>
               </mat-form-field>
             </div>
-
           </div>
           <div class="alert alert-danger py-1" *ngIf="AddGroupForm.get('students')?.touched&&AddGroupForm.get('students')?.status=='INVALID'">
             <p class="mb-0" *ngIf="AddGroupForm.get('students')?.getError('required')">Students is required</p>
+          </div>
+          <div class="alert alert-warning my-3" role="alert" *ngIf="listStudents.length ==0">
+            This is a warning No Students - Please try another time!
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@ export interface Group {
   name:string;
   instructor: string;
   max_students: number,
-  
   status: string;
   students: Student[];
   _id: string;

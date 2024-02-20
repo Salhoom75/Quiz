@@ -37,13 +37,6 @@ export class QuestionsComponent implements OnInit {
     });
   }
   serach() {
-    let params = {
-      difficulty: this.difficultyQuestion,
-      type: this.typeOfQuestion,
-    };
-    console.log(this.difficultyQuestion);
-    console.log(this.typeOfQuestion);
-    console.log(params)
     this._questionsService.Searchquestion(this.difficultyQuestion,this.typeOfQuestion).subscribe({
       next: (res) => {
         console.log(res);
@@ -54,15 +47,12 @@ export class QuestionsComponent implements OnInit {
 
   openDialogAddEdit(): void {
     const dialogRef = this.dialog.open(AddEditQuestionComponent, {
-
       width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       this.getAllQuestions()
       console.log('The dialog was closed');
-
-
   })
   }
 
@@ -114,9 +104,9 @@ export class QuestionsComponent implements OnInit {
   }
   ondelete(id: string) {
     this._questionsService.deletequestion(id).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
-        this.tostar.success('question deleted');
+        this.tostar.success(res.message);
       },
       error: (err) => {
         this.tostar.error(err.message, 'Error');

@@ -23,8 +23,8 @@ export class StudentsComponent implements OnInit {
   groupData: Group | any;
   studentName?: Student;
   studentsGroupName: Student[] = [];
-  recentId:string=''
-  matchGroupId: boolean = false;
+  recentId: string = '';
+  notDeletedGroup: Group | any;
   constructor(
     public dialog: MatDialog,
     private _StudentService: StudentsService,
@@ -42,7 +42,6 @@ export class StudentsComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.allStudents = res;
-        
       },
     });
   }
@@ -55,36 +54,11 @@ export class StudentsComponent implements OnInit {
     });
   }
 
-  deleteStudent(id: string) {
-    this._StudentService.deleteStudent(id).subscribe({
-      next: (res) => {
-        console.log(res);
-        this._Toastr.success(res.message);
-      },
-      error: (err) => {
-        this._Toastr.error(err.error.message);
-      },
-      complete: () => {
-        this.getAllStudents();
-      },
-    });
-  }
-
   getAllGroups() {
     this._GroupService.getAllGroups().subscribe({
       next: (res) => {
         console.log(res);
         this.allGroups = res;
-        // this.allGroups.forEach((groupStudents) => {
-        //   groupStudents.students.forEach((studentId) => {
-        //     console.log(studentId)
-        //     this._StudentService.getStudentById(studentId).subscribe({
-        //       next: (res:Student)=> {console.log(res)}
-        //     });
-
-        //   }
-        //   );
-        // });
       },
       error: (err) => {
         this._Toastr.error(err.error.message);
@@ -103,7 +77,7 @@ export class StudentsComponent implements OnInit {
     });
   }
   getGroupById(id: string) {
-    this.recentId=id
+    this.recentId = id;
     this._GroupService.getGroupbyId(id).subscribe({
       next: (res) => {
         console.log(res);
@@ -117,13 +91,8 @@ export class StudentsComponent implements OnInit {
       complete: () => {},
     });
   }
-  matchGroupIdFn() {
-    this.allGroups.forEach((group: Group) => {
-      if (group._id == this.groupData._id) this.matchGroupId = true;
-      console.log(this.matchGroupId);
-    });
-  }
-  openUpdateGroupDialog(data:Student){
+
+  openUpdateGroupDialog(data: Student) {
     const dialogRef = this.dialog.open(UpdateGroupComponent, {
       data: data,
       width: '40%',
@@ -132,24 +101,11 @@ export class StudentsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
-      this.getGroupById(this.recentId)
-  })
-}
-  openDeleteDialog(data:Student):void{
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: data,
-      width: '40%',
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
-      if (result) {
-        this.getAllStudents()
-      }
+      this.getGroupById(this.recentId);
     });
   }
-  openAddToGroupDialogue(data:Student): void {
+
+  openAddToGroupDialogue(data: Student): void {
     const dialogRef = this.dialog.open(AddToGroupComponent, {
       data: data,
       width: '40%',
@@ -158,14 +114,13 @@ export class StudentsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
-      
-        this.getAllStudentsWithoutGroup()
-      
+
+      this.getAllStudentsWithoutGroup();
     });
   }
   openAddDialogue(): void {
     const dialogRef = this.dialog.open(AddUpdateStudentComponent, {
-      data:{} ,
+      data: {},
       width: '40%',
     });
 
@@ -175,5 +130,52 @@ export class StudentsComponent implements OnInit {
       if (result) {
       }
     });
+  }
+  openDeleteStudentDialog(data: Student, deleteFromGroup: boolean, groupData:Group): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: { data, deleteFromGroup,groupData,name:data?.first_name},
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+        if (result.deleteFromGroup == true) {
+          this.deleteStudentFromGroup(result.data._id,result.groupData._id)
+        } else {
+          this.deleteStudent(result.data._id);
+        }
+        this.getAllStudents();
+      }
+    });
+  }
+  deleteStudent(id: string) {
+    this._StudentService.deleteStudent(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        this._Toastr.error(err.error.message);
+      },
+      complete: () => {
+        this._Toastr.success('Record deleted successfully');
+      },
+    });
+  }
+  deleteStudentFromGroup(stuID:string, groupId:string){
+
+    this._StudentService.deleteStudentFromGroup(stuID,groupId).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        this._Toastr.error(err.error.message);
+      },
+      complete: () => {
+        this._Toastr.success('Record deleted From Group successfully');
+      },
+    });
+
   }
 }
