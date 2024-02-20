@@ -21,7 +21,7 @@
       <div class="col-md-4 d-flex justify-content-between align-items-center">
         <div class="">
           <h5>{{ userName }}</h5>
-          <span class="green-text">Instructor</span>
+          <span class="green-text">{{ role }}</span>
         </div>
         <div class="dropdown mx-2">
           <a
@@ -35,7 +35,7 @@
             <li>
               <a
                 class="dropdown-item pointer"
-                [routerLink]="['/dashboard/student/home', userId]"
+                [routerLink]="['/dashboard/edit', userId]"
               >
                 <span><i class="fa-solid fa-user me-2"></i></span> Profile
               </a>

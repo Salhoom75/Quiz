@@ -1,0 +1,73 @@
+<section>
+  <div class="container py-4">
+    <form [formGroup]="editForm">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="">Your First Name</label>
+          <div class="input-group my-3">
+            <span class="input-group-text" id="basic-addon3"
+              ><i class="fa-solid fa-id-card"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="first_name"
+              placeholder="First name"
+              aria-describedby="basic-addon3"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="">Your Last Name</label>
+          <div class="input-group my-3">
+            <span class="input-group-text" id="basic-addon3"
+              ><i class="fa-solid fa-id-card"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="last_name"
+              placeholder="Last name"
+              aria-describedby="basic-addon3"
+            />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="">Your E-mail address</label>
+          <div class="input-group my-3">
+            <span class="input-group-text" id="basic-addon3"
+              ><i class="fa-solid fa-envelope"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              placeholder="email"
+              aria-describedby="basic-addon3"
+            />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="">Status</label>
+          <div class="input-group my-3">
+            <span class="input-group-text" id="basic-addon3"
+              ><i class="fa-solid fa-envelope"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="status"
+              placeholder="status"
+              aria-describedby="basic-addon3"
+            />
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary" (click)="onsubmit(editForm)">
+            edit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
