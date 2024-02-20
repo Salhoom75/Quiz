@@ -10,8 +10,8 @@ import { SetUpQuizComponent } from '../../instructor/modules/quizes/components/s
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  userName = localStorage.getItem('userName');
-  userId: any = localStorage.getItem('_id');
+  firstName:any= localStorage.getItem('first_name');
+  lastName:any= localStorage.getItem('last_name');
   role: any = localStorage.getItem('role');
   Id: any;
   resdata: any;
