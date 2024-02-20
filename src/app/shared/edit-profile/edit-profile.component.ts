@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/services/auth.service';
+import { HelperService } from '../services/helper.service';
+import { IUserProfile } from '../models/iuser-profile';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,24 +12,18 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent {
-  isadmin: boolean = false;
-  userId: any = localStorage.getItem('id');
-  role: any = localStorage.getItem('role');
-  userName: any = localStorage.getItem('userName');
-  userToken: any = localStorage.getItem('userToken');
-
+  role = localStorage.getItem('role');
   constructor(
-    private AuthService: AuthService,
-    private _ActivatedRoute: ActivatedRoute,
+    private helperService: HelperService,
     private ToastrService: ToastrService
-  ) {
-    this.userId = _ActivatedRoute.snapshot.params['_id'];
-    console.log(this.userId);
+  ) {}
 
-    if (this.userId) {
-      this.onsubmit(this.editForm);
-    }
-  }
+  profile: IUserProfile |any= {
+    email: `${localStorage.getItem('email')}`,
+    first_name: `${localStorage.getItem('first_name')}`,
+    last_name: `${localStorage.getItem('last_name')}`,
+    status: `${localStorage.getItem('status')}`,
+  };
   editForm = new FormGroup({
     first_name: new FormControl(null, [Validators.required]),
     last_name: new FormControl(null, [Validators.required]),
@@ -36,25 +32,34 @@ export class EditProfileComponent {
   });
 
   ngOnInit(): void {
-    this.userId = localStorage.getItem('_id');
-    this.isInstructor();
-    this.role = localStorage.getItem('role');
-    this.userName = localStorage.getItem('userName');
-    this.userToken = localStorage.getItem('userToken');
+    console.log(this.profile);
+    this.editForm.patchValue(this.profile);
+    console.log(this.editForm.value)
   }
 
-  isInstructor() {
-    if (this.AuthService.role == 'Instructor') {
-      return (this.isadmin = true);
-    } else {
-      return (this.isadmin = false);
+  onsubmit(data: FormGroup) {
+    if (this.role == 'Instructor') {
+      this.instructorUpdateAcount(data.value);
+    }else{
+
+      this.studentUpdateAcount(data.value);
     }
   }
-  onsubmit(data: FormGroup) {
-    this.AuthService.UpdatemyAccount(data.value).subscribe({
-      next: (res) => {
+
+  instructorUpdateAcount(data: IUserProfile) {
+    this.helperService.UpdateInstractorAccount(data).subscribe({
+      next: (res:any) => {
         console.log(res);
-        this.ToastrService.success('userProfile updated ');
+        this.ToastrService.success(res.message);
+      },
+    });
+  }
+
+  studentUpdateAcount(data: IUserProfile) {
+    this.helperService.UpdateStudentAccount(data).subscribe({
+      next: (res:any) => {
+        console.log(res);
+        this.ToastrService.success(res.message);
       },
     });
   }

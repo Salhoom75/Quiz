@@ -27,9 +27,9 @@ const routes: Routes = [
             (m) => m.StudentModule
           ),
       },
+      { path: 'edit-profile', component: EditProfileComponent },
     ],
   },
-  { path: 'edit/:id', component: EditProfileComponent },
 ];
 
 @NgModule({
