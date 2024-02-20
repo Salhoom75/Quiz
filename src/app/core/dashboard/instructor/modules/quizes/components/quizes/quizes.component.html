@@ -7,14 +7,18 @@
             class="student-card p-4 text-center text-darkColor"
             (click)="startQuiz()"
           >
-            <app-timer-quiz-ico></app-timer-quiz-ico>
+          <div class="d-flex justify-content-center">
+            <img src="../../../../../../../../assets/images/new quiz icon.svg" class="img-fluid w-60" alt="new quiz">
+          </div>
             <h5 class="mt-2">Set up a new quiz</h5>
           </a>
           <a
             class="student-card p-4 text-center text-darkColor"
             routerLink="/dashboard/instructor/quizes/questions"
           >
-            <app-vault-ico></app-vault-ico>
+          <div class="d-flex justify-content-center">
+            <img src="../../../../../../../../assets/images/Vault icon.svg"  class="img-fluid w-60" alt="question bank">
+          </div>
             <h5 class="mt-2">Question Bank</h5>
           </a>
         </div>

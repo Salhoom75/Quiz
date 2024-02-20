@@ -55,6 +55,10 @@
           border: $border-cardWidth;
           overflow: hidden;
           margin-bottom: 15px;
+          .w-60{
+            width: 60px;
+            margin-bottom: 1rem;
+          }
           .col-md-3 {
             img {
               width: 100%;
