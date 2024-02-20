@@ -77,16 +77,19 @@
 }
 
 //used students component
-.btn-secondry {
+.rounded-btn{
+
   padding: 6px 35px;
   border-radius: 30px;
   border: $border-cardWidth;
-  color: black;
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
   letter-spacing: 0em;
   text-align: left;
+}
+.btn-secondry {
+  color: black;
   // i{
   //   border-radius: 50%;
   //   color: white;

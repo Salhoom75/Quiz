@@ -26,7 +26,7 @@
                           <span *ngIf="student.group" class="span-succes">{{ student.group.name }}</span>
                         </div>
                         <div class="pe-4 fs-4">
-                          <a class="pe-1" (click)="openDeleteDialog(student)"
+                          <a class="pe-1" (click)="openDeleteStudentDialog(student,false,notDeletedGroup)"
                             ><i class="fa-solid fa-trash" style="color: red"></i
                           ></a>
                           <!-- <a><i class="fa-solid fa-circle-arrow-right"></i></a>
@@ -65,7 +65,7 @@
                           <span class="span-succes">{{ student.status }}</span>
                         </div>
                         <div class="pe-4 fs-4">
-                          <a class="pe-1" (click)="openDeleteDialog(student)"
+                          <a class="pe-1" (click)="openDeleteStudentDialog(student,false,notDeletedGroup)"
                             ><i class="fa-solid fa-trash" style="color: red"></i
                           ></a>
                           <a (click)="openAddToGroupDialogue(student)"><i class="fa-solid fa-circle-plus"></i></a>
@@ -82,13 +82,13 @@
               <div class="row">
                 <div class="student-header">
 
-                  <a *ngFor="let group of allGroups" class=" mx-3 btn-secondry" (click)="getGroupById(group._id)">{{group.name}}</a>
+                  <a *ngFor="let group of allGroups" class=" mx-3 rounded-btn" [ngClass]="group._id==groupData?._id?'btn-sec-active':' btn-secondry'" (click)="getGroupById(group._id)">{{group.name}}</a>
 
                   <!-- <a class=" btn-sec-active mx-3 btn-secondry">Group 1</a>
                   <a class=" mx-3 btn-secondry">Group 1</a> -->
                 </div>
                 <div class="alert alert-warning my-3" role="alert" *ngIf="studentsGroupName.length ==0">
-                  This is a warning No Data Found
+                  This is a warning No Data Found - please select group.
                 </div>
                   <div class="row">
                     <div
@@ -112,10 +112,10 @@
                               <p>{{ student.email }}</p>
                             </div>
                             <div class="pe-4 fs-4">
-                              <a class="pe-1"
+                              <a class="pe-1" (click)="openDeleteStudentDialog(student,true,groupData)"
                                 ><i class="fa-solid fa-trash" style="color: red"></i
                               ></a>
-                              <a (click)="openUpdateGroupDialog(student)"><i class="fa-solid fa-pen-to-square"></i></a>
+                              <a ><i class="fa-solid fa-pen-to-square"></i></a>
                             </div>
                           </div>
                         </div>
