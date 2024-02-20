@@ -104,9 +104,9 @@ export class QuestionsComponent implements OnInit {
   }
   ondelete(id: string) {
     this._questionsService.deletequestion(id).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
-        this.tostar.success('question deleted');
+        this.tostar.success(res.message);
       },
       error: (err) => {
         this.tostar.error(err.message, 'Error');

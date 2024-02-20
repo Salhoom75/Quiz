@@ -42,6 +42,7 @@ export class QuizesComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
+      this.getAllquizes();
       if (result) {
       }
     });
@@ -72,9 +73,9 @@ export class QuizesComponent {
   }
   deleteQuiz(quizId:string){
     this._QuizesService.deleteQuiz(quizId).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
-        this.tostar.success('question deleted');
+        this.tostar.success(res.message);
       },
       error: (err) => {
         this.tostar.error(err.message, 'Error');
