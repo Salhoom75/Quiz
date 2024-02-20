@@ -8,6 +8,7 @@ export interface Quiz {
   schadule: string;
   duration: number;
   score_per_question: number;
+  closed_at:Date
 }
 export interface IQuiztable {
   _id: string;
