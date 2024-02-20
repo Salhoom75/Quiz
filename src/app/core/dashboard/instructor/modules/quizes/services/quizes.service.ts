@@ -18,4 +18,10 @@ export class QuizesService {
   getFiveIncommingStudents(): Observable<Incomming> {
     return this._HttpClient.get<Incomming>('quiz/incomming');
   }
+  completedQuizzes(): Observable<any> {
+    return this._HttpClient.get('quiz/completed');
+  }
+  getQuizById(id:string): Observable<any> {
+    return this._HttpClient.get(`quiz/${id}`);
+  }
 }
