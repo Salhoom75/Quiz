@@ -1,1 +1,33 @@
-<p>results works!</p>
+<section id="view-result">
+    <div class="container-fluid ">
+ <div class="row">
+    <div class="col-md-6">
+        <h3 class="my-3">Results</h3>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Quiz Name</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Score</th>
+                <th scope="col">Full Mark</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <hr/>
+              <tr *ngFor="let result of studentResults">
+                <td scope="row">{{result.quiz.title}}</td>
+                <td scope="row">{{result.result.participant.first_name}} {{result.result.participant.last_name}}</td>
+                <td>{{result.result.score}}</td>
+                <td>{{result.quiz.score_per_question*result.quiz.questions_number}}</td>
+               
+              </tr>
+              <hr/>
+             
+            </tbody>
+          </table>
+    </div>
+ </div>
+    </div>
+</section>
+
