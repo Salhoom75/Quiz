@@ -14,7 +14,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./add-edit-question.component.scss'],
 })
 export class AddEditQuestionComponent {
-  // questionData:Iquestion[]=[];
   questionData: any;
   isView: boolean = false;
   constructor(
@@ -51,7 +50,7 @@ export class AddEditQuestionComponent {
 
   onSubmit(form: FormGroup) {
     if (this.data) {
-      this.updateQuestion(this.data.id, form.value.answer);
+      this.updateQuestion(this.data.id, form.value);
     } else {
       this._QuestionService.addQuestion(form.value).subscribe({
         next: (res) => {
@@ -76,26 +75,13 @@ export class AddEditQuestionComponent {
       },
       error: (err) => {},
       complete: () => {
-        this.questionForm.patchValue({
-          title: this.questionData.title,
-          description: this.questionData.description,
-          answer: this.questionData.answer,
-          type: this.questionData.type,
-          difficulty: this.questionData.difficulty,
-          options: {
-            A: this.questionData.options.A,
-            B: this.questionData.options.B,
-            C: this.questionData.options.C,
-            D: this.questionData.options.D,
-          },
-        });
-        this.disableFormControlsWithoutAns();
+        this.questionForm.patchValue(this.questionData);
       },
     });
   }
 
-  updateQuestion(id: string, answer: string) {
-    this._QuestionService.updateQuestion(id, answer).subscribe({
+  updateQuestion(id: string, data: string) {
+    this._QuestionService.updateQuestion(id, data).subscribe({
       next: (res) => {
         console.log(res);
         this._Toastr.success('question updated succesfully');
@@ -108,13 +94,7 @@ export class AddEditQuestionComponent {
       },
     });
   }
-  disableFormControlsWithoutAns() {
-    this.questionForm.get('title')?.disable();
-    this.questionForm.get('description')?.disable();
-    this.questionForm.get('type')?.disable();
-    this.questionForm.get('difficulty')?.disable();
-    this.questionForm.get('options')?.disable();
-  }
+
   onClose() {
     this.dialogRef.close();
   }
