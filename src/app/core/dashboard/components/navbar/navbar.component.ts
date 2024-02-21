@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MatDialog } from '@angular/material/dialog';
-import { UsersService } from './services/users.service';
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { SetUpQuizComponent } from '../../instructor/modules/quizes/components/set-up-quiz/set-up-quiz.component';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,21 +10,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  userName = localStorage.getItem('userName');
-  userId: any = localStorage.getItem('_id');
+  firstName:any= localStorage.getItem('first_name');
+  lastName:any= localStorage.getItem('last_name');
   role: any = localStorage.getItem('role');
   groupName=localStorage.getItem('group')
   Id: any;
   resdata: any;
   constructor(
     public dialog: MatDialog,
-    private _UsersService: UsersService,
-    private ActivatedRoute: ActivatedRoute
   ) {
-    this.Id = console.log(this.ActivatedRoute.snapshot.params['_id']);
   }
   ngOnInit(): void {
-    // this.getuserProfile(this.userId);
   }
 
   openDialog(): void {
@@ -37,13 +31,6 @@ export class NavbarComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       console.log(result);
-    });
-  }
-  getuserProfile(id: string) {
-    this._UsersService.onGetUserProfile(id).subscribe({
-      next: (res) => {
-        this.resdata = res;
-      },
     });
   }
 

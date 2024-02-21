@@ -51,7 +51,5 @@ export class AuthService {
   onRegister(data: IRegister): Observable<any> {
     return this._httpClient.post('auth/register', data);
   }
-  UpdatemyAccount(data: string) {
-    return this._httpClient.put('instructor', data);
-  }
+
 }

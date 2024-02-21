@@ -1,73 +1,154 @@
-<section>
+<section id="user-profile">
   <div class="container py-4">
-    <form [formGroup]="editForm">
-      <div class="row">
-        <div class="col-md-6">
-          <label for="">Your First Name</label>
-          <div class="input-group my-3">
-            <span class="input-group-text" id="basic-addon3"
-              ><i class="fa-solid fa-id-card"></i
-            ></span>
-            <input
-              type="text"
-              class="form-control"
-              formControlName="first_name"
-              placeholder="First name"
-              aria-describedby="basic-addon3"
-            />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label for="">Your Last Name</label>
-          <div class="input-group my-3">
-            <span class="input-group-text" id="basic-addon3"
-              ><i class="fa-solid fa-id-card"></i
-            ></span>
-            <input
-              type="text"
-              class="form-control"
-              formControlName="last_name"
-              placeholder="Last name"
-              aria-describedby="basic-addon3"
-            />
-          </div>
-        </div>
-        <div class="col-md-12">
-          <label for="">Your E-mail address</label>
-          <div class="input-group my-3">
-            <span class="input-group-text" id="basic-addon3"
-              ><i class="fa-solid fa-envelope"></i
-            ></span>
-            <input
-              type="text"
-              class="form-control"
-              formControlName="email"
-              placeholder="email"
-              aria-describedby="basic-addon3"
-            />
-          </div>
-        </div>
-        <div class="col-md-12">
-          <label for="">Status</label>
-          <div class="input-group my-3">
-            <span class="input-group-text" id="basic-addon3"
-              ><i class="fa-solid fa-envelope"></i
-            ></span>
-            <input
-              type="text"
-              class="form-control"
-              formControlName="status"
-              placeholder="status"
-              aria-describedby="basic-addon3"
-            />
-          </div>
-        </div>
-        <div>
-          <button class="btn btn-primary" (click)="onsubmit(editForm)">
-            edit
-          </button>
+    <div class="row">
+      <div class="col-md-5 me-5 p-5">
+        <h5 class="mb-3">Your Profile</h5>
+
+        <div class="d-flex justify-content-center">
+
+          <img
+            src="../../../assets/images/Avatar-Profile-Vector-PNG-Pic.png"
+            class="w-75 rounded-circle"
+            alt=""
+          />
         </div>
       </div>
-    </form>
+      <div class="col-md-6 p-5">
+        <form [formGroup]="editForm" (ngSubmit)="onsubmit(editForm)">
+          <div>
+            <label for="">Your First Name</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon3"
+                ><i class="fa-solid fa-id-card"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="first_name"
+                placeholder="First name"
+                aria-describedby="basic-addon3"
+              />
+            </div>
+            <div
+              class="alert alert-danger py-1"
+              *ngIf="
+                editForm.get('first_name')?.touched &&
+                editForm.get('first_name')?.status == 'INVALID'
+              "
+            >
+              <p
+                class="mb-0"
+                *ngIf="editForm.get('first_name')?.getError('required')"
+              >
+                First Name is required
+              </p>
+            </div>
+          </div>
+          <div>
+            <label for="">Your Last Name</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon3"
+                ><i class="fa-solid fa-id-card"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="last_name"
+                placeholder="Last name"
+                aria-describedby="basic-addon3"
+              />
+            </div>
+            <div
+              class="alert alert-danger py-1"
+              *ngIf="
+                editForm.get('last_name')?.touched &&
+                editForm.get('last_name')?.status == 'INVALID'
+              "
+            >
+              <p
+                class="mb-0"
+                *ngIf="editForm.get('last_name')?.getError('required')"
+              >
+                Last Name is required
+              </p>
+            </div>
+          </div>
+          <div>
+            <label for="">Your E-mail address</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon3"
+                ><i class="fa-solid fa-envelope"></i
+              ></span>
+              <input
+
+                type="text"
+                class="form-control"
+                formControlName="email"
+                placeholder="email"
+                aria-describedby="basic-addon3"
+              />
+            </div>
+            <div
+              class="alert alert-danger py-1"
+              *ngIf="
+                editForm.get('email')?.touched &&
+                editForm.get('email')?.status == 'INVALID'
+              "
+            >
+              <p
+                class="mb-0"
+                *ngIf="editForm.get('email')?.getError('required')"
+              >
+                Email is required
+              </p>
+              <p class="mb-0" *ngIf="editForm.get('email')?.getError('email')">
+                Please Enter a valid email ex:abc@abc
+              </p>
+            </div>
+          </div>
+          <div>
+            <label for="">Your Role</label>
+            <div class="input-group">
+              <span class="input-group-text bg" id="inputGroup-sizing-lg"
+                ><i class="fa-solid fa-envelope"></i
+              ></span>
+              <select
+                class="form-select"
+                id="inputGroupSelect01"
+              >
+                <option selected>{{role}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="w-50 my-3">
+            <div class="form-group">
+              <div class="form-check">
+                <input
+                formControlName="status"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="gridCheck"
+                />
+                <label class="form-check-label" for="gridCheck">
+                   Active Acount
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-12 d-flex justify-content-start align-items-center"
+          >
+            <button [disabled]="!editForm.valid" class="button">
+              <span class="text fw-bold">Update </span
+              ><span><i class="fa-solid fa-circle-check"></i></span>
+            </button>
+            <button class="btn btn-outline-danger ms-3 py-3">
+              <span class="text fw-bold ">Cancel </span
+              >
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>

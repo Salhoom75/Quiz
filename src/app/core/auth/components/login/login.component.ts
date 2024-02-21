@@ -37,6 +37,13 @@ export class LoginComponent {
         console.log(res.data.profile.group.name);
         
         this._AuthService.getUserToken();
+
+        //to patch values in profile edit
+        localStorage.setItem('email',res.data.profile.email);
+        localStorage.setItem('first_name',res.data.profile.first_name);
+        localStorage.setItem('last_name',res.data.profile.last_name);
+        localStorage.setItem('status',res.data.profile.status);
+        localStorage.setItem('_id',res.data.profile._id);
         this._ToastrService.success(res.data.profile.userName , 'Welcome');
 
       },error:(err)=>{
