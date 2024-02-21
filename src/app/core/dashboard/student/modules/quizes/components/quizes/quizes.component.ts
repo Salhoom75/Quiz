@@ -3,6 +3,7 @@ import { QuizeStudentService } from '../../services/quize-student.service';
 import { IQuizStudent } from '../../models/iquiz-student';
 import { JoinQuizComponent } from '../join-quiz/join-quiz.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { IcompletedQuiz } from 'src/app/core/dashboard/instructor/modules/results/models/results';
 
 @Component({
   selector: 'app-quizes',
@@ -10,24 +11,26 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./quizes.component.scss'],
 })
 export class QuizesComponent implements OnInit {
-  quizzes: IQuizStudent[] = [];
+  completedQuizzes: IcompletedQuiz[] = [];
+  groupName=localStorage.getItem('group')
   constructor(
     private _QuizService: QuizeStudentService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.getIncoming5Quizzes();
+    this.getCompletedQuizzes();
   }
-  getIncoming5Quizzes() {
-    this._QuizService.getFirst5IncomingQuizzes().subscribe({
+  getCompletedQuizzes() {
+    this._QuizService.getCompletedQuizzes().subscribe({
       next: (res) => {
         console.log(res);
-        this.quizzes = res;
+        this.completedQuizzes = res;
       },
     });
   }
 
+  
   JoinQuizDialoug(): void {
     const dialogRef = this.dialog.open(JoinQuizComponent, {
       data: {},

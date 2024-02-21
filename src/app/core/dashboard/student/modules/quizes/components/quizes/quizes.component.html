@@ -15,49 +15,14 @@
       </div>
     </div>
     <div class="row mx-2 gap-3">
-      <div class="col-md-6 quiz-header">
-        <div class="m-3 quiz">
-          <div>
-            <h4>Upcoming quizzes</h4>
-          </div>
-          <div class="p-0 quiz-header" *ngFor="let quiz of quizzes">
-            <div class="row">
-              <div class="col-md-3">
-                <img src="../../../../../../assets/images/img.svg" alt="" />
-              </div>
-              <div class="col-md-9 p-2">
-                <div>
-                  <h5>{{ quiz.title }}</h5>
-                  <p>{{ quiz.schadule | date : "yyyy-MM-dd" }}</p>
-                </div>
-                <div class="d-flex justify-content-between pe-3">
-                  <p>Code: {{ quiz.code }}</p>
-                  <a
-                    >Open
-                    <i
-                      class="fa-solid fa-circle-arrow-right"
-                      style="color: #c5d86d"
-                    ></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5 quiz-header">
+      
+      <div class="col-md-7 quiz-header">
         <div class="m-3 quiz">
           <div>
             <h4>Completed Quizzes</h4>
-            <a
-              >Results
-              <i
-                class="fa-solid fa-circle-arrow-right"
-                style="color: #c5d86d"
-              ></i
-            ></a>
+            
           </div>
-          <div class="">
+          <div class="mt-4">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -69,26 +34,14 @@
               </thead>
               <tbody>
                 <hr />
-                <tr>
-                  <td scope="row">Assembly language</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>12 /02/ 2023</td>
+                <tr *ngFor="let quiz of completedQuizzes">
+                  <td scope="row">{{quiz.title}}</td>
+                  <td>{{groupName}}</td>
+                  <td>{{quiz.participants}}</td>
+                  <td>{{quiz.closed_at | date:'dd/MM/YYYY'}}</td>
                 </tr>
                 <hr />
-                <tr>
-                  <td scope="row">Assembly language</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>12 /02/ 2023</td>
-                </tr>
-                <hr />
-                <tr>
-                  <td scope="row">Assembly language</td>
-                  <td>Larry the Bird</td>
-                  <td>Larry the Bird</td>
-                  <td>12 /02/ 2023</td>
-                </tr>
+               
               </tbody>
             </table>
             <!-- </div> -->

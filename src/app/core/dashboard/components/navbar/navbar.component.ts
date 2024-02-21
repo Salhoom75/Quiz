@@ -15,6 +15,7 @@ export class NavbarComponent {
   userName = localStorage.getItem('userName');
   userId: any = localStorage.getItem('_id');
   role: any = localStorage.getItem('role');
+  groupName=localStorage.getItem('group')
   Id: any;
   resdata: any;
   constructor(

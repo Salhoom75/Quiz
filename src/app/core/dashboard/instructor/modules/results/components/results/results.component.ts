@@ -30,7 +30,7 @@ getCompletedQuizzes(){
       
       this.completedQuizzes=res
       for(let Q of this.completedQuizzes){
-          this.getGroupName(Q.group)
+          this.getGroupById(Q.group)
       }
 
     },error:(err)=>{
@@ -41,7 +41,7 @@ getCompletedQuizzes(){
   })
 }
 
-getGroupName(id:string){
+getGroupById(id:string){
   this._GroupService.getGroupbyId(id).subscribe({
     next:(res)=>{
       console.log(res);

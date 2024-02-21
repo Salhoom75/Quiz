@@ -1,7 +1,39 @@
-<section id="instructor-home">
-  <div class="container">
-    <div class="row gx-3">
-      <div class="col-md-12"></div>
+<section id="quizes">
+  <div class="container-fluid">
+   
+    <div class="row mx-2 mt-5 quiz-header">
+      <div>
+        <h4>Upcoming quizzes</h4>
+      </div>
+      <div class="col-md-6"*ngFor="let quiz of quizzes">
+        <div class="m-3 quiz">
+          
+          <div class="p-0 quiz-header" >
+            <div class="row">
+              <div class="col-md-3">
+                <img src="../../../../../../assets/images/img.svg" alt="" />
+              </div>
+              <div class="col-md-9 p-2">
+                <div>
+                  <h5>{{ quiz.title }}</h5>
+                  <p>{{ quiz.schadule | date : "yyyy-MM-dd" }}</p>
+                </div>
+                <div class="d-flex justify-content-between pe-3">
+                  <p>Code: {{ quiz.code }}</p>
+                  <a
+                    >Open
+                    <i
+                      class="fa-solid fa-circle-arrow-right"
+                      style="color: #c5d86d"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>

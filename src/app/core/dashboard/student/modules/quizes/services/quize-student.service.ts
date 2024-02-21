@@ -13,6 +13,9 @@ export class QuizeStudentService {
   getFirst5IncomingQuizzes(): Observable<any> {
     return this._HttpClient.get('quiz/incomming');
   }
+  getCompletedQuizzes(): Observable<any> {
+    return this._HttpClient.get('quiz/completed');
+  }
 
   joinQuiz(code: string): Observable<any> {
     return this._HttpClient.post('quiz/join', code);
