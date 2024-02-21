@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class QuizesComponent {
   quizes: IQuiztable[] = [];
+  noQuiz:IQuiztable | any;
   IncomingStudents: Incomming[] | any = [];
   constructor(
     public dialog: MatDialog,
@@ -33,9 +34,9 @@ export class QuizesComponent {
     });
   }
 
-  startQuiz() {
+  addEditDetailsQuizDialogue(quizData:IQuiztable,addQuiz:Boolean,editQuiz:Boolean,viewQuiz:boolean) {
     const dialogRef = this.dialog.open(SetUpQuizComponent, {
-      data: {},
+      data: {quizData,addQuiz,editQuiz,viewQuiz,isActive:quizData?.status},
       width: '60%',
     });
 

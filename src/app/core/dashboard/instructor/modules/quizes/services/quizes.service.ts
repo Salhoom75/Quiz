@@ -9,8 +9,14 @@ import { Observable } from 'rxjs';
 export class QuizesService {
   constructor(private _HttpClient: HttpClient) {}
 
-  createQuiz(data: Quiz): Observable<any> {
-    return this._HttpClient.post('quiz', data);
+  createQuiz(data: Quiz): Observable<Quiz> {
+    return this._HttpClient.post<Quiz>('quiz', data);
+  }
+  updateQuiz(quizId:string,data: any): Observable<any> {
+    return this._HttpClient.put(`quiz/${quizId}`, data);
+  }
+  reassignQuiz(quizId:string,data: any): Observable<any> {
+    return this._HttpClient.post(`quiz/${quizId}`, data);
   }
   getAllQuizes(): Observable<any> {
     return this._HttpClient.get('quiz');
