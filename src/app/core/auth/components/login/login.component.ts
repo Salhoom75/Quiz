@@ -33,10 +33,9 @@ export class LoginComponent {
       next: (res) => {
         console.log(res);
         localStorage.setItem('userToken', res.data.accessToken);
-        localStorage.setItem('group', res.data.profile.group.name);
-        console.log(res.data.profile.group.name);
-        
-        this._AuthService.getUserToken();
+        localStorage.setItem('group', res.data.profile.group?.name);
+        console.log(res.data.profile.group?.name);
+
 
         //to patch values in profile edit
         localStorage.setItem('email',res.data.profile.email);
@@ -44,7 +43,12 @@ export class LoginComponent {
         localStorage.setItem('last_name',res.data.profile.last_name);
         localStorage.setItem('status',res.data.profile.status);
         localStorage.setItem('_id',res.data.profile._id);
-        this._ToastrService.success(res.data.profile.userName , 'Welcome');
+        console.log(res.data.profile.email)
+        console.log(res.data.profile.first_namel)
+        console.log(res.data.profile.last_name)
+        console.log(res.data.profile.email)
+        this._AuthService.getUserToken();
+        this._ToastrService.success(res.data.profile.first_name , 'Welcome');
 
       },error:(err)=>{
          this._ToastrService.error(err.error.message , 'error')
