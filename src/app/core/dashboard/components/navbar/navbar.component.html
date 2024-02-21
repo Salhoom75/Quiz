@@ -6,8 +6,11 @@
       >
         <h3 class="fs-4 fw-bold">Dashboard</h3>
         <div class="border rounded-5 py-1 px-4 pointer">
-          <h2 class="fs-5 m-auto fw-bold" (click)="startQuiz()">
+          <h2 class="fs-5 m-auto fw-bold"*ngIf="role=='Instructor'" (click)="startQuiz()">
             <i class="fa-solid fa-stopwatch"></i> New Quiz
+          </h2>
+          <h2 class="fs-5 m-auto fw-bold" *ngIf="role=='Student'">
+            Group: {{groupName}}
           </h2>
         </div>
         <!-- <div class="icon">

@@ -33,6 +33,9 @@ export class LoginComponent {
       next: (res) => {
         console.log(res);
         localStorage.setItem('userToken', res.data.accessToken);
+        localStorage.setItem('group', res.data.profile.group.name);
+        console.log(res.data.profile.group.name);
+        
         this._AuthService.getUserToken();
         this._ToastrService.success(res.data.profile.userName , 'Welcome');
 
