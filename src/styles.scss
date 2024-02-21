@@ -79,8 +79,8 @@ $dark-color-palette: (
     A700: rgba(black, 0.87),
   )
 );
-$Quiz-primary: mat.define-palette($dark-color-palette, 700, 300, 900);
-$Quiz-accent: mat.define-palette($light-color-palette, A200, A100, A400);
+$Quiz-primary: mat.define-palette($dark-color-palette);
+$Quiz-accent: mat.define-palette($light-color-palette);
 
 // The warn palette is optional (defaults to red).
 $Quiz-warn: mat.define-palette(mat.$red-palette);

@@ -5,7 +5,7 @@
         <div class="m-3 d-flex justify-content-around gap-1">
           <a
             class="student-card p-4 text-center text-darkColor"
-            (click)="startQuiz()"
+            (click)="addEditDetailsQuizDialogue(noQuiz,true,false,false)"
           >
           <div class="d-flex justify-content-center">
             <img src="../../../../../../../../assets/images/new quiz icon.svg" class="img-fluid w-60" alt="new quiz">
@@ -31,6 +31,7 @@
                   <th scope="col">Title</th>
                   <th scope="col">Code</th>
                   <th scope="col">Schadule</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
@@ -38,14 +39,17 @@
                 <hr />
                 <ng-container *ngFor="let item of quizes">
                   <tr>
-                    <td scope="row">{{ item.title }}</td>
+                    <td scope="row">{{ item.title | trimDescption : 5 }}</td>
                     <td>{{ item.code }}</td>
                     <td>{{ item.schadule | date : "dd-MM-yyy" }}</td>
-                    <td class="m-auto text-center pointer">
-                      <a><i class="fa-solid fa-eye fs-5 i-org pointer"></i></a>
-                      <a
+                    <td class="text-center" >
+                      <span [ngClass]="item.status=='open'?'activeStatus':'inActiveStatus'"> {{ item.status }}</span>
+                    </td>
+                    <td class="m-auto text-center pointer p-1">
+                      <a (click)="addEditDetailsQuizDialogue(item,false,false,true)"><i class="fa-solid fa-eye fs-5 i-org pointer"></i></a>
+                      <a (click)="addEditDetailsQuizDialogue(item,false,true,false)"
                         ><i
-                          class="fa-solid fa-pen-to-square i-org px-3 fs-5 pointer"
+                          class="fa-solid fa-pen-to-square i-org px-2  fs-5 pointer"
                         ></i
                       ></a>
                       <a  (click)="openDialogDelete(item)">

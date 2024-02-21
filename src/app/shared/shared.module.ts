@@ -9,13 +9,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TrimDescptionPipe } from './pipes/trim-descption.pipe';
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatTabsModule,
     ClipboardModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   exports: [
     FormsModule,
@@ -53,7 +58,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatTabsModule,
     ClipboardModule,
     MatStepperModule,
-    MatRadioModule
-  ],
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+  ]
 })
 export class SharedModule {}
