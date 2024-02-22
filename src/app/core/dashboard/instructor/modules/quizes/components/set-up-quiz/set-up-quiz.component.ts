@@ -80,11 +80,18 @@ export class SetUpQuizComponent implements OnInit {
     }
     //statuse is open so edit
     else if (this.isEditQuiz == true) {
-      this.editQuiz(this.data.quizData._id, form.value);
+
+      this.editQuiz(this.data.quizData._id, form.value.title);
     }
     //statuse is closed so reassign
     else if (this.isReassignQuiz == true) {
-      this.reassignQuiz(this.data.quizData._id, form.value);
+      let params = {
+
+        schadule: form.value.schadule,
+        duration: form.value.duration
+
+    }
+      this.reassignQuiz(this.data.quizData._id,params);
     } else{
 
       this.onClose();
@@ -139,7 +146,7 @@ export class SetUpQuizComponent implements OnInit {
     });
   }
   //reassign quiz
-  reassignQuiz(quizId: string, data: Quiz) {
+  reassignQuiz(quizId: string, data: any) {
     this._QuizesService.reassignQuiz(quizId, data).subscribe({
       next: (res: any) => {
         console.log(res);
