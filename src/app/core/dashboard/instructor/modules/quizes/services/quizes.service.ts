@@ -13,10 +13,10 @@ export class QuizesService {
     return this._HttpClient.post<Quiz>('quiz', data);
   }
   updateQuiz(quizId:string,data: any): Observable<any> {
-    return this._HttpClient.put(`quiz/${quizId}`, data);
+    return this._HttpClient.put(`quiz/${quizId}`, {"title":data});
   }
   reassignQuiz(quizId:string,data: any): Observable<any> {
-    return this._HttpClient.post(`quiz/${quizId}`, data);
+    return this._HttpClient.post(`quiz/reassign/${quizId}`, data);
   }
   getAllQuizes(): Observable<any> {
     return this._HttpClient.get('quiz');
