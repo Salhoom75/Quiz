@@ -6,6 +6,8 @@ import { IQuistions,  Options } from '../../models/iquiz-student';
 import { Ianswer } from '../../models/ianswer';
 import { ToastrService } from 'ngx-toastr';
 import { map, takeWhile, timer } from 'rxjs';
+import { CloseExamComponent } from '../close-exam/close-exam.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-exam',
@@ -24,6 +26,7 @@ export class ExamComponent implements OnInit{
   
   constructor(private _ActivatedRoute:ActivatedRoute,
     private _QuizStudentService:QuizeStudentService,private _Toastr:ToastrService,
+    public dialog: MatDialog,
     private _Router:Router){
 _ActivatedRoute.queryParams.subscribe(params => {
  this.QuizId=params['quiz']
@@ -46,10 +49,20 @@ getQuestions(id:string){
           
         );
       
-this.questions=res.data.questions
+      this.questions=res.data.questions
     
       console.log(this.questions);
       
+  },complete:()=>{
+    
+    this.timeRemaining$.subscribe((time:any) => {
+    
+      if (time <= 0) {
+        this.openCloseExamDialoug()
+        this.submitAnswers()
+      }
+    });
+  
   }
   })
 }
@@ -74,7 +87,6 @@ this.questions=res.data.questions
 this._Toastr.error(err.error.message)
     },complete:()=> {
       this._Toastr.success("you have submitted your answers")
-      this._Router.navigate(['/dashboard/student/quizes'])
     }
   })
  }
@@ -82,5 +94,23 @@ this._Toastr.error(err.error.message)
     this.answers=[]
   }
 
+  openCloseExamDialoug(): void {
+    const timeout = 4000;
+    const dialogRef = this.dialog.open(CloseExamComponent, {
+      width: '40%',
+      data: {}
+    });
 
+    dialogRef.afterOpened().subscribe(_ => {
+      setTimeout(() => {
+         dialogRef.close();
+         
+      }, timeout)
+      
+    })
+    dialogRef.afterClosed().subscribe((result) => {
+      this._Router.navigate(['/dashboard/student/quizes'])
+      
+    });
+  }
 }

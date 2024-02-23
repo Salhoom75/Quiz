@@ -20,13 +20,14 @@
                 </div>
                 <div class="d-flex justify-content-between pe-3">
                   <p>Code: {{ quiz.code }}</p>
-                  <a
-                    >Open
+                  <a [cdkCopyToClipboard]="quiz.code" (click)="copyCode()"
+                    >
                     <i
-                      class="fa-solid fa-circle-arrow-right"
+                      class="fa-solid fa-copy fs-2 fw-bold pointer"
                       style="color: #c5d86d"
                     ></i
                   ></a>
+                 
                 </div>
               </div>
             </div>
