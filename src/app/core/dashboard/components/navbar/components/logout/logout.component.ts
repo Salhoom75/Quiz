@@ -17,17 +17,14 @@ export class LogoutComponent {
     private router: Router
   ) {}
   ngOnInit(): void {
-    
+
   }
 
   onNoClick(): void {
     this.DialogRef.close();
   }
   onLogout() {
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('role');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('userEmail');
+    localStorage.clear();
     this.router.navigate(['/auth']);
     this.DialogRef.close();
   }
