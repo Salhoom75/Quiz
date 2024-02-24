@@ -23,7 +23,7 @@ export class ExamComponent implements OnInit{
   timeRemaining$:any;
   @Input()  seconds=0
 
-  
+
   constructor(private _ActivatedRoute:ActivatedRoute,
     private _QuizStudentService:QuizeStudentService,private _Toastr:ToastrService,
     public dialog: MatDialog,
@@ -42,27 +42,27 @@ getQuestions(id:string){
   this._QuizStudentService.getQuestionsWiyhoutAnswer(id).subscribe({
     next:(res:any)=>{
       console.log(res);
-         this.seconds=(res.data.duration)*60 
+         this.seconds=(res.data.duration)*60
         this.timeRemaining$ = timer(0, 1000).pipe(
           map(n => (this.seconds - n) * 1000),
           takeWhile(n => n >= 0)
-          
+
         );
-      
+
       this.questions=res.data.questions
-    
+
       console.log(this.questions);
-      
+
   },complete:()=>{
-    
+
     this.timeRemaining$.subscribe((time:any) => {
-    
+
       if (time <= 0) {
         this.openCloseExamDialoug()
         this.submitAnswers()
       }
     });
-  
+
   }
   })
 }
@@ -70,19 +70,19 @@ getQuestions(id:string){
   firstFormGroup = new FormGroup({
       answer:new FormControl(null)
   })
- 
+
  addAnswers(form:FormGroup,question:string){
   console.log(form.value);
   let answer=form.value.answer
   this.answers.push({question,answer})
   console.log(this.answers);
-  
+
  }
  submitAnswers(){
   this._QuizStudentService.submitAnswer(this.QuizId,this.answers).subscribe({
     next:(res)=>{
       console.log(res);
-      
+
     },error:(err)=>{
 this._Toastr.error(err.error.message)
     },complete:()=> {
@@ -95,7 +95,7 @@ this._Toastr.error(err.error.message)
   }
 
   openCloseExamDialoug(): void {
-    const timeout = 4000;
+    const timeout = 7000;
     const dialogRef = this.dialog.open(CloseExamComponent, {
       width: '40%',
       data: {}
@@ -104,13 +104,13 @@ this._Toastr.error(err.error.message)
     dialogRef.afterOpened().subscribe(_ => {
       setTimeout(() => {
          dialogRef.close();
-         
+
       }, timeout)
-      
+
     })
     dialogRef.afterClosed().subscribe((result) => {
       this._Router.navigate(['/dashboard/student/quizes'])
-      
+
     });
   }
 }

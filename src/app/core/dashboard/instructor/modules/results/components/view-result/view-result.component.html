@@ -1,31 +1,40 @@
 <section id="view-result">
-    <div class="container-fluid ">
-<h3>Quizzes <span>>></span> {{quizTitle}}</h3>
- <div class="row">
-    <div class="col-md-7">
+  <div class="container-fluid">
+    <h3>Quizzes <span>>></span> {{ quizTitle }}</h3>
+    <div class="row">
+      <div class="col-md-7">
         <h3 class="my-3">Results</h3>
         <table class="table table-hover">
-            <thead>
+          <thead>
+            <tr>
+              <th scope="col">Student Name</th>
+              <th scope="col">Score</th>
+              <th scope="col">Average</th>
+              <th scope="col">Time submitted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <hr />
+            <ng-container *ngFor="let participant of participants">
               <tr>
-                <th scope="col">Student Name</th>
-                <th scope="col">Score</th>
-                <th scope="col">Average</th>
-                <th scope="col">Time submitted</th>
+                <td scope="row">
+                  {{ participant.participant.first_name }}
+                  {{ participant.participant.last_name }}
+                </td>
+                <td>{{ participant.score }}</td>
+                <td>{{ participant.score }}</td>
+                <td>
+                  {{
+                    participant.started_at | date : "dd-MM-YYYY 'at' hh:mm a"
+                  }}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <hr/>
-              <tr *ngFor="let participant of participants">
-                <td scope="row">{{participant.participant.first_name}} {{participant.participant.last_name}}</td>
-                <td>{{participant.score}}</td>
-                <td>{{participant.score}}</td>
-                <td>{{participant.started_at| date:"dd-MM-YYYY 'at' hh:mm a"}}</td>
-              </tr>
-              <hr/>
-             
-            </tbody>
-          </table>
+
+              <hr />
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
     </div>
- </div>
-    </div>
+  </div>
 </section>

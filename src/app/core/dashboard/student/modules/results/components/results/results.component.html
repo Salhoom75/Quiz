@@ -1,33 +1,39 @@
 <section id="view-result">
-    <div class="container-fluid ">
- <div class="row">
-    <div class="col-md-6">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
         <h3 class="my-3">Results</h3>
         <table class="table table-hover">
-            <thead>
+          <thead>
+            <tr>
+              <th scope="col">Quiz Name</th>
+              <th scope="col">Student Name</th>
+              <th scope="col">Score</th>
+              <th scope="col">Full Mark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <hr />
+            <ng-container *ngFor="let result of studentResults">
               <tr>
-                <th scope="col">Quiz Name</th>
-                <th scope="col">Student Name</th>
-                <th scope="col">Score</th>
-                <th scope="col">Full Mark</th>
-                
+                <td scope="row">{{ result.quiz.title }}</td>
+                <td scope="row">
+                  {{ result.result.participant.first_name }}
+                  {{ result.result.participant.last_name }}
+                </td>
+                <td>{{ result.result.score }}</td>
+                <td>
+                  {{
+                    result.quiz.score_per_question *
+                      result.quiz.questions_number
+                  }}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <hr/>
-              <tr *ngFor="let result of studentResults">
-                <td scope="row">{{result.quiz.title}}</td>
-                <td scope="row">{{result.result.participant.first_name}} {{result.result.participant.last_name}}</td>
-                <td>{{result.result.score}}</td>
-                <td>{{result.quiz.score_per_question*result.quiz.questions_number}}</td>
-               
-              </tr>
-              <hr/>
-             
-            </tbody>
-          </table>
+              <hr />
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
     </div>
- </div>
-    </div>
+  </div>
 </section>
-
