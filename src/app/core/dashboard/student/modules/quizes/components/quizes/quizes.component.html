@@ -6,21 +6,23 @@
           <a
             class="p-4 quiz-header student-card text-center text-darkColor px-5 mx-2"
           >
-          <div class="d-flex justify-content-center">
-            <img src="../../../../../../../../assets/images/new quiz icon.svg" class="img-fluid" alt="new quiz">
-          </div>
+            <div class="d-flex justify-content-center">
+              <img
+                src="../../../../../../../../assets/images/new quiz icon.svg"
+                class="img-fluid"
+                alt="new quiz"
+              />
+            </div>
             <h5 class="mt-2">Join Quiz</h5>
           </a>
         </div>
       </div>
     </div>
     <div class="row mx-2 gap-3">
-
       <div class="col-md-7 quiz-header">
         <div class="m-3 quiz">
           <div>
             <h4>Completed Quizzes</h4>
-
           </div>
           <div class="mt-4">
             <table class="table table-hover">
@@ -34,14 +36,15 @@
               </thead>
               <tbody>
                 <hr />
-                <tr *ngFor="let quiz of completedQuizzes">
-                  <td scope="row">{{quiz.title}}</td>
-                  <td>{{groupName}}</td>
-                  <td>{{quiz.participants}}</td>
-                  <td>{{quiz.closed_at | date:'dd/MM/YYYY'}}</td>
-                </tr>
-                <hr />
-
+                <ng-container *ngFor="let quiz of completedQuizzes">
+                  <tr>
+                    <td scope="row">{{ quiz.title }}</td>
+                    <td>{{ groupName }}</td>
+                    <td>{{ quiz.participants }}</td>
+                    <td>{{ quiz.closed_at | date : "dd/MM/YYYY" }}</td>
+                  </tr>
+                  <hr />
+                </ng-container>
               </tbody>
             </table>
             <!-- </div> -->
