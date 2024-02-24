@@ -36,3 +36,11 @@
 
 
 }
+
+#close-exam{
+  background: linear-gradient(rgba($bg-color,.8), $bg-color);
+  color: $primary-color;
+  p{
+    color: rgba($primary-color,.8);
+  }
+}
