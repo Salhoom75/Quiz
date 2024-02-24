@@ -12,7 +12,7 @@ import { GroupService } from '../../services/group.service';
   styleUrls: ['./groups.component.scss'],
 })
 export class GroupsComponent implements OnInit {
- 
+
   Groupdata: Group[] = [];
   data: any;
   constructor(
@@ -61,9 +61,9 @@ export class GroupsComponent implements OnInit {
       }
     });
   }
-  openDialogDelete(data: any): void {
+  openDialogDelete(data: Group): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: { data },
+      data: { data, name: data.name },
       width: '40%',
     });
 
