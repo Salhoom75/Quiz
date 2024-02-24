@@ -4,6 +4,7 @@ import { IQuizStudent } from '../../models/iquiz-student';
 import { JoinQuizComponent } from '../join-quiz/join-quiz.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { IcompletedQuiz } from 'src/app/core/dashboard/instructor/modules/results/models/results';
+import { CloseExamComponent } from '../close-exam/close-exam.component';
 
 @Component({
   selector: 'app-quizes',
@@ -30,9 +31,23 @@ export class QuizesComponent implements OnInit {
     });
   }
 
-  
+
   JoinQuizDialoug(): void {
     const dialogRef = this.dialog.open(JoinQuizComponent, {
+      data: {},
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+      }
+    });
+  }
+
+  JoinQuizDiaaaaloug(): void {
+    const dialogRef = this.dialog.open(CloseExamComponent, {
       data: {},
       width: '40%',
     });

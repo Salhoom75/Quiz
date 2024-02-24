@@ -25,7 +25,7 @@ export class NavbarComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LogoutComponent, {
-      width: '30%',
+      width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
