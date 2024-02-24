@@ -46,17 +46,5 @@ export class QuizesComponent implements OnInit {
     });
   }
 
-  JoinQuizDiaaaaloug(): void {
-    const dialogRef = this.dialog.open(CloseExamComponent, {
-      data: {},
-      width: '40%',
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
-      if (result) {
-      }
-    });
-  }
 }
