@@ -46,8 +46,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![Example screenshot](./src/assets/images/Questions%20-%20Instructor.png)
 - Instructor Module
 ![Example screenshot](./src/assets/images/Quizzes%20-%20Instructor.png)
-- Instructor Module
-![Example screenshot](./src/assets/images/Students%20-%20Instructor.png)
+
 
 
 
