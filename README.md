@@ -38,16 +38,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Screenshots
 - Student Module
-![Example screenshot](assets/images/Screenshot_41.png)
+![Example screenshot](./src/assets/images/Screenshot_41.png)
 - Student Module
-![Example screenshot](assets/images/Quizzes%20-%20Learner.png)
+![Example screenshot](./src/assets/images/Quizzes%20-%20Learner.png)
 
 - Instructor Module
-![Example screenshot](assets/images/Questions%20-%20Instructor.png)
+![Example screenshot](./src/assets/images/Questions%20-%20Instructor.png)
 - Instructor Module
-![Example screenshot](assets/images/Quizzes%20-%20Instructor.png)
+![Example screenshot](./src/assets/images/Quizzes%20-%20Instructor.png)
 - Instructor Module
-![Example screenshot](assets/images/Students%20-%20Instructor.png)
+![Example screenshot](./src/assets/images/Students%20-%20Instructor.png)
 
 
 
