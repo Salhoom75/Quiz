@@ -7,6 +7,9 @@
             <h4>Upcoming 5 quizzes</h4>
             <p>Quiz directory</p>
           </div>
+          <div class="alert alert-warning quiz-card" role="alert" *ngIf="IncomingStudents.length ==0">
+            This is a warning No Data Found, Please add new quiz
+          </div>
           <div *ngFor="let item of IncomingStudents" class="quiz-card p-0">
             <div class="row">
               <div class="col-md-3">
@@ -33,29 +36,7 @@
             </div>
           </div>
 
-          <!-- <div class="quiz-card">
-            <div class="row">
-              <div class="col-md-3">
-                <img src="../../../../../../assets/images/img.svg" alt="" />
-              </div>
-              <div class="col-md-9 p-2">
-                <div>
-                  <h5>Introduction to computer programming</h5>
-                  <p>12 / 03 / 2023 | 12 / 03 / 2023</p>
-                </div>
-                <div class="d-flex justify-content-between pe-3">
-                  <p>No. of student’s enrolled: 17</p>
-                  <a
-                    >Open
-                    <i
-                      class="fa-solid fa-circle-arrow-right"
-                      style="color: #c5d86d"
-                    ></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div> -->
+
         </div>
       </div>
       <div class="col-md-5">

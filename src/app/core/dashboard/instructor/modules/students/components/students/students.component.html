@@ -43,6 +43,9 @@
           <mat-tab label="Students Without Group">
             <div class="container">
               <div class="row">
+                <div class="alert alert-warning my-3" role="alert" *ngIf="studentsGroupName.length ==0">
+                  This is a warning No Data Found.
+                </div>
                 <div
                   class="col-md-6"
                   *ngFor="let student of studentswithoutGroup"
@@ -88,7 +91,7 @@
                   <a class=" mx-3 btn-secondry">Group 1</a> -->
                 </div>
                 <div class="alert alert-warning my-3" role="alert" *ngIf="studentsGroupName.length ==0">
-                  This is a warning No Data Found - please select group.
+                  This is a warning No Data Found - please select or add group.
                 </div>
                   <div class="row">
                     <div
