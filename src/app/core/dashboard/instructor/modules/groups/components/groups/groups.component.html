@@ -11,6 +11,9 @@
       </h2>
     </div>
     <div class="row m-4 p-3 groups-card">
+      <div class="alert alert-warning" role="alert" *ngIf="Groupdata.length ==0">
+        This is a warning No Data Found, Please add new qroup
+      </div>
       <div class="col-md-6" *ngFor="let group of Groupdata">
         <div
           class="groups-card p-2 mx-2 d-flex justify-content-between align-items-center"
