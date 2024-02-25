@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
 # QuizWizApp-buildedByAngular16
-> Outline a brief description of your project.
+> Outline a brief description of the project.
 > Live demo: [_here_](https://fattemaashraf.github.io/QuizWizApp-buildedByAngular16/#/auth/login) 
 > Repo: [_here_](https://github.com/Salhoom75/Quiz) 
 
